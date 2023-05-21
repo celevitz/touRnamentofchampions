@@ -24,10 +24,10 @@ library(tidyverse); library(openxlsx); library(usethis); library(rmarkdown)
 
 directory <- "/Users/carlylevitz/Documents/Data/TOC/"
 
-seeds <- read.xlsx(paste(directory,"TOC.xlsx",sep=""),sheet=2)
-randomizer <- read.xlsx(paste(directory,"TOC.xlsx",sep=""),sheet=3)
-results <- read.xlsx(paste(directory,"TOC.xlsx",sep=""),sheet=4)
-judges <- read.xlsx(paste(directory,"TOC.xlsx",sep=""),sheet=5)
+seeds <- as.tibble(read.xlsx(paste(directory,"TOC.xlsx",sep=""),sheet=2))
+randomizer <- as.tibble(read.xlsx(paste(directory,"TOC.xlsx",sep=""),sheet=3))
+results <- as.tibble(read.xlsx(paste(directory,"TOC.xlsx",sep=""),sheet=4))
+judges <- as.tibble(read.xlsx(paste(directory,"TOC.xlsx",sep=""),sheet=5))
 
 ## save things as RDA
 
@@ -41,4 +41,7 @@ save(judges, file = "data/judges.rda")
 #results <- rhub::check_for_cran()
 #results$cran_summary()
 #usethis::use_cran_comments()
+
+
+## update readme: devtools::build_readme()
 
