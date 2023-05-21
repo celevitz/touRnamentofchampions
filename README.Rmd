@@ -1,0 +1,47 @@
+---
+title: "touRnamentofchampions"
+
+output: github_document
+
+---
+
+```{r, include = FALSE, message=FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  warning=FALSE
+)
+```
+
+
+## 1. Introduction to touRnamentofchampions
+
+touRnamentofchampions is a collection of data sets detailing events across all seasons of Tournament of Champions. It includes Chef information, randomizer information, challenge results, and judge names.
+
+## 2. Installation
+
+Not yet on CRAN. So please use: *devtools::install.packages("celevitz/touRnamentofchampions")*.
+If it's not appearing to be updated, restart your R sessions, install it again, and call it into your library. 
+```{r InstallPackage , message=FALSE,warning=FALSE}
+devtools::install_github("celevitz/touRnamentofchampions")
+```
+
+## 3. References & Acknowlegements
+
+Data were collected manually while watching each season of Tournament of Champions.
+
+Huge thanks to <https://github.com/doehm> for all his support!
+
+```{r Library set up, message=FALSE, warning=FALSE,echo=FALSE,eval=TRUE}
+library(touRnamentofchampions); library(tidyverse)
+```
+
+## 4. Overview of datasets
+
+Across datasets, key joining variables include:
+
+* `chef`
+* `season`
+* `coast`
+* `round`
+* `episode`
