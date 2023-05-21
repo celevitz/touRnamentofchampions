@@ -22,7 +22,7 @@ rm(list=ls())
 
 library(tidyverse); library(openxlsx); library(usethis); library(rmarkdown)
 
-directory <- "/Users/carlylevitz/Documents/Data/"
+directory <- "/Users/carlylevitz/Documents/Data/TOC/"
 
 seeds <- read.xlsx(paste(directory,"TOC.xlsx",sep=""),sheet=2)
 randomizer <- read.xlsx(paste(directory,"TOC.xlsx",sep=""),sheet=3)
