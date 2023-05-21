@@ -192,3 +192,5 @@ judges
 ![](README_files/figure-gfm/Viz_Season1Bracket%20-1.png)<!-- -->
 
 ### 6b. Season 4 Bracket
+
+![](README_files/figure-gfm/Viz_Season4Bracket%20-1.png)<!-- -->
