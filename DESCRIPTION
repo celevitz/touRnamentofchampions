@@ -7,7 +7,7 @@ Description: Several datasets which describe the challenges and results of compe
     This data is useful for practicing data wrangling, graphing, and analyzing how each season of Tournament of Champions played out.
 URL: https://github.com/celevitz/touRnamentofchampions
 BugReports: https://github.com/celevitz/touRnamentofchampions/issues
-License: MIT
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Depends:
