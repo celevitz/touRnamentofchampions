@@ -2,7 +2,6 @@
 title: "touRnamentofchampions"
 
 output: github_document
-
 ---
 
 ```{r, include = FALSE, message=FALSE}
@@ -13,26 +12,26 @@ knitr::opts_chunk$set(
 )
 ```
 
-
 ## 1. Introduction to touRnamentofchampions
 
 touRnamentofchampions is a collection of data sets detailing events across all seasons of Tournament of Champions. It includes Chef information, randomizer information, challenge results, and judge names.
 
 ## 2. Installation
 
-Not yet on CRAN. So please use: *devtools::install.packages("celevitz/touRnamentofchampions")*.
-If it's not appearing to be updated, restart your R sessions, install it again, and call it into your library. 
+Not yet on CRAN. So please use: *devtools::install.packages("celevitz/touRnamentofchampions")*. If it's not appearing to be updated, restart your R sessions, install it again, and call it into your library.
+
 ```{r InstallPackage , message=FALSE,warning=FALSE}
 devtools::install_github("celevitz/touRnamentofchampions")
 ```
 
 ## 3. News
+
 Issues to work on:
 
-* Data entry for Seasons 2 and 3
-* The Randomizer data set has duplicate rows for the finals, one for each coast.
-* Complete handedness
-* Add gender to seed dataset
+-   Data entry for Seasons 2 and 3
+-   The Randomizer data set has duplicate rows for the finals, one for each coast.
+-   Complete handedness
+-   Add gender to seed dataset
 
 ## 4. References & Acknowlegements
 
@@ -48,60 +47,59 @@ library(touRnamentofchampions); library(tidyverse)
 
 Across datasets, key joining variables include:
 
-* `chef`
-* `season`
-* `coast`
-* `round`
-* `episode`
+-   `chef`
+-   `season`
+-   `coast`
+-   `round`
+-   `episode`
 
 ### 5a. Seeds
 
-* `chef`: Chef name (full name)
-* `season`: Season number
-* `seed`: Seed within their section of the bracket: values of 1 through 8
-* `coast`: Are they East or West Coast? And is it sub-bracket A or B?
-* `nickname`: Guy Fieri's nickname for the chef
-* `handedness`: Whether the chef is righthanded, lefthanded, or ambidextrous
+-   `chef`: Chef name (full name)
+-   `season`: Season number
+-   `seed`: Seed within their section of the bracket: values of 1 through 8
+-   `coast`: Are they East or West Coast? And is it sub-bracket A or B?
+-   `nickname`: Guy Fieri's nickname for the chef
+-   `handedness`: Whether the chef is righthanded, lefthanded, or ambidextrous
 
-
-```{r Seeds_table , eval=TRUE} 
+```{r Seeds_table , eval=TRUE}
 seeds 
 ```
 
 ### 5b. Randomizer
 
-* `season`: Season number
-* `episode`: Episode number
-* `round`: Stage of the tournament: Round 1, Round 2, Quarterfinals, Semifinals, Final
-* `challenge`: Variable to help distinguish rounds within the same Coast & Round
-* `coast`: The coast depends on how many chefs start the competition. If there are 16 chefs, then the coasts are: East, West. If there are 32 chefs, then the coasts are: East A, East B, West A, West B
-* `randomizer1`: First wheel of randomizer
-* `randomizer2`: Second wheel of randomizer
-* `randomizer3`: Third wheel of randomizer
-* `randomizer4`: Fourth wheel of randomizer
-* `time`: Length of challenge. Unit is minutes
+-   `season`: Season number
+-   `episode`: Episode number
+-   `round`: Stage of the tournament: Round 1, Round 2, Quarterfinals, Semifinals, Final
+-   `challenge`: Variable to help distinguish rounds within the same Coast & Round
+-   `coast`: The coast depends on how many chefs start the competition. If there are 16 chefs, then the coasts are: East, West. If there are 32 chefs, then the coasts are: East A, East B, West A, West B
+-   `randomizer1`: First wheel of randomizer
+-   `randomizer2`: Second wheel of randomizer
+-   `randomizer3`: Third wheel of randomizer
+-   `randomizer4`: Fourth wheel of randomizer
+-   `time`: Length of challenge. Unit is minutes
 
-```{r Randomizer_table , eval=TRUE} 
+```{r Randomizer_table , eval=TRUE}
 randomizer 
 ```
 
 ### 5c. Results
 
-* `season`: Season number
-* `episode`: Episode number
-* `round`: Stage of the tournament: Round 1, Round 2, Quarterfinals, Semifinals, Final}
-* `challenge`: Variable to help distinguish rounds within the same Coast & Round
-* `coast`: The coast depends on how many chefs start the competition. If there are 16 chefs, then the coasts are: East, West. If there are 32 chefs, then the coasts are: East A, East B, West A, West B
-* `y`: Numeric value to help when creating the bracket
-* `chef`: Name of chef
-* `commentator`:  Who presented their food to the judges: Simon Majumdar or Justin Warner? 
-* `order`: When did their food get presented to the judges: Presented 1st or Presented 2nd 
-* `score_taste`: Score that chef received for the taste of their dish: values of 0- 50
-* `score_randomizer`: Score that chef received for how well they used the Randomizer: values of 0- 30
-* `score_presentation`: Score that chef received for the presentation of their dish: values of 0- 20
-* `total`: Total score that chef received: between 0 and 100 
+-   `season`: Season number
+-   `episode`: Episode number
+-   `round`: Stage of the tournament: Round 1, Round 2, Quarterfinals, Semifinals, Final}
+-   `challenge`: Variable to help distinguish rounds within the same Coast & Round
+-   `coast`: The coast depends on how many chefs start the competition. If there are 16 chefs, then the coasts are: East, West. If there are 32 chefs, then the coasts are: East A, East B, West A, West B
+-   `y`: Numeric value to help when creating the bracket
+-   `chef`: Name of chef
+-   `commentator`: Who presented their food to the judges: Simon Majumdar or Justin Warner?
+-   `order`: When did their food get presented to the judges: Presented 1st or Presented 2nd
+-   `score_taste`: Score that chef received for the taste of their dish: values of 0- 50
+-   `score_randomizer`: Score that chef received for how well they used the Randomizer: values of 0- 30
+-   `score_presentation`: Score that chef received for the presentation of their dish: values of 0- 20
+-   `total`: Total score that chef received: between 0 and 100
 
-```{r Results_table , eval=TRUE} 
+```{r Results_table , eval=TRUE}
 results 
 ```
 
@@ -109,11 +107,116 @@ results
 
 If a judge scores for multiple rounds across one episode, they will appear more than once in an episode. So unique identifier is `season`-`episode`-`round`.
 
-* `season`: Season number
-* `episode`: Episode number
-* `round`: Stage of the tournament: Round 1, Round 2, Quarterfinals, Semifinals, Final
-* `judge`: Name of guest judge
+-   `season`: Season number
+-   `episode`: Episode number
+-   `round`: Stage of the tournament: Round 1, Round 2, Quarterfinals, Semifinals, Final
+-   `judge`: Name of guest judge
 
-```{r Judges_table , eval=TRUE} 
+```{r Judges_table , eval=TRUE}
 judges
 ```
+
+## 6. Examples
+
+### 6a. Season 1 Bracket
+
+```{r Viz_Season1Bracket , eval=TRUE,echo=FALSE,message=FALSE,include=TRUE,warning=FALSE}
+library(touRnamentofchampions);library(ggplot2);library(ggbump)
+
+## Set up the data 
+  season1bracket <- touRnamentofchampions::results %>% 
+    filter(season == 1) %>%
+    left_join(touRnamentofchampions::seeds) %>%
+    select(!season)
+
+  ## Bump chart data
+    bumpdata <- season1bracket %>% select(round,chef,total,seed,coast,challenge,y) %>%
+    mutate(challengelong=case_when(round %in% c("Round 1","Round 2","Quarter-final") ~ paste(round,coast,challenge,sep="_"),
+                                   round %in% c("Semi-final") & grepl("East",coast) ~"Semi-final_East",
+                                   round %in% c("Semi-final") & grepl("West",coast) ~"Semi-final_West",
+                                   round %in% c("Final") ~ round)
+           ,x=case_when(round=="Round 1" & grepl("East",coast) ~ 85
+                        ,round=="Round 1" & grepl("West",coast) ~ 15
+                        ,round=="Quarter-final" & grepl("East",coast) ~ 70
+                        ,round=="Quarter-final" & grepl("West",coast) ~ 30
+                        ,round=="Semi-final" & grepl("East",coast) ~ 60
+                        ,round=="Semi-final" & grepl("West",coast) ~ 40
+                        ,round=="Final"  ~ 50)
+           ,alignment=case_when(grepl("East",coast) & round=="Round 1"~ 0
+                                ,grepl("West",coast) & round=="Round 1"~ 1
+                                ,TRUE ~ NA)
+           #,chefseed=ifelse(grepl("East",coast),paste(chef," (",seed," seed)",sep=""),paste("(",seed," seed) ",chef,sep=""))
+    ) %>% 
+    group_by(challengelong) %>%
+    mutate(sizeofdot=case_when(total < 80 & !(is.na(total)) ~ "75 to 79"
+                               ,total >= 80 & total <85 ~ "80 to 84"
+                               ,total >= 85 & total <90 ~ "85 to 89"
+                               ,total >= 90 & !(is.na(total)) ~ "90+")
+           ,cheflabelx=ifelse(grepl("East",coast),x+5,x-5)
+           ,winner=ifelse(total==max(total),"Winner","Loser")
+           #,w=strwidth(chef,'inches')+0.05,h=strheight(chef,'inches') + 0.5
+    ) %>%
+    ungroup() %>%
+    group_by(sizeofdot) %>%
+    mutate(sizeofdot=paste(sizeofdot," (occured ",n()," times)",sep="")) %>%
+    ungroup(sizeofdot)
+    
+  ## Vertical data
+      verticaldata <- bumpdata %>%
+        select(challengelong,y) %>%
+        arrange(challengelong)%>%
+        ungroup()
+      
+      verticaldata <- verticaldata %>%
+        mutate(yindic=ifelse(as.numeric(row.names(verticaldata)) %% 2 == 0,"Y2","Y1")) %>%
+        pivot_wider(names_from="yindic",values_from="y") %>%
+        mutate(Y1=case_when(challengelong == "Final"~6
+                            ,challengelong=="Semi-final_West"~11
+                            ,challengelong=="Semi-final_East"~11
+                            ,TRUE~Y1)) %>%
+        left_join(bumpdata %>% select(challengelong,x,coast) %>% distinct()) %>%
+        mutate(X2=x)
+    
+## Bump chart visual
+  bumpdata %>%
+      ggplot() +
+      # add vertical lines to indicate who competed against whom
+      geom_segment(data=verticaldata,aes(x=x,xend=X2,y=Y1,yend=Y2),lty=2,color="#57606c") +
+      # bump lines
+      geom_bump(aes(x=bumpdata$x,y=bumpdata$y,fill=bumpdata$chef),color="#57606c" ) +
+      # dots -- and highlight the winners
+      geom_point(data=bumpdata,aes(x=x,y=y,color=sizeofdot,size=sizeofdot,shape=sizeofdot),fill="#1170AA" )+
+      geom_point(data=bumpdata %>% filter(winner=="Winner"),
+                 aes(x=x,y=y),shape=21,color="#57606c",fill="transparent",size=10) +
+      annotate("text",x=bumpdata$cheflabelx[bumpdata$round == "Round 1"],y=bumpdata$y[bumpdata$round == "Round 1"]
+               ,label=bumpdata$chef[bumpdata$round == "Round 1"]
+               ,hjust=bumpdata$alignment[bumpdata$round == "Round 1"]
+               ,size=3) +
+      annotate("text",x=bumpdata$cheflabelx[bumpdata$round == "Round 1"],y=bumpdata$y[bumpdata$round == "Round 1"]-.7
+               ,label=paste(bumpdata$seed[bumpdata$round == "Round 1"],"seed",sep=" ")
+               ,hjust=bumpdata$alignment[bumpdata$round == "Round 1"]
+               ,size=3) +
+      scale_x_continuous(limits=c(-15,115),breaks=c(0,15,30,40,50,60,70,85,100),
+                         labels=c("","Round 1","Quarter-\nfinal","Semi-\nfinal",
+                                  "Final","Semi-\nfinal","Quarter-\nfinal","Round 1","")) +
+      xlab("") + ylab("") +
+      theme_minimal() +
+      theme(panel.grid = element_blank()
+            ,plot.title=element_text(hjust=.5)
+            ,plot.subtitle=element_text(hjust=.5)
+            ,title=element_text()
+            ,axis.text.x=element_text(color="black",size=6)
+            ,axis.text.y=element_blank()
+            ,legend.text = element_text()
+            ,legend.title = element_text() ) +
+      scale_color_manual(values=c("#c85200", "#A3ACB9","#a3cce9","#1170AA")
+                         ,name="Score",labels=sort(unique(bumpdata$sizeofdot)))+
+      scale_shape_manual(values=c(20,16,19,21),name="Score",labels=sort(unique(bumpdata$sizeofdot))) +
+      scale_size_manual(values=c(3,4,6,8),name="Score",labels=sort(unique(bumpdata$sizeofdot)) )+
+      labs(title="Tournament of Champions I: Winners and scores by round"
+           ,subtitle="Winners of each round outlined in black circles"
+           ,caption="Data: github.com/celevitz/touRnamentofchampions /// Twitter @carlylevitz") 
+
+```
+
+### 6b. Season 4 Bracket

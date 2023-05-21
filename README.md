@@ -16,14 +16,6 @@ and call it into your library.
 
 ``` r
 devtools::install_github("celevitz/touRnamentofchampions")
-#> 
-#> ── R CMD build ─────────────────────────────────────────────────────────────────
-#> * checking for file ‘/private/var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T/RtmpdgrWLg/remotes17436774d4c55/celevitz-touRnamentofchampions-e1ff1ec/DESCRIPTION’ ... OK
-#> * preparing ‘touRnamentofchampions’:
-#> * checking DESCRIPTION meta-information ... OK
-#> * checking for LF line-endings in source and make files and shell scripts
-#> * checking for empty or unneeded directories
-#> * building ‘touRnamentofchampions_0.1.0.tar.gz’
 ```
 
 ## 3. News
@@ -192,3 +184,11 @@ judges
 #> 10      4       4 Round 1 Jonathan Waxman   
 #> # ℹ 42 more rows
 ```
+
+## 6. Examples
+
+### 6a. Season 1 Bracket
+
+![](README_files/figure-gfm/Viz_Season1Bracket%20-1.png)<!-- -->
+
+### 6b. Season 4 Bracket
