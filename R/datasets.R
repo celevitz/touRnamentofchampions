@@ -93,7 +93,7 @@
 #' library(tidyverse)
 #' results %>%
 #'   group_by(season) %>%
-#'   filter(round == "Final) %>%
+#'   filter(round == "Final") %>%
 #'   select(chef,season,coast,total)
 "results"
 
