@@ -10,3 +10,4 @@ library(testthat)
 library(touRnamentofchampions)
 
 test_check("touRnamentofchampions")
+
