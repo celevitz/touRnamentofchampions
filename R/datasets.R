@@ -122,7 +122,7 @@
 #' @examples
 #' library(tidyverse)
 #' judges %>%
-#'   filter(guestjudge == "Ming Tsai") %>%
+#'   filter(judge == "Ming Tsai") %>%
 #'   group_by(season,episode,round)
 "judges"
 
