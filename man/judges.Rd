@@ -25,7 +25,7 @@ A dataset containing information about who were the judges for each challenge/ep
 \examples{
 library(tidyverse)
 judges \%>\%
-  filter(guestjudge == "Ming Tsai") \%>\%
+  filter(judge == "Ming Tsai") \%>\%
   group_by(season,episode,round)
 }
 \keyword{datasets}
