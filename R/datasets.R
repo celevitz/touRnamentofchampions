@@ -39,13 +39,14 @@
 #'   \item{\code{season}}{Season number}
 #'   \item{\code{episode}}{Episode number}
 #'   \item{\code{round}}{Stage of the tournament: Round 1, Round 2, Quarterfinals, Semifinals, Final}
-#'   \item{\code{challenge}}{Variable to help distinguish rounds within the same Coast & Round}
+#'   \item{\code{challenge}}{Variable to help distinguish challenges within the same Coast & Round}
 #'   \item{\code{coast}}{The coast depends on how many chefs start the competition. If there are 16 chefs, then the coasts are: East, West. If there are 32 chefs, then the coasts are: East A, East B, West A, West B}
 #'   \item{\code{randomizer1}}{First wheel of randomizer}
 #'   \item{\code{randomizer2}}{Second wheel of randomizer}
 #'   \item{\code{randomizer3}}{Third wheel of randomizer}
 #'   \item{\code{randomizer4}}{Fourth wheel of randomizer}
 #'   \item{\code{time}}{Length of challenge. Unit is minutes}
+#'   \item{\code{randomizer5}}{Fifth wheel of randomizer}
 
 #' }
 #'
