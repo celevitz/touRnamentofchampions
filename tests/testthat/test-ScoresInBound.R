@@ -6,8 +6,11 @@ library(touRnamentofchampions)
   ## A. Taste: 0 to 50
     #test_that(expect_equal(all(results$score_taste >= 0 & results$score_taste <= 50 & results$round != "Final"),TRUE)  )
 
-    test_that(expect_equal(nrow(results[results$score_taste >= 0 & results$score_taste <= 50 & results$round != "Final",]),
-                 nrow(results[results$round != "Final",])))
+    test_that(expect_equal(nrow(results[results$score_taste >= 0 &
+                                          results$score_taste <= 50 &
+                                          results$round != "Final" &
+                                          !(results$order %in% c("DQ","Auto-win")),]),
+                 nrow(results[results$round != "Final" & !(results$order %in% c("DQ","Auto-win")),])))
 
 
   ## B. Randomizer: 0 to 30
