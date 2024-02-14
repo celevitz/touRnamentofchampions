@@ -22,7 +22,7 @@ devtools::install_github("celevitz/touRnamentofchampions")
 
 Issues to work on:
 
-- Data entry for Seasons 2 and 3
+- Data entry for Seasons 3 and 5
 - The Randomizer data set has duplicate rows for the finals, one for
   each coast.
 - Complete handedness
@@ -42,19 +42,23 @@ Across datasets, key joining variables include:
 - `chef`
 - `season`
 - `coast`
+- `region`
 - `round`
 - `episode`
 
 ### 5a. Seeds
 
-- `chef`: Chef name (full name)
-- `season`: Season number
-- `seed`: Seed within their section of the bracket: values of 1 through
-  8
-- `coast`: Are they East or West Coast? And is it sub-bracket A or B?
-- `nickname`: Guy Fieri’s nickname for the chef
-- `handedness`: Whether the chef is righthanded, lefthanded, or
-  ambidextrous
+-   `chef`: Chef name (full name)
+-   `season`: Season number
+-   `seed`: Seed within their section of the bracket: values of 1 through 8. 
+Chefs that played in the play-in but didn't make the final bracket will have 
+letters in their seeds.
+-   `coast`: Are they East or West Coast?
+-   `region`: The region depends on how many chefs start the competition. If 
+there are 16 chefs, then the region is left blank. If there are 32 chefs, then 
+the regions are A or B.
+-   `nickname`: Guy Fieri's nickname for the chef
+-   `handedness`: Whether the chef is righthanded, lefthanded, or ambidextrous
 
 ``` r
 seeds 
@@ -76,20 +80,22 @@ seeds
 
 ### 5b. Randomizer
 
-- `season`: Season number
-- `episode`: Episode number
-- `round`: Stage of the tournament: Round 1, Round 2, Quarterfinals,
-  Semifinals, Final
-- `challenge`: Variable to help distinguish rounds within the same Coast
-  & Round
-- `coast`: The coast depends on how many chefs start the competition. If
-  there are 16 chefs, then the coasts are: East, West. If there are 32
-  chefs, then the coasts are: East A, East B, West A, West B
-- `randomizer1`: First wheel of randomizer
-- `randomizer2`: Second wheel of randomizer
-- `randomizer3`: Third wheel of randomizer
-- `randomizer4`: Fourth wheel of randomizer
-- `time`: Length of challenge. Unit is minutes
+-   `season`: Season number
+-   `episode`: Episode number
+-   `round`: Stage of the tournament: Play-in, Round of 32, Round of 16, 
+Quarterfinals, Semifinals, Final
+-   `challenge`: Variable to help distinguish rounds within the same Coast & 
+Round
+-   `coast`: Are they East or West Coast?
+-   `region`: The region depends on how many chefs start the competition. If 
+there are 16 chefs, then the region is left blank. If there are 32 chefs, then 
+the regions are A or B.
+-   `randomizer1`: First wheel of randomizer
+-   `randomizer2`: Second wheel of randomizer
+-   `randomizer3`: Third wheel of randomizer
+-   `randomizer4`: Fourth wheel of randomizer
+-   `time`: Length of challenge. Unit is minutes
+-   `randomizer5`: Fifth wheel of randomizer
 
 ``` r
 randomizer 
@@ -112,28 +118,29 @@ randomizer
 
 ### 5c. Results
 
-- `season`: Season number
-- `episode`: Episode number
-- `round`: Stage of the tournament: Round 1, Round 2, Quarterfinals,
-  Semifinals, Final}
-- `challenge`: Variable to help distinguish rounds within the same Coast
-  & Round
-- `coast`: The coast depends on how many chefs start the competition. If
-  there are 16 chefs, then the coasts are: East, West. If there are 32
-  chefs, then the coasts are: East A, East B, West A, West B
-- `y`: Numeric value to help when creating the bracket
-- `chef`: Name of chef
-- `commentator`: Who presented their food to the judges: Simon Majumdar
-  or Justin Warner?
-- `order`: When did their food get presented to the judges: Presented
-  1st or Presented 2nd
-- `score_taste`: Score that chef received for the taste of their dish:
-  values of 0- 50
-- `score_randomizer`: Score that chef received for how well they used
-  the Randomizer: values of 0- 30
-- `score_presentation`: Score that chef received for the presentation of
-  their dish: values of 0- 20
-- `total`: Total score that chef received: between 0 and 100
+-   `season`: Season number
+-   `episode`: Episode number
+-   `round`: Stage of the tournament: Play-in, Round of 32, Round of 16, 
+Quarterfinals, Semifinals, Final}
+-   `challenge`: Variable to help distinguish rounds within the same Coast & 
+Round
+-   `coast`: Are they East or West Coast?
+-   `region`: The region depends on how many chefs start the competition. If 
+there are 16 chefs, then the region is left blank. If there are 32 chefs, then 
+the regions are A or B.
+-   `y`: Numeric value to help when creating the bracket
+-   `chef`: Name of chef
+-   `commentator`: Who presented their food to the judges: Simon Majumdar or 
+Justin Warner?
+-   `order`: When did their food get presented to the judges: Presented 1st or 
+Presented 2nd
+-   `score_taste`: Score that chef received for the taste of their dish: values 
+of 0- 50
+-   `score_randomizer`: Score that chef received for how well they used the 
+Randomizer: values of 0- 30
+-   `score_presentation`: Score that chef received for the presentation of 
+their dish: values of 0- 20
+-   `total`: Total score that chef received: between 0 and 100
 
 ``` r
 results 
@@ -157,14 +164,11 @@ results
 
 ### 5d. Judges
 
-If a judge scores for multiple rounds across one episode, they will
-appear more than once in an episode. So unique identifier is
-`season`-`episode`-`round`.
+The unique identifier is `season`-`episode`, even though a judge may judge more 
+than one round in an episode.
 
 - `season`: Season number
 - `episode`: Episode number
-- `round`: Stage of the tournament: Round 1, Round 2, Quarterfinals,
-  Semifinals, Final
 - `judge`: Name of guest judge
 
 ``` r
