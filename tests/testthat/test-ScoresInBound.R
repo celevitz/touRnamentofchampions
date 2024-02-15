@@ -28,3 +28,9 @@ library(touRnamentofchampions)
   expect_type(results$score_taste,"double")
   expect_type(results$score_randomizer,"double")
   expect_type(results$total,"double")
+
+# 3. Check for unique identifiers
+  expect_equal(nrow(seeds %>% group_by(season,chef) %>% mutate(id=row_number(),issue=max(id)) %>% filter(issue > 1)),0)
+  expect_equal(nrow(chefs %>% group_by(chef) %>% mutate(id=row_number(),issue=max(id)) %>% filter(issue > 1)),0)
+  expect_equal(nrow(randomizer %>% group_by(season,episode,round,challenge) %>% mutate(id=row_number(),issue=max(id)) %>% filter(issue > 1)),0)
+  expect_equal(nrow(results %>% group_by(season,episode,round,challenge,chef) %>% mutate(id=row_number(),issue=max(id)) %>% filter(issue > 1)),0)
