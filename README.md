@@ -18,7 +18,7 @@ and call it into your library.
 devtools::install_github("celevitz/touRnamentofchampions")
 #> 
 #> ── R CMD build ─────────────────────────────────────────────────────────────────
-#> * checking for file ‘/private/var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T/RtmpYtjatG/remotesc473e42038f/celevitz-touRnamentofchampions-935acd2/DESCRIPTION’ ... OK
+#> * checking for file ‘/private/var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T/RtmpYNwZlK/remotesce5d6bf3cd98/celevitz-touRnamentofchampions-9ce15a6/DESCRIPTION’ ... OK
 #> * preparing ‘touRnamentofchampions’:
 #> * checking DESCRIPTION meta-information ... OK
 #> * checking for LF line-endings in source and make files and shell scripts
@@ -215,7 +215,7 @@ The unique identifiers of this dataset are
 ``` r
 results 
 #> # A tibble: 222 × 16
-#> # Groups:   season, episode, round, challenge, winner [175]
+#> # Groups:   season, episode, round, challenge, winner [212]
 #>    season episode round       challenge     coast region chef  commentator order
 #>     <dbl>   <dbl> <chr>       <chr>         <chr> <chr>  <chr> <chr>       <chr>
 #>  1      1       1 Round of 16 Alex/Darnell  East  <NA>   Darn… Justin War… Pres…

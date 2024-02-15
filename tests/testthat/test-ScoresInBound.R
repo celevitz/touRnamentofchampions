@@ -30,6 +30,13 @@ library(tidyverse)
   expect_type(results$score_randomizer,"double")
   expect_type(results$total,"double")
 
+  # Do the subscores add up to the total?
+  expect_equal(results[(results$total != results$score_presentation+
+            results$score_randomizer+results$score_taste ) &
+            !(is.na(results$total)) & !(is.na(results$score_presentation)) &
+            !(is.na(results$score_randomizer)) & !(is.na(results$score_taste)),]
+            ,0)
+
 # 3. Check for unique identifiers
   expect_equal(nrow(seeds %>% group_by(season,chef) %>% mutate(id=row_number(),issue=max(id)) %>% filter(issue > 1)),0)
   expect_equal(nrow(chefs %>% group_by(chef) %>% mutate(id=row_number(),issue=max(id)) %>% filter(issue > 1)),0)
