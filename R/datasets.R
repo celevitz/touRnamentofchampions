@@ -10,7 +10,7 @@
 #' \describe{
 #'   \item{\code{chef}}{Chef name (full name)}
 #'   \item{\code{season}}{Season number}
-#'   \item{\code{seed}}{Seed within their section of the bracket: values of 1 through 8. Chefs that played in the play-in but didn't make the final bracket will have letters in their seeds.}
+#'   \item{\code{seed}}{Seed within their section of the bracket: values of 1 through 8. Chefs that played in the qualifiers but didn't make the final bracket will have seeds of 8.2, 8.3, or 8.4.}
 #'   \item{\code{coast}}{Are they East or West Coast?}
 #'   \item{\code{region}}{The region depends on how many chefs start the competition. If there are 16 chefs, then the region is left blank. If there are 32 chefs, then the regions are A or B.}
 #' }

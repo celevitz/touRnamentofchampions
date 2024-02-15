@@ -18,7 +18,7 @@ and call it into your library.
 devtools::install_github("celevitz/touRnamentofchampions")
 #> 
 #> ── R CMD build ─────────────────────────────────────────────────────────────────
-#>      checking for file ‘/private/var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T/RtmpDVSqvv/remotesaddd3d234e87/celevitz-touRnamentofchampions-1d1dcdf/DESCRIPTION’ ...  ✔  checking for file ‘/private/var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T/RtmpDVSqvv/remotesaddd3d234e87/celevitz-touRnamentofchampions-1d1dcdf/DESCRIPTION’
+#>      checking for file ‘/private/var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T/RtmpR4ZEv8/remotesaef7654af401/celevitz-touRnamentofchampions-15c0e8a/DESCRIPTION’ ...  ✔  checking for file ‘/private/var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T/RtmpR4ZEv8/remotesaef7654af401/celevitz-touRnamentofchampions-15c0e8a/DESCRIPTION’
 #>   ─  preparing ‘touRnamentofchampions’:
 #>      checking DESCRIPTION meta-information ...  ✔  checking DESCRIPTION meta-information
 #>   ─  checking for LF line-endings in source and make files and shell scripts
@@ -68,8 +68,8 @@ The unique identifiers of this dataset are `chef`-`season`.
 - `chef`: Chef name (full name)
 - `season`: Season number
 - `seed`: Seed within their section of the bracket: values of 1
-  through 8. Chefs that played in the play-in but didn’t make the final
-  bracket will have letters in their seeds.
+  through 8. Chefs that played in the qualifiers but didn’t make the
+  final bracket will have seeds of 8.2, 8.3, or 8.4.
 - `coast`: Are they East or West Coast?
 - `region`: The region depends on how many chefs start the competition.
   If there are 16 chefs, then the region is left blank. If there are 32
@@ -215,7 +215,8 @@ The unique identifiers of this dataset are
 
 ``` r
 results 
-#> # A tibble: 222 × 13
+#> # A tibble: 222 × 14
+#> # Groups:   season, episode, round, challenge, winner [175]
 #>    season episode round       challenge     coast region chef  commentator order
 #>     <dbl>   <dbl> <chr>       <chr>         <chr> <chr>  <chr> <chr>       <chr>
 #>  1      1       1 Round of 16 Alex/Darnell  East  <NA>   Darn… Justin War… Pres…
@@ -229,8 +230,8 @@ results
 #>  9      1       1 Round of 16 Antonia/Marc… West  <NA>   Marc… Simon Maju… Pres…
 #> 10      1       1 Round of 16 Antonia/Marc… West  <NA>   Anto… Justin War… Pres…
 #> # ℹ 212 more rows
-#> # ℹ 4 more variables: score_taste <dbl>, score_randomizer <dbl>,
-#> #   score_presentation <dbl>, total <dbl>
+#> # ℹ 5 more variables: score_taste <dbl>, score_randomizer <dbl>,
+#> #   score_presentation <dbl>, total <dbl>, winner <chr>
 ```
 
 </details>
