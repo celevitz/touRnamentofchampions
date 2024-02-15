@@ -246,3 +246,36 @@ judges
 #> 10      1       3 Marcus Samuelsson Quarter-final
 #> # ℹ 124 more rows
 ```
+
+</details>
+
+## 6. Examples
+
+See the sections below for examples of how to use the data
+
+<details>
+<summary>
+<strong>Gender distribution by season: Seasons 1 through 4</strong>
+</summary>
+
+``` r
+seeds %>% left_join(chefs) %>%
+  # keep only seasons 1 through 4
+  filter(season < 5) %>%
+  group_by(season,gender) %>%
+  summarise(n=n()) %>%
+  pivot_wider(names_from=gender,values_from=n)
+#> Joining with `by = join_by(chef)`
+#> `summarise()` has grouped output by 'season'. You can override using the
+#> `.groups` argument.
+#> # A tibble: 4 × 3
+#> # Groups:   season [4]
+#>   season female  male
+#>    <dbl>  <int> <int>
+#> 1      1      6    10
+#> 2      2      8    14
+#> 3      3     13    19
+#> 4      4     15    17
+```
+
+</details>

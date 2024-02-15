@@ -161,3 +161,24 @@ final, Round of 32, Round of 16, Quarterfinals, Semifinals, Final
 ```{r Judges_table , eval=TRUE}
 judges
 ```
+</details>
+
+## 6. Examples
+
+See the sections below for examples of how to use the data
+
+<details>
+<summary>
+<strong>Gender distribution by season: Seasons 1 through 4</strong>
+</summary>
+```{r Gender_distr_by_season1to4 , eval=TRUE,echo=FALSE}
+seeds %>% left_join(chefs) %>%
+  # keep only seasons 1 through 4
+  filter(season < 5) %>%
+  group_by(season,gender) %>%
+  summarise(n=n()) %>%
+  pivot_wider(names_from=gender,values_from=n)
+```
+</details>
+
+
