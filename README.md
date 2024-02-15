@@ -18,7 +18,7 @@ and call it into your library.
 devtools::install_github("celevitz/touRnamentofchampions")
 #> 
 #> ── R CMD build ─────────────────────────────────────────────────────────────────
-#> * checking for file ‘/private/var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T/RtmpWLWcRC/remotesc17759ee36b3/celevitz-touRnamentofchampions-cc5fab3/DESCRIPTION’ ... OK
+#> * checking for file ‘/private/var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T/RtmpYtjatG/remotesc473e42038f/celevitz-touRnamentofchampions-935acd2/DESCRIPTION’ ... OK
 #> * preparing ‘touRnamentofchampions’:
 #> * checking DESCRIPTION meta-information ... OK
 #> * checking for LF line-endings in source and make files and shell scripts
@@ -33,7 +33,7 @@ Issues to work on:
 - Data entry for Season 5 as it airs
 - Complete handedness and nicknames
 
-## 4. References & Acknowlegements
+## 4. References & Acknowledgements
 
 Data were collected manually while watching each season of Tournament of
 Champions.

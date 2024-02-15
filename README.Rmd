@@ -31,7 +31,7 @@ Issues to work on:
 - Data entry for Season 5 as it airs
 - Complete handedness and nicknames
 
-## 4. References & Acknowlegements
+## 4. References & Acknowledgements
 
 Data were collected manually while watching each season of Tournament of Champions.
 

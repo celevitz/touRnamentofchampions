@@ -41,10 +41,7 @@ results <- resultsraw %>%
          ,highesttaste = max(score_taste,na.rm=T)
          ,highestpresentation=max(score_presentation,na.rm=T)
          ,highestrandomizer=max(score_randomizer,na.rm=T)
-         ,winner = case_when(total == highesttotal &
-                               score_taste == highesttaste &
-                               score_randomizer == highestrandomizer &
-                               score_presentation == highestpresentation ~ "Winner"
+         ,winner = case_when(total == highesttotal ~ "Winner"
                              # Amanda/Madison challenge where Madison gets disqualified
                              ,order == "Auto-win" ~ "Winner"
                              ,TRUE ~ "Loser")
@@ -59,6 +56,13 @@ results <- resultsraw %>%
     ,winner=case_when(multipleresults > 1~"Tie"
                       ,TRUE ~ winner)
     ) %>%
+  # Antonia/Jet was a true tie, that was then rematched
+  # Aarthi/Karen was tied in total score & taste, so went to randomizer score
+  mutate(winner = case_when(season == 2 & challenge == "Aarthi/Karen" &
+                              chef == "Aarthi Sampath" ~ "Winner"
+                            ,season == 2 & challenge == "Aarthi/Karen" &
+                              chef == "Karen Akunowicz" ~ "Loser"
+                            ,TRUE ~ winner)) %>%
   select(!c(highesttotal,highesttaste,highestpresentation,highestrandomizer,id,multipleresults))
 
 
@@ -155,5 +159,6 @@ save(judges, file = "data/judges.rda")
 ## devtools::spell_check()
 ## devtools::check()
 ## devtools::check_rhub()
+## devtools::check_win_devel()
 ## devtools::release()
 
