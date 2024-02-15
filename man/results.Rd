@@ -9,7 +9,7 @@ This data frame contains the following columns:
 \describe{
   \item{\code{season}}{Season number}
   \item{\code{episode}}{Episode number}
-  \item{\code{round}}{Stage of the tournament: Play-in, Qualifier semi-final, Qualifier final, Round of 32, Round of 16, Quarterfinals, Semifinals, Final}
+  \item{\code{round}}{Stage of the tournament: Qualifier semi-final, Qualifier final, Round of 32, Round of 16, Quarterfinals, Semifinals, Final}
   \item{\code{challenge}}{Variable to help distinguish rounds within the same Coast & Round}
   \item{\code{coast}}{East or West}
   \item{\code{region}}{The region depends on how many chefs start the competition. If there are 16 chefs, then the region is left blank. If there are 32 chefs, then the regions are A or B.}
@@ -20,6 +20,9 @@ This data frame contains the following columns:
   \item{\code{score_randomizer}}{ Score that chef received for how well they used the Randomizer: values of 0- 30. (Except in Season 5 Qualifying rounds, the values are 0-40.)}
   \item{\code{score_presentation}}{ Score that chef received for the presentation of their dish: values of 0- 20. (Except in Season 5 Qualifying rounds, the values are 0-10.)}
   \item{\code{total}}{ Total score that chef received: between 0 and 100 }
+  \item{\code{winner}}{ Categorical variable: Winner, Loser, Tie  }
+  \item{\code{x}}{ Numeric X value to help with visualizing bracket }
+  \item{\code{y}}{ Numeric Y value to help with visualizing bracket  }
 }
 }
 \source{

@@ -16,6 +16,7 @@
 #   Test Package:              'Cmd + Shift + T'
 #   Knit                       'Cmd + Shift + K'
 #   Load the data              'Cmd + Shift + L'
+#   Document                   devtools::document()
 
 # Check for things that don't yet have documentation library(tools); undoc(touRnamentofchampions)
 
@@ -148,4 +149,8 @@ save(judges, file = "data/judges.rda")
 
 
 ## update readme: devtools::build_readme()
+## devtools::document()
+## cmd shift b
+## cmd shift e
+## devtools::release()
 
