@@ -18,14 +18,12 @@ and call it into your library.
 devtools::install_github("celevitz/touRnamentofchampions")
 #> 
 #> ── R CMD build ─────────────────────────────────────────────────────────────────
-#>      checking for file ‘/private/var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T/RtmpSpz8Sa/remotesa9374233e936/celevitz-touRnamentofchampions-068d1db/DESCRIPTION’ ...  ✔  checking for file ‘/private/var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T/RtmpSpz8Sa/remotesa9374233e936/celevitz-touRnamentofchampions-068d1db/DESCRIPTION’
-#>   ─  preparing ‘touRnamentofchampions’:
-#>      checking DESCRIPTION meta-information ...  ✔  checking DESCRIPTION meta-information
-#>   ─  checking for LF line-endings in source and make files and shell scripts
-#>   ─  checking for empty or unneeded directories
-#>   ─  building ‘touRnamentofchampions_0.1.0.tar.gz’
-#>      
-#> 
+#> * checking for file ‘/private/var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T/RtmpiDOT1e/remotesaa7d18cf9b15/celevitz-touRnamentofchampions-cfd390d/DESCRIPTION’ ... OK
+#> * preparing ‘touRnamentofchampions’:
+#> * checking DESCRIPTION meta-information ... OK
+#> * checking for LF line-endings in source and make files and shell scripts
+#> * checking for empty or unneeded directories
+#> * building ‘touRnamentofchampions_0.1.0.tar.gz’
 ```
 
 ## 3. News
@@ -160,20 +158,20 @@ scores and so had a rematch in the Quarter-finals (episodes 6 and 7).
 
 ``` r
 randomizer 
-#> # A tibble: 109 × 12
-#>    season episode round         challenge coast region randomizer1   randomizer2
-#>     <dbl>   <dbl> <chr>         <chr>     <chr> <chr>  <chr>         <chr>      
-#>  1      1       1 Round of 16   A         East  <NA>   Pork tenderl… Peas       
-#>  2      1       2 Round of 16   B         East  <NA>   Pork blade s… Squash     
-#>  3      1       3 Round of 16   C         East  <NA>   Chicken thig… Kale       
-#>  4      1       2 Round of 16   D         East  <NA>   Shrimp        Carrots    
-#>  5      1       1 Round of 16   A         West  <NA>   Cod           Avocado    
-#>  6      1       2 Round of 16   B         West  <NA>   Ground lamb   Broccoli   
-#>  7      1       1 Round of 16   C         West  <NA>   Top sirloin   Mushrooms  
-#>  8      1       3 Round of 16   D         West  <NA>   Chicken brea… Radish     
-#>  9      1       3 Quarter-final A         West  <NA>   Quail         Bok choy   
-#> 10      1       4 Quarter-final B         West  <NA>   Salmon        Bitter mel…
-#> # ℹ 99 more rows
+#> # A tibble: 107 × 12
+#>    season episode round         challenge   coast region randomizer1 randomizer2
+#>     <dbl>   <dbl> <chr>         <chr>       <chr> <chr>  <chr>       <chr>      
+#>  1      1       1 Round of 16   Alex/Darne… East  <NA>   Pork tende… Peas       
+#>  2      1       2 Round of 16   Amanda/Eli… East  <NA>   Pork blade… Squash     
+#>  3      1       3 Round of 16   Maneet/Roc… East  <NA>   Chicken th… Kale       
+#>  4      1       2 Round of 16   Christian/… East  <NA>   Shrimp      Carrots    
+#>  5      1       1 Round of 16   Antonia/Ma… West  <NA>   Cod         Avocado    
+#>  6      1       2 Round of 16   Beau/Richa… West  <NA>   Ground lamb Broccoli   
+#>  7      1       1 Round of 16   Eric/Jet    West  <NA>   Top sirloin Mushrooms  
+#>  8      1       3 Round of 16   Brooke/Mic… West  <NA>   Chicken br… Radish     
+#>  9      1       3 Quarter-final Antonia/Be… West  <NA>   Quail       Bok choy   
+#> 10      1       4 Quarter-final Brooke/Jet  West  <NA>   Salmon      Bitter mel…
+#> # ℹ 97 more rows
 #> # ℹ 4 more variables: randomizer3 <chr>, randomizer4 <chr>, time <dbl>,
 #> #   randomizer5 <dbl>
 ```
@@ -216,20 +214,20 @@ The unique identifiers of this dataset are
 
 ``` r
 results 
-#> # A tibble: 216 × 13
-#>    season episode round       challenge coast region chef      commentator order
-#>     <dbl>   <dbl> <chr>       <chr>     <chr> <chr>  <chr>     <chr>       <chr>
-#>  1      1       1 Round of 16 A         East  <NA>   Darnell … Justin War… Pres…
-#>  2      1       1 Round of 16 A         East  <NA>   Alex Gua… Simon Maju… Pres…
-#>  3      1       2 Round of 16 B         East  <NA>   Elizabet… Justin War… Pres…
-#>  4      1       2 Round of 16 B         East  <NA>   Amanda F… Simon Maju… Pres…
-#>  5      1       3 Round of 16 C         East  <NA>   Maneet C… Simon Maju… Pres…
-#>  6      1       3 Round of 16 C         East  <NA>   Rocco Di… Justin War… Pres…
-#>  7      1       2 Round of 16 D         East  <NA>   Christia… Justin War… Pres…
-#>  8      1       2 Round of 16 D         East  <NA>   Marc Mur… Simon Maju… Pres…
-#>  9      1       1 Round of 16 A         West  <NA>   Marcel V… Simon Maju… Pres…
-#> 10      1       1 Round of 16 A         West  <NA>   Antonia … Justin War… Pres…
-#> # ℹ 206 more rows
+#> # A tibble: 222 × 13
+#>    season episode round       challenge     coast region chef  commentator order
+#>     <dbl>   <dbl> <chr>       <chr>         <chr> <chr>  <chr> <chr>       <chr>
+#>  1      1       1 Round of 16 Alex/Darnell  East  <NA>   Darn… Justin War… Pres…
+#>  2      1       1 Round of 16 Alex/Darnell  East  <NA>   Alex… Simon Maju… Pres…
+#>  3      1       2 Round of 16 Amanda/Eliza… East  <NA>   Eliz… Justin War… Pres…
+#>  4      1       2 Round of 16 Amanda/Eliza… East  <NA>   Aman… Simon Maju… Pres…
+#>  5      1       3 Round of 16 Maneet/Rocco  East  <NA>   Mane… Simon Maju… Pres…
+#>  6      1       3 Round of 16 Maneet/Rocco  East  <NA>   Rocc… Justin War… Pres…
+#>  7      1       2 Round of 16 Christian/Ma… East  <NA>   Chri… Justin War… Pres…
+#>  8      1       2 Round of 16 Christian/Ma… East  <NA>   Marc… Simon Maju… Pres…
+#>  9      1       1 Round of 16 Antonia/Marc… West  <NA>   Marc… Simon Maju… Pres…
+#> 10      1       1 Round of 16 Antonia/Marc… West  <NA>   Anto… Justin War… Pres…
+#> # ℹ 212 more rows
 #> # ℹ 4 more variables: score_taste <dbl>, score_randomizer <dbl>,
 #> #   score_presentation <dbl>, total <dbl>
 ```
