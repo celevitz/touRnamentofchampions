@@ -16,14 +16,6 @@ and call it into your library.
 
 ``` r
 devtools::install_github("celevitz/touRnamentofchampions")
-#> 
-#> ── R CMD build ─────────────────────────────────────────────────────────────────
-#> * checking for file ‘/private/var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T/Rtmpvi9syG/remotes986979868754/celevitz-touRnamentofchampions-5ef886e/DESCRIPTION’ ... OK
-#> * preparing ‘touRnamentofchampions’:
-#> * checking DESCRIPTION meta-information ... OK
-#> * checking for LF line-endings in source and make files and shell scripts
-#> * checking for empty or unneeded directories
-#> * building ‘touRnamentofchampions_0.1.0.tar.gz’
 ```
 
 ## 3. News
@@ -51,7 +43,14 @@ Across datasets, key joining variables include:
 - `round`
 - `episode`
 
-### 5a. Seeds
+See the sections below for additional information on datasets.
+
+<details>
+<summary>
+<strong>Seeds</strong>
+</summary>
+
+### Seeds
 
 - `chef`: Chef name (full name)
 - `season`: Season number
@@ -81,7 +80,13 @@ seeds
 #> # ℹ 112 more rows
 ```
 
-### 5b. Chefs
+</details>
+<details>
+<summary>
+<strong>Chefs</strong>
+</summary>
+
+### Chefs
 
 - `chef`: Chef name (full name)
 - `nickname`: Guy Fieri’s nickname for the chef
@@ -107,7 +112,13 @@ chefs
 #> # ℹ 59 more rows
 ```
 
-### 5c. Randomizer
+</details>
+<details>
+<summary>
+<strong>Randomizer</strong>
+</summary>
+
+### Randomizer
 
 - `season`: Season number
 - `episode`: Episode number
@@ -147,7 +158,13 @@ randomizer
 #> #   randomizer5 <dbl>
 ```
 
-### 5d. Results
+</details>
+<details>
+<summary>
+<strong>Results</strong>
+</summary>
+
+### Results
 
 - `season`: Season number
 - `episode`: Episode number
@@ -194,7 +211,13 @@ results
 #> #   score_presentation <dbl>, total <dbl>
 ```
 
-### 5e. Judges
+</details>
+<details>
+<summary>
+<strong>Judges</strong>
+</summary>
+
+### Judges
 
 The unique identifier is `season`-`episode`-`round`, because
 occasionally a judge will only judge for one round within an episode.

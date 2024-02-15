@@ -52,7 +52,13 @@ Across datasets, key joining variables include:
 -   `round`
 -   `episode`
 
-### 5a. Seeds
+See the sections below for additional information on datasets.
+
+<details>
+<summary>
+<strong>Seeds</strong>
+</summary>
+### Seeds
 
 -   `chef`: Chef name (full name)
 -   `season`: Season number
@@ -68,7 +74,13 @@ the regions are A or B.
 seeds 
 ```
 
-### 5b. Chefs
+</details>
+<details>
+<summary>
+<strong>Chefs</strong>
+</summary>
+
+### Chefs
 
 -   `chef`: Chef name (full name)
 -   `nickname`: Guy Fieri's nickname for the chef
@@ -78,8 +90,13 @@ seeds
 ```{r Chefs_table , eval=TRUE}
 chefs 
 ```
+</details>
+<details>
+<summary>
+<strong>Randomizer</strong>
+</summary>
 
-### 5c. Randomizer
+### Randomizer
 
 -   `season`: Season number
 -   `episode`: Episode number
@@ -99,7 +116,12 @@ final, Round of 32, Round of 16, Quarterfinals, Semifinals, Final
 randomizer 
 ```
 
-### 5d. Results
+</details>
+<details>
+<summary>
+<strong>Results</strong>
+</summary>
+### Results
 
 -   `season`: Season number
 -   `episode`: Episode number
@@ -120,7 +142,13 @@ randomizer
 results 
 ```
 
-### 5e. Judges
+</details>
+<details>
+<summary>
+<strong>Judges</strong>
+</summary>
+
+### Judges
 
 The unique identifier is `season`-`episode`-`round`, because occasionally a judge will only judge for one round within an episode.
 
