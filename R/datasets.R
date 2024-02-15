@@ -63,7 +63,7 @@
 #' \describe{
 #'   \item{\code{season}}{Season number}
 #'   \item{\code{episode}}{Episode number}
-#'   \item{\code{round}}{Stage of the tournament: Play-in, Qualifier semi-final, Qualifier final, Round of 32, Round of 16, Quarterfinals, Semifinals, Final}
+#'   \item{\code{round}}{Stage of the tournament: Qualifier semi-final, Qualifier final, Round of 32, Round of 16, Quarterfinals, Semifinals, Final}
 #'   \item{\code{challenge}}{Variable to help distinguish challenges within the same Coast & Round}
 #'   \item{\code{coast}}{East or West}
 #'   \item{\code{region}}{The region depends on how many chefs start the competition. If there are 16 chefs, then the region is left blank. If there are 32 chefs, then the regions are A or B.}
@@ -100,7 +100,7 @@
 #' \describe{
 #'   \item{\code{season}}{Season number}
 #'   \item{\code{episode}}{Episode number}
-#'   \item{\code{round}}{Stage of the tournament: Play-in, Qualifier semi-final, Qualifier final, Round of 32, Round of 16, Quarterfinals, Semifinals, Final}
+#'   \item{\code{round}}{Stage of the tournament: Qualifier semi-final, Qualifier final, Round of 32, Round of 16, Quarterfinals, Semifinals, Final}
 #'   \item{\code{challenge}}{Variable to help distinguish rounds within the same Coast & Round}
 #'   \item{\code{coast}}{East or West}
 #'   \item{\code{region}}{The region depends on how many chefs start the competition. If there are 16 chefs, then the region is left blank. If there are 32 chefs, then the regions are A or B.}
@@ -140,7 +140,7 @@
 #'   \item{\code{season}}{Season number}
 #'   \item{\code{episode}}{Episode number}
 #'   \item{\code{judge}}{Name of guest judge}
-#'   \item{\code{round}}{Stage of the tournament: Play-in, Qualifier semi-final, Qualifier final, Round of 32, Round of 16, Quarterfinals, Semifinals, Final}
+#'   \item{\code{round}}{Stage of the tournament: Qualifier semi-final, Qualifier final, Round of 32, Round of 16, Quarterfinals, Semifinals, Final}
 #' }
 #'
 #' @import tidyverse

@@ -31,6 +31,15 @@ randomizer <- as_tibble(read.xlsx(paste(directory,"TOC.xlsx",sep=""),sheet=4))
 results <- as_tibble(read.xlsx(paste(directory,"TOC.xlsx",sep=""),sheet=5))
 judges <- as_tibble(read.xlsx(paste(directory,"TOC.xlsx",sep=""),sheet=6))
 
+
+
+## Add variable to results for the winner
+
+## Add Y & X values to support the
+
+
+
+
 ## save things as RDA
 
 save(seeds, file = "data/seeds.rda")

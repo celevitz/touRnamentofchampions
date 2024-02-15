@@ -18,7 +18,7 @@ and call it into your library.
 devtools::install_github("celevitz/touRnamentofchampions")
 #> 
 #> ── R CMD build ─────────────────────────────────────────────────────────────────
-#> * checking for file ‘/private/var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T/RtmpiDOT1e/remotesaa7d18cf9b15/celevitz-touRnamentofchampions-cfd390d/DESCRIPTION’ ... OK
+#> * checking for file ‘/private/var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T/RtmphFeGEr/remotesac48508ac2c6/celevitz-touRnamentofchampions-ca9f8e6/DESCRIPTION’ ... OK
 #> * preparing ‘touRnamentofchampions’:
 #> * checking DESCRIPTION meta-information ... OK
 #> * checking for LF line-endings in source and make files and shell scripts
@@ -140,9 +140,8 @@ scores and so had a rematch in the Quarter-finals (episodes 6 and 7).
 
 - `season`: Season number
 - `episode`: Episode number
-- `round`: Stage of the tournament: Play-in, Qualifier semi-final,
-  Qualifier final, Round of 32, Round of 16, Quarterfinals, Semifinals,
-  Final
+- `round`: Stage of the tournament: Qualifier semi-final, Qualifier
+  final, Round of 32, Round of 16, Quarterfinals, Semifinals, Final
 - `challenge`: Variable to help distinguish rounds within the same Coast
   & Round
 - `coast`: Are they East or West Coast?
@@ -189,9 +188,8 @@ The unique identifiers of this dataset are
 
 - `season`: Season number
 - `episode`: Episode number
-- `round`: Stage of the tournament: Play-in, Qualifier semi-final,
-  Qualifier final, Round of 32, Round of 16, Quarterfinals, Semifinals,
-  Final
+- `round`: Stage of the tournament: Qualifier semi-final, Qualifier
+  final, Round of 32, Round of 16, Quarterfinals, Semifinals, Final
 - `challenge`: Variable to help distinguish rounds within the same Coast
   & Round
 - `coast`: Are they East or West Coast?
@@ -246,9 +244,8 @@ occasionally a judge will only judge for one round within an episode.
 - `season`: Season number
 - `episode`: Episode number
 - `judge`: Name of guest judge
-- `round`: Stage of the tournament: Play-in, Qualifier semi-final,
-  Qualifier final, Round of 32, Round of 16, Quarterfinals, Semifinals,
-  Final
+- `round`: Stage of the tournament: Qualifier semi-final, Qualifier
+  final, Round of 32, Round of 16, Quarterfinals, Semifinals, Final
 
 ``` r
 judges
