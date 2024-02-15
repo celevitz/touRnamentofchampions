@@ -18,7 +18,7 @@ and call it into your library.
 devtools::install_github("celevitz/touRnamentofchampions")
 #> 
 #> ── R CMD build ─────────────────────────────────────────────────────────────────
-#> * checking for file ‘/private/var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T/RtmplKnO63/remotesb7382ec9b06d/celevitz-touRnamentofchampions-784f1d1/DESCRIPTION’ ... OK
+#> * checking for file ‘/private/var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T/RtmpRCyLhL/remotesba8e184d127d/celevitz-touRnamentofchampions-52e6d7e/DESCRIPTION’ ... OK
 #> * preparing ‘touRnamentofchampions’:
 #> * checking DESCRIPTION meta-information ... OK
 #> * checking for LF line-endings in source and make files and shell scripts
@@ -214,7 +214,7 @@ The unique identifiers of this dataset are
 
 ``` r
 results 
-#> # A tibble: 222 × 14
+#> # A tibble: 222 × 16
 #> # Groups:   season, episode, round, challenge, winner [175]
 #>    season episode round       challenge     coast region chef  commentator order
 #>     <dbl>   <dbl> <chr>       <chr>         <chr> <chr>  <chr> <chr>       <chr>
@@ -229,8 +229,8 @@ results
 #>  9      1       1 Round of 16 Antonia/Marc… West  <NA>   Marc… Simon Maju… Pres…
 #> 10      1       1 Round of 16 Antonia/Marc… West  <NA>   Anto… Justin War… Pres…
 #> # ℹ 212 more rows
-#> # ℹ 5 more variables: score_taste <dbl>, score_randomizer <dbl>,
-#> #   score_presentation <dbl>, total <dbl>, winner <chr>
+#> # ℹ 7 more variables: score_taste <dbl>, score_randomizer <dbl>,
+#> #   score_presentation <dbl>, total <dbl>, winner <chr>, x <dbl>, y <dbl>
 ```
 
 </details>
