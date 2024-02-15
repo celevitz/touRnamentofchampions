@@ -112,8 +112,8 @@
 #'   \item{\code{score_presentation}}{ Score that chef received for the presentation of their dish: values of 0- 20. (Except in Season 5 Qualifying rounds, the values are 0-10.)}
 #'   \item{\code{total}}{ Total score that chef received: between 0 and 100 }
 #'   \item{\code{winner}}{ Categorical variable: Winner, Loser, Tie  }
-#'   \item{\code{x}}{ X value to help with visualizing bracket }
-#'   \item{\code{y}}{ Y value to help with visualizing bracket  }
+#'   \item{\code{x}}{ Numeric X value to help with visualizing bracket }
+#'   \item{\code{y}}{ Numeric Y value to help with visualizing bracket  }
 #' }
 #'
 #' @import tidyverse

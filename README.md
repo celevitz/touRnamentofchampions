@@ -18,7 +18,7 @@ and call it into your library.
 devtools::install_github("celevitz/touRnamentofchampions")
 #> 
 #> ── R CMD build ─────────────────────────────────────────────────────────────────
-#> * checking for file ‘/private/var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T/RtmpVJPMHw/remotesb06e702206c5/celevitz-touRnamentofchampions-8145275/DESCRIPTION’ ... OK
+#> * checking for file ‘/private/var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T/RtmplKnO63/remotesb7382ec9b06d/celevitz-touRnamentofchampions-784f1d1/DESCRIPTION’ ... OK
 #> * preparing ‘touRnamentofchampions’:
 #> * checking DESCRIPTION meta-information ... OK
 #> * checking for LF line-endings in source and make files and shell scripts
@@ -209,7 +209,7 @@ The unique identifiers of this dataset are
   their dish: values of 0- 20
 - `total`: Total score that chef received: between 0 and 100
 - `winner`: Winner, loser, or tie
-- `X`: Numeric X value to help when creating the bracket
+- `x`: Numeric X value to help when creating the bracket
 - `y`: Numeric Y value to help when creating the bracket
 
 ``` r
