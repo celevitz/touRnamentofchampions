@@ -18,14 +18,12 @@ and call it into your library.
 devtools::install_github("celevitz/touRnamentofchampions")
 #> 
 #> ── R CMD build ─────────────────────────────────────────────────────────────────
-#>      checking for file ‘/private/var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T/RtmpR4ZEv8/remotesaef7654af401/celevitz-touRnamentofchampions-15c0e8a/DESCRIPTION’ ...  ✔  checking for file ‘/private/var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T/RtmpR4ZEv8/remotesaef7654af401/celevitz-touRnamentofchampions-15c0e8a/DESCRIPTION’
-#>   ─  preparing ‘touRnamentofchampions’:
-#>      checking DESCRIPTION meta-information ...  ✔  checking DESCRIPTION meta-information
-#>   ─  checking for LF line-endings in source and make files and shell scripts
-#>   ─  checking for empty or unneeded directories
-#>   ─  building ‘touRnamentofchampions_0.1.0.tar.gz’
-#>      
-#> 
+#> * checking for file ‘/private/var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T/RtmpVJPMHw/remotesb06e702206c5/celevitz-touRnamentofchampions-8145275/DESCRIPTION’ ... OK
+#> * preparing ‘touRnamentofchampions’:
+#> * checking DESCRIPTION meta-information ... OK
+#> * checking for LF line-endings in source and make files and shell scripts
+#> * checking for empty or unneeded directories
+#> * building ‘touRnamentofchampions_0.1.0.tar.gz’
 ```
 
 ## 3. News
@@ -78,18 +76,18 @@ The unique identifiers of this dataset are `chef`-`season`.
 ``` r
 seeds 
 #> # A tibble: 122 × 5
-#>    chef               season seed  coast region
-#>    <chr>               <dbl> <chr> <chr> <chr> 
-#>  1 Alex Guarnaschelli      1 1.0   East  <NA>  
-#>  2 Marc Murphy             1 2.0   East  <NA>  
-#>  3 Rocco DiSpirito         1 3.0   East  <NA>  
-#>  4 Amanda Freitag          1 4.0   East  <NA>  
-#>  5 Elizabeth Falkner       1 5.0   East  <NA>  
-#>  6 Maneet Chauhan          1 6.0   East  <NA>  
-#>  7 Christian Petroni       1 7.0   East  <NA>  
-#>  8 Darnell Ferguson        1 8.0   East  <NA>  
-#>  9 Antonia Lofaso          1 1.0   West  <NA>  
-#> 10 Michael Voltaggio       1 2.0   West  <NA>  
+#>    chef               season  seed coast region
+#>    <chr>               <dbl> <dbl> <chr> <chr> 
+#>  1 Alex Guarnaschelli      1     1 East  <NA>  
+#>  2 Marc Murphy             1     2 East  <NA>  
+#>  3 Rocco DiSpirito         1     3 East  <NA>  
+#>  4 Amanda Freitag          1     4 East  <NA>  
+#>  5 Elizabeth Falkner       1     5 East  <NA>  
+#>  6 Maneet Chauhan          1     6 East  <NA>  
+#>  7 Christian Petroni       1     7 East  <NA>  
+#>  8 Darnell Ferguson        1     8 East  <NA>  
+#>  9 Antonia Lofaso          1     1 West  <NA>  
+#> 10 Michael Voltaggio       1     2 West  <NA>  
 #> # ℹ 112 more rows
 ```
 
@@ -198,7 +196,6 @@ The unique identifiers of this dataset are
 - `region`: The region depends on how many chefs start the competition.
   If there are 16 chefs, then the region is left blank. If there are 32
   chefs, then the regions are A or B.
-- `y`: Numeric value to help when creating the bracket
 - `chef`: Name of chef
 - `commentator`: Who presented their food to the judges: Simon Majumdar
   or Justin Warner?
@@ -212,6 +209,8 @@ The unique identifiers of this dataset are
   their dish: values of 0- 20
 - `total`: Total score that chef received: between 0 and 100
 - `winner`: Winner, loser, or tie
+- `X`: Numeric X value to help when creating the bracket
+- `y`: Numeric Y value to help when creating the bracket
 
 ``` r
 results 

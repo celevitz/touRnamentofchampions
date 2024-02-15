@@ -134,7 +134,6 @@ The unique identifiers of this dataset are `season`-`episode`-`round`-`challenge
 -   `challenge`: Variable to help distinguish rounds within the same Coast & Round
 -   `coast`: Are they East or West Coast?
 -   `region`: The region depends on how many chefs start the competition. If there are 16 chefs, then the region is left blank. If there are 32 chefs, then the regions are A or B.
--   `y`: Numeric value to help when creating the bracket
 -   `chef`: Name of chef
 -   `commentator`: Who presented their food to the judges: Simon Majumdar or Justin Warner?
 -   `order`: When did their food get presented to the judges: Presented 1st or Presented 2nd
@@ -143,6 +142,8 @@ The unique identifiers of this dataset are `season`-`episode`-`round`-`challenge
 -   `score_presentation`: Score that chef received for the presentation of their dish: values of 0- 20
 -   `total`: Total score that chef received: between 0 and 100
 -   `winner`: Winner, loser, or tie
+-   `X`: Numeric X value to help when creating the bracket
+-   `y`: Numeric Y value to help when creating the bracket
 
 ```{r Results_table , eval=TRUE}
 results 
