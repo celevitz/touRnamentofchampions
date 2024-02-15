@@ -31,10 +31,10 @@ library(tidyverse)
   expect_type(results$total,"double")
 
   # Do the subscores add up to the total?
-  expect_equal(results[(results$total != results$score_presentation+
+  expect_equal(nrow(results[(results$total != results$score_presentation+
             results$score_randomizer+results$score_taste ) &
             !(is.na(results$total)) & !(is.na(results$score_presentation)) &
-            !(is.na(results$score_randomizer)) & !(is.na(results$score_taste)),]
+            !(is.na(results$score_randomizer)) & !(is.na(results$score_taste)),])
             ,0)
 
 # 3. Check for unique identifiers
