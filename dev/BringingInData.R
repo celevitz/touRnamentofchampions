@@ -125,6 +125,8 @@ results <- resultsraw %>%
              ,round == "Quarter-final" & seed %in% c(2,7) & is.na(region) ~ 1
              ,round == "Semi-final" & region == "A" ~ 17
              ,round == "Semi-final" & region == "B" ~ 13
+             ,round == "Semi-final" & is.na(region) ~ 17
+             ,round == "Semi-final" & is.na(region) ~ 13
              ,round == "Semi-final" & seed %in% c(1,8,4,5) & is.na(region) ~ 11
              ,round == "Semi-final" & seed %in% c(3,6,2,7) & is.na(region) ~ 4
              ,round == "Final" & winner == "Winner" & !(is.na(region)) ~16
