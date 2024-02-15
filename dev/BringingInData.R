@@ -147,10 +147,13 @@ save(judges, file = "data/judges.rda")
 #results$cran_summary()
 #usethis::use_cran_comments()
 
-
-## update readme: devtools::build_readme()
+## Pushing to CRAN
+## devtools::build_readme()
 ## devtools::document()
 ## cmd shift b
 ## cmd shift e
+## devtools::spell_check()
+## devtools::check()
+## devtools::check_rhub()
 ## devtools::release()
 

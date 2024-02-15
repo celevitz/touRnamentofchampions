@@ -15,7 +15,7 @@ This data frame contains the following columns:
 }
 }
 \source{
-\url{https://en.wikipedia.org/wiki/https://en.wikipedia.org/wiki/Tournament_of_Champions_(TV_series)}
+\url{https://en.wikipedia.org/wiki/Tournament_of_Champions_(TV_series)}
 }
 \usage{
 data(seeds)

@@ -17,7 +17,7 @@
 #'
 #' @import tidyverse
 #'
-#' @source \url{https://en.wikipedia.org/wiki/https://en.wikipedia.org/wiki/Tournament_of_Champions_(TV_series)}
+#' @source \url{https://en.wikipedia.org/wiki/Tournament_of_Champions_(TV_series)}
 #' @examples
 #' library(tidyverse)
 #' seeds %>%
@@ -43,7 +43,7 @@
 #'
 #' @import tidyverse
 #'
-#' @source \url{https://en.wikipedia.org/wiki/https://en.wikipedia.org/wiki/Tournament_of_Champions_(TV_series)}
+#' @source \url{https://en.wikipedia.org/wiki/Tournament_of_Champions_(TV_series)}
 #' @examples
 #' library(tidyverse)
 #' chefs %>%
@@ -78,7 +78,7 @@
 #'
 #' @import tidyverse
 #'
-#' @source \url{https://en.wikipedia.org/wiki/https://en.wikipedia.org/wiki/Tournament_of_Champions_(TV_series)}
+#' @source \url{https://en.wikipedia.org/wiki/Tournament_of_Champions_(TV_series)}
 #' @examples
 #' library(tidyverse)
 #' randomizer %>%
@@ -118,7 +118,7 @@
 #'
 #' @import tidyverse
 #'
-#' @source \url{https://en.wikipedia.org/wiki/https://en.wikipedia.org/wiki/Tournament_of_Champions_(TV_series)}
+#' @source \url{https://en.wikipedia.org/wiki/Tournament_of_Champions_(TV_series)}
 #' @examples
 #' library(tidyverse)
 #' results %>%
@@ -148,7 +148,7 @@
 #'
 #' @import tidyverse
 #'
-#' @source \url{https://en.wikipedia.org/wiki/https://en.wikipedia.org/wiki/Tournament_of_Champions_(TV_series)}
+#' @source \url{https://en.wikipedia.org/wiki/Tournament_of_Champions_(TV_series)}
 #' @examples
 #' library(tidyverse)
 #' judges %>%
