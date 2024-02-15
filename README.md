@@ -22,11 +22,8 @@ devtools::install_github("celevitz/touRnamentofchampions")
 
 Issues to work on:
 
-- Data entry for Seasons 3 and 5
-- The Randomizer data set has duplicate rows for the finals, one for
-  each coast.
-- Complete handedness
-- Add gender to seed dataset
+- Data entry for Season 5 as it airs
+- Complete handedness and nicknames
 
 ## 4. References & Acknowlegements
 
@@ -57,33 +54,58 @@ letters in their seeds.
 -   `region`: The region depends on how many chefs start the competition. If 
 there are 16 chefs, then the region is left blank. If there are 32 chefs, then 
 the regions are A or B.
--   `nickname`: Guy Fieri's nickname for the chef
--   `handedness`: Whether the chef is righthanded, lefthanded, or ambidextrous
 
 ``` r
 seeds 
-#> # A tibble: 96 × 6
-#>    chef               season  seed coast nickname         handedness            
-#>    <chr>               <dbl> <dbl> <chr> <chr>            <chr>                 
-#>  1 Alex Guarnaschelli      1     1 East  N/A              Right-handed          
-#>  2 Marc Murphy             1     2 East  N/A              Left-handed (uses kni…
-#>  3 Rocco DiSpirito         1     3 East  The Real Deal    Right-handed          
-#>  4 Amanda Freitag          1     4 East  Chef AF          Right-handed          
-#>  5 Elizabeth Falkner       1     5 East  N/A              Right-handed          
-#>  6 Maneet Chauhan          1     6 East  N/A              Right-handed          
-#>  7 Christian Petroni       1     7 East  Great Hambino    Right-handed          
-#>  8 Darnell Ferguson        1     8 East  Super Chef       Right-handed          
-#>  9 Antonia Lofaso          1     1 West  Warrior Princess Right-handed          
-#> 10 Michael Voltaggio       1     2 West  N/A              Right-handed          
-#> # ℹ 86 more rows
+# # A tibble: 122 × 5
+#    chef               season seed  coast region
+#    <chr>               <dbl> <chr> <chr> <chr> 
+#  1 Alex Guarnaschelli      1 1.0   East  NA    
+#  2 Marc Murphy             1 2.0   East  NA    
+#  3 Rocco DiSpirito         1 3.0   East  NA    
+#  4 Amanda Freitag          1 4.0   East  NA    
+#  5 Elizabeth Falkner       1 5.0   East  NA    
+#  6 Maneet Chauhan          1 6.0   East  NA    
+#  7 Christian Petroni       1 7.0   East  NA    
+#  8 Darnell Ferguson        1 8.0   East  NA    
+#  9 Antonia Lofaso          1 1.0   West  NA    
+# 10 Michael Voltaggio       1 2.0   West  NA    
+# # ℹ 112 more rows
+# # ℹ Use `print(n = ...)` to see more rows
 ```
 
-### 5b. Randomizer
+### 5b. Chefs
+
+-   `chef`: Chef name (full name)
+-   `nickname`: Guy Fieri's nickname for the chef
+-   `handedness`: Whether the chef is righthanded, lefthanded, or ambidextrous
+-   `gender`: male, female, nonbinary
+
+``` r
+chefs
+# A tibble: 69 × 4
+#    chef               nickname         handedness   gender
+#    <chr>              <chr>            <chr>        <chr> 
+#  1 Aaron May          NA               NA           male  
+#  2 Aarthi Sampath     NA               NA           female
+#  3 Adam Sobel         NA               NA           male  
+#  4 Adriana Urbina     NA               NA           female
+#  5 Alex Guarnaschelli N/A              Right-handed female
+#  6 Amanda Freitag     Chef AF          Right-handed female
+#  7 Antonia Lofaso     Warrior Princess Right-handed female
+#  8 Beau MacMillan     Beau Mac         Right-handed male  
+#  9 Bobby Marcotte     NA               NA           male  
+# 10 Brian Malarkey     NA               Left-handed  male  
+# # ℹ 59 more rows
+# # ℹ Use `print(n = ...)` to see more rows
+```
+
+### 5c. Randomizer
 
 -   `season`: Season number
 -   `episode`: Episode number
--   `round`: Stage of the tournament: Play-in, Round of 32, Round of 16, 
-Quarterfinals, Semifinals, Final
+-   `round`: Stage of the tournament: Play-in, Qualifier semi-final, Qualifier 
+final, Round of 32, Round of 16, Quarterfinals, Semifinals, Final
 -   `challenge`: Variable to help distinguish rounds within the same Coast & 
 Round
 -   `coast`: Are they East or West Coast?
@@ -116,12 +138,12 @@ randomizer
 #> # ℹ 2 more variables: randomizer4 <chr>, time <dbl>
 ```
 
-### 5c. Results
+### 5d. Results
 
 -   `season`: Season number
 -   `episode`: Episode number
--   `round`: Stage of the tournament: Play-in, Round of 32, Round of 16, 
-Quarterfinals, Semifinals, Final}
+-   `round`: Stage of the tournament: Play-in, Qualifier semi-final, Qualifier 
+final, Round of 32, Round of 16, Quarterfinals, Semifinals, Final
 -   `challenge`: Variable to help distinguish rounds within the same Coast & 
 Round
 -   `coast`: Are they East or West Coast?
@@ -144,49 +166,51 @@ their dish: values of 0- 20
 
 ``` r
 results 
-#> # A tibble: 92 × 13
-#>    season episode round   challenge     y coast chef           commentator order
-#>     <dbl>   <dbl> <chr>   <chr>     <dbl> <chr> <chr>          <chr>       <chr>
-#>  1      1       1 Round 1 A            12 East  Darnell Fergu… Justin War… Pres…
-#>  2      1       1 Round 1 A            14 East  Alex Guarnasc… Simon Maju… Pres…
-#>  3      1       2 Round 1 B             8 East  Elizabeth Fal… Justin War… Pres…
-#>  4      1       2 Round 1 B            10 East  Amanda Freitag Simon Maju… Pres…
-#>  5      1       3 Round 1 C             4 East  Maneet Chauhan Simon Maju… Pres…
-#>  6      1       3 Round 1 C             6 East  Rocco DiSpiri… Justin War… Pres…
-#>  7      1       2 Round 1 D             0 East  Christian Pet… Justin War… Pres…
-#>  8      1       2 Round 1 D             2 East  Marc Murphy    Simon Maju… Pres…
-#>  9      1       1 Round 1 A            12 West  Marcel Vigner… Simon Maju… Pres…
-#> 10      1       1 Round 1 A            14 West  Antonia Lofaso Justin War… Pres…
-#> # ℹ 82 more rows
-#> # ℹ 4 more variables: score_taste <dbl>, score_randomizer <dbl>,
-#> #   score_presentation <dbl>, total <dbl>
+# # A tibble: 109 × 12
+#    season episode round      challenge coast region randomizer1 randomizer2 randomizer3
+#     <dbl>   <dbl> <chr>      <chr>     <chr> <chr>  <chr>       <chr>       <chr>      
+#  1      1       1 Round of … A         East  NA     Pork tende… Peas        Waffle iron
+#  2      1       2 Round of … B         East  NA     Pork blade… Squash      French fry…
+#  3      1       3 Round of … C         East  NA     Chicken th… Kale        Panini pre…
+#  4      1       2 Round of … D         East  NA     Shrimp      Carrots     Mandoline  
+#  5      1       1 Round of … A         West  NA     Cod         Avocado     Microwave  
+#  6      1       2 Round of … B         West  NA     Ground lamb Broccoli    Fryer      
+#  7      1       1 Round of … C         West  NA     Top sirloin Mushrooms   Juicer     
+#  8      1       3 Round of … D         West  NA     Chicken br… Radish      Pastry bag 
+#  9      1       3 Quarter-f… A         West  NA     Quail       Bok choy    Mortar and…
+# 10      1       4 Quarter-f… B         West  NA     Salmon      Bitter mel… Meat grind…
+# # ℹ 99 more rows
+# # ℹ 3 more variables: randomizer4 <chr>, time <dbl>, randomizer5 <dbl>
+# # ℹ Use `print(n = ...)` to see more rows
 ```
 
-### 5d. Judges
+### 5e. Judges
 
-The unique identifier is `season`-`episode`, even though a judge may judge more 
-than one round in an episode.
+The unique identifier is `season`-`episode`-`round`, because occasionally judges
+only judge for one round within an episode.
 
 - `season`: Season number
 - `episode`: Episode number
 - `judge`: Name of guest judge
+-   `round`: Stage of the tournament: Play-in, Qualifier semi-final, Qualifier final , Round of 32, Round of 16, Quarterfinals, Semifinals, Final
 
 ``` r
 judges
-#> # A tibble: 52 × 4
-#>    season episode round   judge             
-#>     <dbl>   <dbl> <chr>   <chr>             
-#>  1      4       1 Round 1 Nancy Silverton   
-#>  2      4       1 Round 1 Alex Guarnaschelli
-#>  3      4       1 Round 1 Andrew Zimmern    
-#>  4      4       2 Round 1 Alex Guarnaschelli
-#>  5      4       2 Round 1 Scott Conant      
-#>  6      4       2 Round 1 Ming Tsai         
-#>  7      4       3 Round 1 Scott Conant      
-#>  8      4       3 Round 1 Andrew Zimmern    
-#>  9      4       3 Round 1 Nancy Silverton   
-#> 10      4       4 Round 1 Jonathan Waxman   
-#> # ℹ 42 more rows
+# # A tibble: 134 × 4
+#    season episode judge             round        
+#     <dbl>   <dbl> <chr>             <chr>        
+#  1      1       1 Curtis Stone      Round of 16  
+#  2      1       1 Marcus Samuelsson Round of 16  
+#  3      1       1 Nancy Silverton   Round of 16  
+#  4      1       2 Marcus Samuelsson Round of 16  
+#  5      1       2 Ming Tsai         Round of 16  
+#  6      1       2 Nancy Silverton   Round of 16  
+#  7      1       3 Marcus Samuelsson Round of 16  
+#  8      1       3 Ming Tsai         Round of 16  
+#  9      1       3 Nancy Silverton   Quarter-final
+# 10      1       3 Marcus Samuelsson Quarter-final
+# # ℹ 124 more rows
+# # ℹ Use `print(n = ...)` to see more rows
 ```
 
 ## 6. Examples

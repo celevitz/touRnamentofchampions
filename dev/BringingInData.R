@@ -15,6 +15,7 @@
 #                               devtools::check()
 #   Test Package:              'Cmd + Shift + T'
 #   Knit                       'Cmd + Shift + K'
+#   Load the data              'Cmd + Shift + L'
 
 # Check for things that don't yet have documentation library(tools); undoc(touRnamentofchampions)
 
@@ -25,13 +26,15 @@ library(tidyverse); library(openxlsx); library(usethis); library(rmarkdown)
 directory <- "/Users/carlylevitz/Documents/Data/TOC/"
 
 seeds <- as_tibble(read.xlsx(paste(directory,"TOC.xlsx",sep=""),sheet=2))
-randomizer <- as_tibble(read.xlsx(paste(directory,"TOC.xlsx",sep=""),sheet=3))
-results <- as_tibble(read.xlsx(paste(directory,"TOC.xlsx",sep=""),sheet=4))
-judges <- as_tibble(read.xlsx(paste(directory,"TOC.xlsx",sep=""),sheet=5))
+chefs <- as_tibble(read.xlsx(paste(directory,"TOC.xlsx",sep=""),sheet=3))
+randomizer <- as_tibble(read.xlsx(paste(directory,"TOC.xlsx",sep=""),sheet=4))
+results <- as_tibble(read.xlsx(paste(directory,"TOC.xlsx",sep=""),sheet=5))
+judges <- as_tibble(read.xlsx(paste(directory,"TOC.xlsx",sep=""),sheet=6))
 
 ## save things as RDA
 
 save(seeds, file = "data/seeds.rda")
+save(chefs, file = "data/chefs.rda")
 save(randomizer, file = "data/randomizer.rda")
 save(results, file = "data/results.rda")
 save(judges, file = "data/judges.rda")

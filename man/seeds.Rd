@@ -9,10 +9,9 @@ This data frame contains the following columns:
 \describe{
   \item{\code{chef}}{Chef name (full name)}
   \item{\code{season}}{Season number}
-  \item{\code{seed}}{Seed within their section of the bracket: values of 1 through 8}
-  \item{\code{coast}}{Are they East or West Coast? And is it sub-bracket A or B?}
-  \item{\code{nickname}}{Guy Fieri's nickname for the chef}
-  \item{\code{handedness}}{Whether the chef is righthanded, lefthanded, or ambidextrous}
+  \item{\code{seed}}{Seed within their section of the bracket: values of 1 through 8. Chefs that played in the play-in but didn't make the final bracket will have letters in their seeds.}
+  \item{\code{coast}}{Are they East or West Coast?}
+  \item{\code{region}}{The region depends on how many chefs start the competition. If there are 16 chefs, then the region is left blank. If there are 32 chefs, then the regions are A or B.}
 }
 }
 \source{
@@ -22,7 +21,7 @@ This data frame contains the following columns:
 data(seeds)
 }
 \description{
-A dataset containing information on each Chef for each season.
+A dataset containing game-related information on each Chef for each season.
 }
 \examples{
 library(tidyverse)

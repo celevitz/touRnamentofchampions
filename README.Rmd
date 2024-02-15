@@ -28,10 +28,8 @@ devtools::install_github("celevitz/touRnamentofchampions")
 
 Issues to work on:
 
--   Data entry for Seasons 3 and 5
--   The Randomizer data set has duplicate rows for the finals, one for each coast.
--   Complete handedness
--   Add gender to seed dataset
+- Data entry for Season 5 as it airs
+- Complete handedness and nicknames
 
 ## 4. References & Acknowlegements
 
@@ -58,21 +56,35 @@ Across datasets, key joining variables include:
 
 -   `chef`: Chef name (full name)
 -   `season`: Season number
--   `seed`: Seed within their section of the bracket: values of 1 through 8. Chefs that played in the play-in but didn't make the final bracket will have letters in their seeds.
+-   `seed`: Seed within their section of the bracket: values of 1 through 8. 
+Chefs that played in the play-in but didn't make the final bracket will have 
+letters in their seeds.
 -   `coast`: Are they East or West Coast?
--   `region`: The region depends on how many chefs start the competition. If there are 16 chefs, then the region is left blank. If there are 32 chefs, then the regions are A or B.
--   `nickname`: Guy Fieri's nickname for the chef
--   `handedness`: Whether the chef is righthanded, lefthanded, or ambidextrous
+-   `region`: The region depends on how many chefs start the competition. If 
+there are 16 chefs, then the region is left blank. If there are 32 chefs, then 
+the regions are A or B.
 
 ```{r Seeds_table , eval=TRUE}
 seeds 
 ```
 
-### 5b. Randomizer
+### 5b. Chefs
+
+-   `chef`: Chef name (full name)
+-   `nickname`: Guy Fieri's nickname for the chef
+-   `handedness`: Whether the chef is righthanded, lefthanded, or ambidextrous
+-   `gender`: male, female, nonbinary
+
+```{r Chefs_table , eval=TRUE}
+chefs 
+```
+
+### 5c. Randomizer
 
 -   `season`: Season number
 -   `episode`: Episode number
--   `round`: Stage of the tournament: Play-in, Round of 32, Round of 16, Quarterfinals, Semifinals, Final
+-   `round`: Stage of the tournament: Play-in, Qualifier semi-final, Qualifier 
+final, Round of 32, Round of 16, Quarterfinals, Semifinals, Final
 -   `challenge`: Variable to help distinguish rounds within the same Coast & Round
 -   `coast`: Are they East or West Coast?
 -   `region`: The region depends on how many chefs start the competition. If there are 16 chefs, then the region is left blank. If there are 32 chefs, then the regions are A or B.
@@ -87,11 +99,11 @@ seeds
 randomizer 
 ```
 
-### 5c. Results
+### 5d. Results
 
 -   `season`: Season number
 -   `episode`: Episode number
--   `round`: Stage of the tournament: Play-in, Round of 32, Round of 16, Quarterfinals, Semifinals, Final}
+-   `round`: Stage of the tournament: Play-in, Qualifier semi-final, Qualifier final, Round of 32, Round of 16, Quarterfinals, Semifinals, Final
 -   `challenge`: Variable to help distinguish rounds within the same Coast & Round
 -   `coast`: Are they East or West Coast?
 -   `region`: The region depends on how many chefs start the competition. If there are 16 chefs, then the region is left blank. If there are 32 chefs, then the regions are A or B.
@@ -108,13 +120,15 @@ randomizer
 results 
 ```
 
-### 5d. Judges
+### 5e. Judges
 
-The unique identifier is `season`-`episode`, even though a judge may judge more than one round in an episode.
+The unique identifier is `season`-`episode`-`round`, because occasionally a judge will only judge for one round within an episode.
 
 -   `season`: Season number
 -   `episode`: Episode number
 -   `judge`: Name of guest judge
+-   `round`: Stage of the tournament: Play-in, Qualifier semi-final, Qualifier 
+final, Round of 32, Round of 16, Quarterfinals, Semifinals, Final
 
 ```{r Judges_table , eval=TRUE}
 judges

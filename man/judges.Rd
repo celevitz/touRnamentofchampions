@@ -9,8 +9,8 @@ This data frame contains the following columns:
 \describe{
   \item{\code{season}}{Season number}
   \item{\code{episode}}{Episode number}
-  \item{\code{round}}{Stage of the tournament: Round 1, Round 2, Quarterfinals, Semifinals, Final}
   \item{\code{judge}}{Name of guest judge}
+  \item{\code{round}}{Stage of the tournament: Play-in, Qualifier semi-final, Qualifier final, Round of 32, Round of 16, Quarterfinals, Semifinals, Final}
 }
 }
 \source{
@@ -26,6 +26,6 @@ A dataset containing information about who were the judges for each challenge/ep
 library(tidyverse)
 judges \%>\%
   filter(judge == "Ming Tsai") \%>\%
-  group_by(season,episode,round)
+  group_by(season,episode)
 }
 \keyword{datasets}
