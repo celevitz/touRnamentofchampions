@@ -16,6 +16,16 @@ and call it into your library.
 
 ``` r
 devtools::install_github("celevitz/touRnamentofchampions")
+#> 
+#> ── R CMD build ─────────────────────────────────────────────────────────────────
+#>      checking for file ‘/private/var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T/RtmpSpz8Sa/remotesa9374233e936/celevitz-touRnamentofchampions-068d1db/DESCRIPTION’ ...  ✔  checking for file ‘/private/var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T/RtmpSpz8Sa/remotesa9374233e936/celevitz-touRnamentofchampions-068d1db/DESCRIPTION’
+#>   ─  preparing ‘touRnamentofchampions’:
+#>      checking DESCRIPTION meta-information ...  ✔  checking DESCRIPTION meta-information
+#>   ─  checking for LF line-endings in source and make files and shell scripts
+#>   ─  checking for empty or unneeded directories
+#>   ─  building ‘touRnamentofchampions_0.1.0.tar.gz’
+#>      
+#> 
 ```
 
 ## 3. News
@@ -42,6 +52,7 @@ Across datasets, key joining variables include:
 - `region`
 - `round`
 - `episode`
+- `challenge`
 
 See the sections below for additional information on datasets.
 
@@ -51,6 +62,8 @@ See the sections below for additional information on datasets.
 </summary>
 
 ### Seeds
+
+The unique identifiers of this dataset are `chef`-`season`.
 
 - `chef`: Chef name (full name)
 - `season`: Season number
@@ -88,6 +101,8 @@ seeds
 
 ### Chefs
 
+The unique identifier of this dataset is `chef`.
+
 - `chef`: Chef name (full name)
 - `nickname`: Guy Fieri’s nickname for the chef
 - `handedness`: Whether the chef is righthanded, lefthanded, or
@@ -119,6 +134,11 @@ chefs
 </summary>
 
 ### Randomizer
+
+The unique identifiers of this dataset are
+`season`-`episode`-`round`-`challenge`. The reason that `episode` is a
+unique identifier is because in Season 2, Jet and Antonia tied in all
+scores and so had a rematch in the Quarter-finals (episodes 6 and 7).
 
 - `season`: Season number
 - `episode`: Episode number
@@ -165,6 +185,9 @@ randomizer
 </summary>
 
 ### Results
+
+The unique identifiers of this dataset are
+`season`-`episode`-`round`-`challenge`-`chef`.
 
 - `season`: Season number
 - `episode`: Episode number
@@ -258,24 +281,16 @@ See the sections below for examples of how to use the data
 <strong>Gender distribution by season: Seasons 1 through 4</strong>
 </summary>
 
-``` r
-seeds %>% left_join(chefs) %>%
-  # keep only seasons 1 through 4
-  filter(season < 5) %>%
-  group_by(season,gender) %>%
-  summarise(n=n()) %>%
-  pivot_wider(names_from=gender,values_from=n)
-#> Joining with `by = join_by(chef)`
-#> `summarise()` has grouped output by 'season'. You can override using the
-#> `.groups` argument.
-#> # A tibble: 4 × 3
-#> # Groups:   season [4]
-#>   season female  male
-#>    <dbl>  <int> <int>
-#> 1      1      6    10
-#> 2      2      8    14
-#> 3      3     13    19
-#> 4      4     15    17
-```
+    #> Joining with `by = join_by(chef)`
+    #> `summarise()` has grouped output by 'season'. You can override using the
+    #> `.groups` argument.
+    #> # A tibble: 4 × 3
+    #> # Groups:   season [4]
+    #>   season female  male
+    #>    <dbl>  <int> <int>
+    #> 1      1      6    10
+    #> 2      2      8    14
+    #> 3      3     13    19
+    #> 4      4     15    17
 
 </details>

@@ -51,6 +51,7 @@ Across datasets, key joining variables include:
 -   `region`
 -   `round`
 -   `episode`
+-   `challenge`
 
 See the sections below for additional information on datasets.
 
@@ -59,6 +60,7 @@ See the sections below for additional information on datasets.
 <strong>Seeds</strong>
 </summary>
 ### Seeds
+The unique identifiers of this dataset are `chef`-`season`.
 
 -   `chef`: Chef name (full name)
 -   `season`: Season number
@@ -82,6 +84,8 @@ seeds
 
 ### Chefs
 
+The unique identifier of this dataset is `chef`.
+
 -   `chef`: Chef name (full name)
 -   `nickname`: Guy Fieri's nickname for the chef
 -   `handedness`: Whether the chef is righthanded, lefthanded, or ambidextrous
@@ -97,6 +101,8 @@ chefs
 </summary>
 
 ### Randomizer
+
+The unique identifiers of this dataset are `season`-`episode`-`round`-`challenge`. The reason that `episode` is a unique identifier is because in Season 2, Jet and Antonia tied in all scores and so had a rematch in the Quarter-finals (episodes 6 and 7).
 
 -   `season`: Season number
 -   `episode`: Episode number
@@ -122,6 +128,8 @@ randomizer
 <strong>Results</strong>
 </summary>
 ### Results
+
+The unique identifiers of this dataset are `season`-`episode`-`round`-`challenge`-`chef`.
 
 -   `season`: Season number
 -   `episode`: Episode number
