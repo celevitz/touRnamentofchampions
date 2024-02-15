@@ -18,12 +18,14 @@ and call it into your library.
 devtools::install_github("celevitz/touRnamentofchampions")
 #> 
 #> ── R CMD build ─────────────────────────────────────────────────────────────────
-#> * checking for file ‘/private/var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T/RtmphFeGEr/remotesac48508ac2c6/celevitz-touRnamentofchampions-ca9f8e6/DESCRIPTION’ ... OK
-#> * preparing ‘touRnamentofchampions’:
-#> * checking DESCRIPTION meta-information ... OK
-#> * checking for LF line-endings in source and make files and shell scripts
-#> * checking for empty or unneeded directories
-#> * building ‘touRnamentofchampions_0.1.0.tar.gz’
+#>      checking for file ‘/private/var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T/RtmpDVSqvv/remotesaddd3d234e87/celevitz-touRnamentofchampions-1d1dcdf/DESCRIPTION’ ...  ✔  checking for file ‘/private/var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T/RtmpDVSqvv/remotesaddd3d234e87/celevitz-touRnamentofchampions-1d1dcdf/DESCRIPTION’
+#>   ─  preparing ‘touRnamentofchampions’:
+#>      checking DESCRIPTION meta-information ...  ✔  checking DESCRIPTION meta-information
+#>   ─  checking for LF line-endings in source and make files and shell scripts
+#>   ─  checking for empty or unneeded directories
+#>   ─  building ‘touRnamentofchampions_0.1.0.tar.gz’
+#>      
+#> 
 ```
 
 ## 3. News
@@ -209,6 +211,7 @@ The unique identifiers of this dataset are
 - `score_presentation`: Score that chef received for the presentation of
   their dish: values of 0- 20
 - `total`: Total score that chef received: between 0 and 100
+- `winner`: Winner, loser, or tie
 
 ``` r
 results 

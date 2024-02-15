@@ -111,6 +111,7 @@
 #'   \item{\code{score_randomizer}}{ Score that chef received for how well they used the Randomizer: values of 0- 30. (Except in Season 5 Qualifying rounds, the values are 0-40.)}
 #'   \item{\code{score_presentation}}{ Score that chef received for the presentation of their dish: values of 0- 20. (Except in Season 5 Qualifying rounds, the values are 0-10.)}
 #'   \item{\code{total}}{ Total score that chef received: between 0 and 100 }
+#'   \item{\code{winner}}{ Categorical variable: Winner, Loser, Tie  }
 #' }
 #'
 #' @import tidyverse
