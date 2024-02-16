@@ -175,22 +175,10 @@ See the sections below for examples of how to use the data
 
 <details>
 <summary>
-<strong>Gender distribution by season: Seasons 1 through 4</strong>
-</summary>
-```{r Gender_distr_by_season1to4 , eval=TRUE,echo=TRUE}
-seeds %>% left_join(chefs) %>%
-  # keep only seasons 1 through 4
-  filter(season < 5) %>%
-  group_by(season,gender) %>%
-  summarise(n=n()) %>%
-  pivot_wider(names_from=gender,values_from=n)
-```
-</details>
-
-<details>
-<summary>
 <strong>Brackets</strong>
 </summary>
+
+### Brackets
 ```{r Brackets , eval=TRUE,echo=FALSE,message=FALSE,include=TRUE,warning=FALSE}
 resultsraw <- touRnamentofchampions::results
 seeds <- touRnamentofchampions::seeds
@@ -238,34 +226,34 @@ bracketfunction <- function(seasonnumber,xlimits,xbreaks,xlabs,titlenumber,round
     # dots -- and highlight the winners
     geom_point(data=bumpdata,aes(x=x,y=y,color=sizeofdot,size=sizeofdot,shape=sizeofdot),fill="#1170AA" )+
     geom_point(data=bumpdata %>% filter(winner=="Winner"),
-               aes(x=x,y=y),shape=21,color="#57606c",fill="transparent",size=10) +
+               aes(x=x,y=y),shape=21,color="#57606c",fill="transparent",size=8) +
     scale_shape_manual(values=c(20,16,19,21,4),name="Score legend",labels=sort(unique(bumpdata$sizeofdot))) +
-    scale_size_manual(values=c(3,4,5,6,4),name="Score legend",labels=sort(unique(bumpdata$sizeofdot)) ) +
+    scale_size_manual(values=c(2,3,4,5,3),name="Score legend",labels=sort(unique(bumpdata$sizeofdot)) ) +
     scale_color_manual(values=c("#c85200", "#A3ACB9","#a3cce9","#1170AA","brown")
                        ,name="Score legend",labels=sort(unique(bumpdata$sizeofdot))) +
     annotate("text",x=bumpdata$cheflabelx[bumpdata$round == roundtolabel],y=bumpdata$y[bumpdata$round == roundtolabel]
              ,label=bumpdata$chef[bumpdata$round == roundtolabel]
              ,hjust=bumpdata$alignment[bumpdata$round == roundtolabel]
-             ,size=5) +
+             ,size=2) +
     annotate("text",x=bumpdata$cheflabelx[bumpdata$round == roundtolabel],y=bumpdata$y[bumpdata$round == roundtolabel]-.7
              ,label=paste(bumpdata$seed[bumpdata$round == roundtolabel],"seed",sep=" ")
              ,hjust=bumpdata$alignment[bumpdata$round == roundtolabel]
-             ,size=5) +
+             ,size=2) +
     scale_x_continuous(limits=xlimits,breaks=xbreaks,labels=xlabs) +
     xlab("") + ylab("") +
     theme_minimal() +
     theme(panel.grid = element_blank()
-          ,plot.title=element_text(hjust=.5,color="black",size=20,face="bold")
-          ,plot.subtitle=element_text(hjust=.5,color="black",size=18)
-          ,plot.caption =element_text(color="black",size=15)
-          ,axis.text.x=element_text(color="black",size=15)
+          ,plot.title=element_text(hjust=.5,color="black",size=10,face="bold")
+          ,plot.subtitle=element_text(hjust=.5,color="black",size=8)
+          ,plot.caption =element_text(color="black",size=10)
+          ,axis.text.x=element_text(color="black",size=8)
           ,axis.text.y=element_blank()
-          ,legend.text = element_text(color="black",size=13)
-          ,legend.title = element_text(color="black",size=15,face="bold")
+          ,legend.text = element_text(color="black",size=7)
+          ,legend.title = element_text(color="black",size=8,face="bold")
           ,legend.background = element_rect(fill=NA,color=NA)
           ,legend.position="bottom") +
     labs(title=paste0("Tournament of Champions ",titlenumber,": Winners and final scores by round")
-         ,subtitle="Winners of each round outlined in black circles"
+         ,subtitle="Winners of each round outlined in dark gray circles"
          ,caption="Data: github.com/celevitz/touRnamentofchampions /// Twitter @carlylevitz /// Instagram @carly.sue.bear") 
 
 }
@@ -298,8 +286,8 @@ bracketfunction <- function(seasonnumber,xlimits,xbreaks,xlabs,titlenumber,round
     seasonnumber <- 3
     xlimits <- c(-30,130)
     xbreaks <- c(0,15,30,40,50,60,70,85,100)
-    xlabs <- c("Round of 32","Round of 16","Quarter-\nfinal","Semi-\nfinal",
-               "Final","Semi-\nfinal","Quarter-\nfinal","Round of 16","Round of 32")
+    xlabs <- c("Round\nof 32","Round\nof 16","Quarter-\nfinal","Semi-\nfinal",
+               "Final","Semi-\nfinal","Quarter-\nfinal","Round\nof 16","Round\nof 32")
     titlenumber <- "III"
     roundtolabel <- "Round of 32"  
     
@@ -309,8 +297,8 @@ bracketfunction <- function(seasonnumber,xlimits,xbreaks,xlabs,titlenumber,round
     seasonnumber <- 4
     xlimits <- c(-30,130)
     xbreaks <- c(0,15,30,40,50,60,70,85,100)
-    xlabs <- c("Round of 32","Round of 16","Quarter-\nfinal","Semi-\nfinal",
-               "Final","Semi-\nfinal","Quarter-\nfinal","Round of 16","Round of 32")
+    xlabs <- c("Round\nof 32","Round\nof 16","Quarter-\nfinal","Semi-\nfinal",
+               "Final","Semi-\nfinal","Quarter-\nfinal","Round\nof 16","Round\nof 32")
     titlenumber <- "IV"
     roundtolabel <- "Round of 32"  
     
@@ -319,3 +307,20 @@ bracketfunction <- function(seasonnumber,xlimits,xbreaks,xlabs,titlenumber,round
 ```
 
 </details>
+
+<details>
+<summary>
+<strong>Gender distribution by season: Seasons 1 through 4</strong>
+</summary>
+
+### Gender distribution by season: Season 1 through 4
+```{r Gender_distr_by_season1to4 , eval=TRUE,echo=TRUE}
+seeds %>% left_join(chefs) %>%
+  # keep only seasons 1 through 4
+  filter(season < 5) %>%
+  group_by(season,gender) %>%
+  summarise(n=n()) %>%
+  pivot_wider(names_from=gender,values_from=n) 
+```
+</details>
+
