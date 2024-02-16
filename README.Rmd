@@ -177,7 +177,7 @@ See the sections below for examples of how to use the data
 <summary>
 <strong>Gender distribution by season: Seasons 1 through 4</strong>
 </summary>
-```{r Gender_distr_by_season1to4 , eval=TRUE,echo=FALSE}
+```{r Gender_distr_by_season1to4 , eval=TRUE,echo=TRUE}
 seeds %>% left_join(chefs) %>%
   # keep only seasons 1 through 4
   filter(season < 5) %>%
@@ -186,5 +186,7 @@ seeds %>% left_join(chefs) %>%
   pivot_wider(names_from=gender,values_from=n)
 ```
 </details>
+
+
 
 

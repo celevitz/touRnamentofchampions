@@ -18,7 +18,7 @@ and call it into your library.
 devtools::install_github("celevitz/touRnamentofchampions")
 #> 
 #> ── R CMD build ─────────────────────────────────────────────────────────────────
-#> * checking for file ‘/private/var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T/RtmpYNwZlK/remotesce5d6bf3cd98/celevitz-touRnamentofchampions-9ce15a6/DESCRIPTION’ ... OK
+#> * checking for file ‘/private/var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T/Rtmp8jXO45/remotesd8c83274291a/celevitz-touRnamentofchampions-5c80d5a/DESCRIPTION’ ... OK
 #> * preparing ‘touRnamentofchampions’:
 #> * checking DESCRIPTION meta-information ... OK
 #> * checking for LF line-endings in source and make files and shell scripts
@@ -279,16 +279,24 @@ See the sections below for examples of how to use the data
 <strong>Gender distribution by season: Seasons 1 through 4</strong>
 </summary>
 
-    #> Joining with `by = join_by(chef)`
-    #> `summarise()` has grouped output by 'season'. You can override using the
-    #> `.groups` argument.
-    #> # A tibble: 4 × 3
-    #> # Groups:   season [4]
-    #>   season female  male
-    #>    <dbl>  <int> <int>
-    #> 1      1      6    10
-    #> 2      2      8    14
-    #> 3      3     13    19
-    #> 4      4     15    17
+``` r
+seeds %>% left_join(chefs) %>%
+  # keep only seasons 1 through 4
+  filter(season < 5) %>%
+  group_by(season,gender) %>%
+  summarise(n=n()) %>%
+  pivot_wider(names_from=gender,values_from=n)
+#> Joining with `by = join_by(chef)`
+#> `summarise()` has grouped output by 'season'. You can override using the
+#> `.groups` argument.
+#> # A tibble: 4 × 3
+#> # Groups:   season [4]
+#>   season female  male
+#>    <dbl>  <int> <int>
+#> 1      1      6    10
+#> 2      2      8    14
+#> 3      3     13    19
+#> 4      4     15    17
+```
 
 </details>
