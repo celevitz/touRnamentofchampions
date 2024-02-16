@@ -10,7 +10,7 @@ information, randomizer information, challenge results, and judge names.
 ## 2. Installation
 
 Not yet on CRAN. So please use:
-*devtools::install.packages(“celevitz/touRnamentofchampions”)*. If it’s
+*devtools::install.github(“celevitz/touRnamentofchampions”)*. If it’s
 not appearing to be updated, restart your R sessions, install it again,
 and call it into your library.
 
@@ -18,7 +18,7 @@ and call it into your library.
 devtools::install_github("celevitz/touRnamentofchampions")
 #> 
 #> ── R CMD build ─────────────────────────────────────────────────────────────────
-#> * checking for file ‘/private/var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T/Rtmp8jXO45/remotesd8c83274291a/celevitz-touRnamentofchampions-5c80d5a/DESCRIPTION’ ... OK
+#> * checking for file ‘/private/var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T/RtmpTno0ag/remotese21b60009a2f/celevitz-touRnamentofchampions-b5790ba/DESCRIPTION’ ... OK
 #> * preparing ‘touRnamentofchampions’:
 #> * checking DESCRIPTION meta-information ... OK
 #> * checking for LF line-endings in source and make files and shell scripts
@@ -298,5 +298,13 @@ seeds %>% left_join(chefs) %>%
 #> 3      3     13    19
 #> 4      4     15    17
 ```
+
+</details>
+<details>
+<summary>
+<strong>Brackets</strong>
+</summary>
+
+![](README_files/figure-gfm/Brackets%20-1.png)<!-- -->![](README_files/figure-gfm/Brackets%20-2.png)<!-- -->![](README_files/figure-gfm/Brackets%20-3.png)<!-- -->![](README_files/figure-gfm/Brackets%20-4.png)<!-- -->
 
 </details>
