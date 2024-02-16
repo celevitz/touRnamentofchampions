@@ -16,9 +16,14 @@ and call it into your library.
 
 ``` r
 devtools::install_github("celevitz/touRnamentofchampions")
+#> DBI (1.2.1 -> 1.2.2) [CRAN]
+#> 
+#>   There is a binary version available but the source version is later:
+#>     binary source needs_compilation
+#> DBI  1.2.0  1.2.2             FALSE
 #> 
 #> ── R CMD build ─────────────────────────────────────────────────────────────────
-#> * checking for file ‘/private/var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T/Rtmp9KMjUW/remotese5ce51a93601/celevitz-touRnamentofchampions-6c88e2a/DESCRIPTION’ ... OK
+#> * checking for file ‘/private/var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T/Rtmp0KzG04/remotesedf287aa5ec/celevitz-touRnamentofchampions-14e4b6e/DESCRIPTION’ ... OK
 #> * preparing ‘touRnamentofchampions’:
 #> * checking DESCRIPTION meta-information ... OK
 #> * checking for LF line-endings in source and make files and shell scripts
