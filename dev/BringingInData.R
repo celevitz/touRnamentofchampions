@@ -139,7 +139,7 @@ results <- resultsraw %>%
 
     ## Fix y values for semi-finals
       results$y[results$round == "Semi-final" & results$season == 1 &
-                  results$chef %in% c("Antonia Lafaso","Amanda Freitag")] <- 11
+                  results$chef %in% c("Antonia Lofaso","Amanda Freitag")] <- 11
 
       results$y[results$round == "Semi-final" & results$season == 1 &
                   results$chef %in% c("Brooke Williamson","Maneet Chauhan")] <- 3
@@ -151,7 +151,7 @@ results <- resultsraw %>%
                   results$chef %in% c("Jet Tila","Maneet Chauhan")] <- 3
 
       results$y[results$round == "Semi-final" & results$season == 3 &
-                  results$chef %in% c("Jet Tila","Tobias Dorzan")] <- 14
+                  results$chef %in% c("Jet Tila","Tobias Dorzon")] <- 14
 
 
 ## save things as RDA
@@ -161,6 +161,30 @@ save(chefs, file = "data/chefs.rda")
 save(randomizer, file = "data/randomizer.rda")
 save(results, file = "data/results.rda")
 save(judges, file = "data/judges.rda")
+
+## Save things to my desktop for Tableau
+      write.csv(seeds,paste0(directory,"/seeds.csv"),row.names=F)
+      write.csv(results ,paste0(directory,"/results.csv"),row.names=F)
+      write.csv(judges,paste0(directory,"judges.csv"),row.names=F)
+      write.csv(chefs,paste0(directory,"/chefs.csv"),row.names=F)
+      write.csv(randomizer,paste0(directory,"randomizer.csv"),row.names=F)
+
+  # Prep data for Tableau
+    randomizerlong <- randomizer %>%
+      pivot_longer(!c(season,episode,round,challenge,coast,region,time)
+                   ,names_to = "randomizer"
+                   ,values_to = "value") %>%
+      mutate(category = case_when(value %in% c("Filet mignon","Flat iron steaks"
+                                               ,"Hangar steak","Lamb loinchops"
+                                               ,"Lamb tenderloin","Longbone ribeye"
+                                         ,"Rack of lamb","Veal cutlet") ~ "protein"
+                                  ,randomizer == "randomizer1" ~ "protein"
+                                  ,randomizer == "randomizer2" ~ "produce"
+                                  ,randomizer == "randomizer3" ~ "equipment"
+                                  ,randomizer == "randomizer4" ~ "style"
+                                  ,randomizer == "randomizer5" ~ "wildcard" ) )
+    write.csv(randomizerlong
+              ,paste0(directory,"randomizer_longform.csv"),row.names=F)
 
 
 # Check for CRAN specific requirements

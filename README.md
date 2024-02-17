@@ -18,7 +18,7 @@ and call it into your library.
 devtools::install_github("celevitz/touRnamentofchampions")
 #> 
 #> ── R CMD build ─────────────────────────────────────────────────────────────────
-#>      checking for file ‘/private/var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T/RtmpXH9dQy/remotesf4e87a909dd7/celevitz-touRnamentofchampions-94f7482/DESCRIPTION’ ...  ✔  checking for file ‘/private/var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T/RtmpXH9dQy/remotesf4e87a909dd7/celevitz-touRnamentofchampions-94f7482/DESCRIPTION’
+#>      checking for file ‘/private/var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T/RtmpGWUYb1/remotesfe61334736f4/celevitz-touRnamentofchampions-9ac42ea/DESCRIPTION’ ...  ✔  checking for file ‘/private/var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T/RtmpGWUYb1/remotesfe61334736f4/celevitz-touRnamentofchampions-9ac42ea/DESCRIPTION’
 #>   ─  preparing ‘touRnamentofchampions’:
 #>      checking DESCRIPTION meta-information ...  ✔  checking DESCRIPTION meta-information
 #>   ─  checking for LF line-endings in source and make files and shell scripts
@@ -254,7 +254,7 @@ occasionally a judge will only judge for one round within an episode.
 
 ``` r
 judges
-#> # A tibble: 134 × 4
+#> # A tibble: 135 × 4
 #>    season episode judge             round        
 #>     <dbl>   <dbl> <chr>             <chr>        
 #>  1      1       1 Curtis Stone      Round of 16  
@@ -263,11 +263,11 @@ judges
 #>  4      1       2 Marcus Samuelsson Round of 16  
 #>  5      1       2 Ming Tsai         Round of 16  
 #>  6      1       2 Nancy Silverton   Round of 16  
-#>  7      1       3 Marcus Samuelsson Round of 16  
-#>  8      1       3 Ming Tsai         Round of 16  
-#>  9      1       3 Nancy Silverton   Quarter-final
-#> 10      1       3 Marcus Samuelsson Quarter-final
-#> # ℹ 124 more rows
+#>  7      1       3 Nancy Silverton   Round of 16  
+#>  8      1       3 Marcus Samuelsson Round of 16  
+#>  9      1       3 Ming Tsai         Round of 16  
+#> 10      1       3 Nancy Silverton   Quarter-final
+#> # ℹ 125 more rows
 ```
 
 </details>
