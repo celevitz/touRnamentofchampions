@@ -153,12 +153,56 @@ results <- resultsraw %>%
       results$y[results$round == "Semi-final" & results$season == 3 &
                   results$chef %in% c("Jet Tila","Tobias Dorzon")] <- 14
 
+## Create long-form randomizer data
+      randomizerlongform <- randomizer %>%
+        pivot_longer(!c(season,episode,round,challenge,coast,region,time)
+                     ,names_to = "randomizer"
+                     ,values_to = "value") %>%
+        mutate(category = case_when(value %in% c("Filet mignon","Flat iron steaks"
+                                                 ,"Hangar steak","Lamb loinchops"
+                                                 ,"Lamb tenderloin","Longbone ribeye"
+                                                 ,"Rack of lamb","Veal cutlet") ~ "protein"
+                                    ,randomizer == "randomizer1" ~ "protein"
+                                    ,randomizer == "randomizer2" ~ "produce"
+                                    ,randomizer == "randomizer3" ~ "equipment"
+                                    ,randomizer == "randomizer4" ~ "style"
+                                    ,randomizer == "randomizer5" ~ "wildcard" )
+               ,subcategory = case_when(
+                 # protein subcategories
+                 grepl("beef",tolower(value)) ~ "Beef"
+                 ,grepl("veal",tolower(value)) ~ "Beef"
+                 ,grepl("rabbit",tolower(value)) ~ "Game"
+                 ,grepl("lamb",tolower(value)) ~ "Game"
+                 ,grepl("goat",tolower(value)) ~ "Game"
+                 ,grepl("venison",tolower(value)) ~ "Game"
+                 ,grepl("bison",tolower(value)) ~ "Game"
+                 ,grepl("goose",tolower(value)) ~ "Game"
+                 ,grepl("quail",tolower(value)) ~ "Game"
+                 ,grepl("pheasant",tolower(value)) ~ "Game"
+                 ,grepl("squab",tolower(value)) ~ "Game"
+                 ,grepl("chicken",tolower(value)) ~ "Poultry"
+                 ,grepl("duck",tolower(value)) ~ "Poultry"
+                 ,grepl("turkey",tolower(value)) ~ "Poultry"
+                 ,grepl("pork",tolower(value)) ~ "Pork"
+                 ,value %in% c("Bacon","Bratwurst","Ham","Italian sausage","Pancetta","Porcelet loin") ~ "Pork"
+                 ,value %in% c("Filet mignon","Flank steak","Flanken short ribs","Flat iron steaks","Hangar steak","Longbone ribeye","Skirt steak","Stew meat","Strip steak","Top sirloin","Top sirloin steak","Tri-tip") ~ "Beef"
+                 ,value %in% c("Alligator","Wild partridge") ~ "Game"
+                 ,value %in% c("Arctic char","Blowfish tails","Calamari steak","Catfish","Cod","Dover sole","Halibut","Hamachi collars","Mahi mahi","Salmon","Skate","Sturgeon","Swordfish","Tilapia","Whole branzino","Whole kanpachi","Yellowfin tuna") ~ "Fish"
+                 ,value %in% c("Crab meat","Dungeness crab","Langoustine","Littleneck clams","Lobster tail","Mussels","Oysters","Razor clams","Scallops","Shrimp","Stone crab claws","Tiger prawns") ~ "Shellfish"
+                 ,value %in% c("Chapulines","Eggs","Tofu") ~ "Other"
+                 # style sub categories
+                 ,value %in% c("Caribbean","European","Greek","Italian dinner","Latin American","Mediterranean","Middle Eastern","North African") ~ "Region/country"
+                 ,value %in% c("Breakfast, lunch, and dinner","Candlelit dinner","Champagne brunch","Comfort classic","Decadent dish","Deconstructed","Destination dinner","Fast food favorite","Game day feast","Go-to takeout","Guilty pleasure","High-end lunch","Hot & cold","Hot lunch","Lunch special","One ingredient three ways","Reinvented classic","Romantic dinner","Soup & sandwich","Steakhouse dinner","Sunday brunch","Sunday supper","Weeknight dinner") ~ "Theme"
+                 ,category == "style" ~ "Style"
+               )  ) %>%
+        filter(!(is.na(value)))
 
 ## save things as RDA
 
 save(seeds, file = "data/seeds.rda")
 save(chefs, file = "data/chefs.rda")
 save(randomizer, file = "data/randomizer.rda")
+save(randomizerlongform, file = "data/randomizerlongform.rda")
 save(results, file = "data/results.rda")
 save(judges, file = "data/judges.rda")
 
@@ -168,23 +212,8 @@ save(judges, file = "data/judges.rda")
       write.csv(judges,paste0(directory,"judges.csv"),row.names=F)
       write.csv(chefs,paste0(directory,"/chefs.csv"),row.names=F)
       write.csv(randomizer,paste0(directory,"randomizer.csv"),row.names=F)
+      write.csv(randomizerlongform,paste0(directory,"randomizerlongform.csv"),row.names=F)
 
-  # Prep data for Tableau
-    randomizerlong <- randomizer %>%
-      pivot_longer(!c(season,episode,round,challenge,coast,region,time)
-                   ,names_to = "randomizer"
-                   ,values_to = "value") %>%
-      mutate(category = case_when(value %in% c("Filet mignon","Flat iron steaks"
-                                               ,"Hangar steak","Lamb loinchops"
-                                               ,"Lamb tenderloin","Longbone ribeye"
-                                         ,"Rack of lamb","Veal cutlet") ~ "protein"
-                                  ,randomizer == "randomizer1" ~ "protein"
-                                  ,randomizer == "randomizer2" ~ "produce"
-                                  ,randomizer == "randomizer3" ~ "equipment"
-                                  ,randomizer == "randomizer4" ~ "style"
-                                  ,randomizer == "randomizer5" ~ "wildcard" ) )
-    write.csv(randomizerlong
-              ,paste0(directory,"randomizer_longform.csv"),row.names=F)
 
 
 # Check for CRAN specific requirements

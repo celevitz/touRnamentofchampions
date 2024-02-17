@@ -122,6 +122,32 @@ randomizer
 </details>
 <details>
 <summary>
+<strong>Randomizer (long form)</strong>
+</summary>
+### Randomizer (long form)
+A dataset containing information about each challenge: protein, vegetables, equipment, style, time. However, it's in "long form" so each challenge shows up multiple times. It categorizes the randomizer ingredients into categories and subcategories.
+
+The unique identifiers of this dataset are `season`-`episode`-`round`-`challenge`-`randomizer`. 
+
+- `season`: Season number
+- `episode`: Episode number
+- `round`: Stage of the tournament: Qualifier semi-final, Qualifier final, Round of 32, Round of 16, Quarterfinals, Semifinals, Final
+- `challenge`: Variable to help distinguish challenges within the same Coast & Round
+- `coast`: East or West
+- `region`: The region depends on how many chefs start the competition. If there are 16 chefs, then the region is left blank. If there are 32 chefs, then the regions are A or B.
+- `time`: Length of challenge. Unit is minutes
+- `randomizer`: What wheel was spun (1, 2, 3, 4, or 5)
+- `value`: What was the value/item on the randomzier wheel?
+- `category`: Categorical variable: protein,produce,equipment,style,wildcard
+- `subcategory`: Subcategories for protein (Beef, Fish, Game, Other, Pork, Poultry, Shellfish) and style (Region/country, Style, Theme)
+
+```{r Randomizer_LongForm , eval=TRUE}
+randomizerlongform 
+```
+
+</details>
+<details>
+<summary>
 <strong>Results</strong>
 </summary>
 ### Results
@@ -324,3 +350,16 @@ seeds %>% left_join(chefs) %>%
 ```
 </details>
 
+<details>
+<summary>
+<strong>Subcategories of proteins used in battles</strong>
+</summary>
+
+### Subcategories of proteins used in battles
+```{r Protein_subcategories , eval=TRUE,echo=TRUE}
+randomizerlongform %>% 
+  group_by(category,subcategory) %>% 
+  filter(category %in% c("protein")) %>% 
+  summarise(number_of_battles=n())
+```
+</details>
