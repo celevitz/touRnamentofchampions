@@ -137,6 +137,21 @@ results <- resultsraw %>%
     select(!seed)
 
 
+    ## Fix y values for semi-finals
+      results$y[results$round == "Semi-final" & results$season == 1 &
+                  results$chef %in% c("Antonia Lafaso","Amanda Freitag")] <- 11
+
+      results$y[results$round == "Semi-final" & results$season == 1 &
+                  results$chef %in% c("Brooke Williamson","Maneet Chauhan")] <- 3
+
+      results$y[results$round == "Semi-final" & results$season == 2 &
+                  results$chef %in% c("Brooke Williamson","Darnell Ferguson")] <- 11
+
+      results$y[results$round == "Semi-final" & results$season == 2 &
+                  results$chef %in% c("Jet Tila","Maneet Chauhan")] <- 3
+
+      results$y[results$round == "Semi-final" & results$season == 3 &
+                  results$chef %in% c("Jet Tila","Tobias Dorzan")] <- 14
 
 
 ## save things as RDA

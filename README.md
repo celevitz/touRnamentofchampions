@@ -16,19 +16,16 @@ and call it into your library.
 
 ``` r
 devtools::install_github("celevitz/touRnamentofchampions")
-#> DBI (1.2.1 -> 1.2.2) [CRAN]
-#> 
-#>   There is a binary version available but the source version is later:
-#>     binary source needs_compilation
-#> DBI  1.2.0  1.2.2             FALSE
 #> 
 #> ── R CMD build ─────────────────────────────────────────────────────────────────
-#> * checking for file ‘/private/var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T/Rtmp0KzG04/remotesedf287aa5ec/celevitz-touRnamentofchampions-14e4b6e/DESCRIPTION’ ... OK
-#> * preparing ‘touRnamentofchampions’:
-#> * checking DESCRIPTION meta-information ... OK
-#> * checking for LF line-endings in source and make files and shell scripts
-#> * checking for empty or unneeded directories
-#> * building ‘touRnamentofchampions_0.1.0.tar.gz’
+#>      checking for file ‘/private/var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T/RtmpXH9dQy/remotesf4e87a909dd7/celevitz-touRnamentofchampions-94f7482/DESCRIPTION’ ...  ✔  checking for file ‘/private/var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T/RtmpXH9dQy/remotesf4e87a909dd7/celevitz-touRnamentofchampions-94f7482/DESCRIPTION’
+#>   ─  preparing ‘touRnamentofchampions’:
+#>      checking DESCRIPTION meta-information ...  ✔  checking DESCRIPTION meta-information
+#>   ─  checking for LF line-endings in source and make files and shell scripts
+#>   ─  checking for empty or unneeded directories
+#>   ─  building ‘touRnamentofchampions_0.1.0.tar.gz’
+#>      
+#> 
 ```
 
 ## 3. News
@@ -177,7 +174,7 @@ randomizer
 #> 10      1       4 Quarter-final Brooke/Jet  West  <NA>   Salmon      Bitter mel…
 #> # ℹ 97 more rows
 #> # ℹ 4 more variables: randomizer3 <chr>, randomizer4 <chr>, time <dbl>,
-#> #   randomizer5 <dbl>
+#> #   randomizer5 <chr>
 ```
 
 </details>
