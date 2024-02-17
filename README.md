@@ -18,7 +18,7 @@ and call it into your library.
 devtools::install_github("celevitz/touRnamentofchampions")
 #> 
 #> ── R CMD build ─────────────────────────────────────────────────────────────────
-#>      checking for file ‘/private/var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T/RtmpiH7Q2w/remotesffef3420bfc7/celevitz-touRnamentofchampions-2284f4a/DESCRIPTION’ ...  ✔  checking for file ‘/private/var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T/RtmpiH7Q2w/remotesffef3420bfc7/celevitz-touRnamentofchampions-2284f4a/DESCRIPTION’
+#>      checking for file ‘/private/var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T/Rtmp5Riksv/remotes110ac7afae5d7/celevitz-touRnamentofchampions-5cf7bbe/DESCRIPTION’ ...  ✔  checking for file ‘/private/var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T/Rtmp5Riksv/remotes110ac7afae5d7/celevitz-touRnamentofchampions-5cf7bbe/DESCRIPTION’
 #>   ─  preparing ‘touRnamentofchampions’:
 #>      checking DESCRIPTION meta-information ...  ✔  checking DESCRIPTION meta-information
 #>   ─  checking for LF line-endings in source and make files and shell scripts
@@ -77,7 +77,7 @@ The unique identifiers of this dataset are `chef`-`season`.
 
 ``` r
 seeds 
-#> # A tibble: 122 × 5
+#> # A tibble: 150 × 5
 #>    chef               season  seed coast region
 #>    <chr>               <dbl> <dbl> <chr> <chr> 
 #>  1 Alex Guarnaschelli      1     1 East  <NA>  
@@ -90,7 +90,7 @@ seeds
 #>  8 Darnell Ferguson        1     8 East  <NA>  
 #>  9 Antonia Lofaso          1     1 West  <NA>  
 #> 10 Michael Voltaggio       1     2 West  <NA>  
-#> # ℹ 112 more rows
+#> # ℹ 140 more rows
 ```
 
 </details>
@@ -111,7 +111,7 @@ The unique identifier of this dataset is `chef`.
 
 ``` r
 chefs 
-#> # A tibble: 69 × 4
+#> # A tibble: 71 × 4
 #>    chef               nickname         handedness   gender
 #>    <chr>              <chr>            <chr>        <chr> 
 #>  1 Aaron May          <NA>             <NA>         male  
@@ -124,7 +124,7 @@ chefs
 #>  8 Beau MacMillan     Beau Mac         Right-handed male  
 #>  9 Bobby Marcotte     <NA>             <NA>         male  
 #> 10 Brian Malarkey     <NA>             Left-handed  male  
-#> # ℹ 59 more rows
+#> # ℹ 61 more rows
 ```
 
 </details>
@@ -175,6 +175,59 @@ randomizer
 #> # ℹ 97 more rows
 #> # ℹ 4 more variables: randomizer3 <chr>, randomizer4 <chr>, time <dbl>,
 #> #   randomizer5 <chr>
+```
+
+</details>
+<details>
+<summary>
+<strong>Randomizer (long form)</strong>
+</summary>
+
+### Randomizer (long form)
+
+A dataset containing information about each challenge: protein,
+vegetables, equipment, style, time. However, it’s in “long form” so each
+challenge shows up multiple times. It categorizes the randomizer
+ingredients into categories and subcategories.
+
+The unique identifiers of this dataset are
+`season`-`episode`-`round`-`challenge`-`randomizer`.
+
+- `season`: Season number
+- `episode`: Episode number
+- `round`: Stage of the tournament: Qualifier semi-final, Qualifier
+  final, Round of 32, Round of 16, Quarterfinals, Semifinals, Final
+- `challenge`: Variable to help distinguish challenges within the same
+  Coast & Round
+- `coast`: East or West
+- `region`: The region depends on how many chefs start the competition.
+  If there are 16 chefs, then the region is left blank. If there are 32
+  chefs, then the regions are A or B.
+- `time`: Length of challenge. Unit is minutes
+- `randomizer`: What wheel was spun (1, 2, 3, 4, or 5)
+- `value`: What was the value/item on the randomzier wheel?
+- `category`: Categorical variable:
+  protein,produce,equipment,style,wildcard
+- `subcategory`: Subcategories for protein (Beef, Fish, Game, Other,
+  Pork, Poultry, Shellfish) and style (Region/country, Style, Theme)
+
+``` r
+randomizerlongform 
+#> # A tibble: 460 × 11
+#>    season episode round   challenge coast region  time randomizer value category
+#>     <dbl>   <dbl> <chr>   <chr>     <chr> <chr>  <dbl> <chr>      <chr> <chr>   
+#>  1      1       1 Round … Alex/Dar… East  <NA>      35 randomize… Pork… protein 
+#>  2      1       1 Round … Alex/Dar… East  <NA>      35 randomize… Peas  produce 
+#>  3      1       1 Round … Alex/Dar… East  <NA>      35 randomize… Waff… equipme…
+#>  4      1       1 Round … Alex/Dar… East  <NA>      35 randomize… Glaz… style   
+#>  5      1       2 Round … Amanda/E… East  <NA>      40 randomize… Pork… protein 
+#>  6      1       2 Round … Amanda/E… East  <NA>      40 randomize… Squa… produce 
+#>  7      1       2 Round … Amanda/E… East  <NA>      40 randomize… Fren… equipme…
+#>  8      1       2 Round … Amanda/E… East  <NA>      40 randomize… Sour  style   
+#>  9      1       3 Round … Maneet/R… East  <NA>      35 randomize… Chic… protein 
+#> 10      1       3 Round … Maneet/R… East  <NA>      35 randomize… Kale  produce 
+#> # ℹ 450 more rows
+#> # ℹ 1 more variable: subcategory <chr>
 ```
 
 </details>
@@ -311,6 +364,34 @@ seeds %>% left_join(chefs) %>%
 #> 2      2      8    14
 #> 3      3     13    19
 #> 4      4     15    17
+```
+
+</details>
+<details>
+<summary>
+<strong>Subcategories of proteins used in battles</strong>
+</summary>
+
+### Subcategories of proteins used in battles
+
+``` r
+randomizerlongform %>% 
+  group_by(category,subcategory) %>% 
+  filter(category %in% c("protein")) %>% 
+  summarise(number_of_battles=n())
+#> `summarise()` has grouped output by 'category'. You can override using the
+#> `.groups` argument.
+#> # A tibble: 7 × 3
+#> # Groups:   category [1]
+#>   category subcategory number_of_battles
+#>   <chr>    <chr>                   <int>
+#> 1 protein  Beef                       18
+#> 2 protein  Fish                       21
+#> 3 protein  Game                       20
+#> 4 protein  Other                       4
+#> 5 protein  Pork                       20
+#> 6 protein  Poultry                    19
+#> 7 protein  Shellfish                  13
 ```
 
 </details>
