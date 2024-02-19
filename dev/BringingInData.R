@@ -187,7 +187,7 @@ results <- resultsraw %>%
                  ,value %in% c("Bacon","Bratwurst","Ham","Italian sausage","Pancetta","Porcelet loin") ~ "Pork"
                  ,value %in% c("Filet mignon","Flank steak","Flanken short ribs","Flat iron steaks","Hangar steak","Longbone ribeye","Skirt steak","Stew meat","Strip steak","Top sirloin","Top sirloin steak","Tri-tip") ~ "Beef"
                  ,value %in% c("Alligator","Wild partridge") ~ "Game"
-                 ,value %in% c("Arctic char","Blowfish tails","Calamari steak","Catfish","Cod","Dover sole","Halibut","Hamachi collars","Mahi mahi","Salmon","Skate","Sturgeon","Swordfish","Tilapia","Whole branzino","Whole kanpachi","Yellowfin tuna") ~ "Fish"
+                 ,value %in% c("Arctic char","Blowfish tails","Calamari steak","Calamari tubes & tentacles","Canned sardines","Catfish","Cod","Dover sole","Halibut","Hamachi collars","Mahi mahi","Salmon","Skate","Sturgeon","Swordfish","Tilapia","Whole branzino","Whole kanpachi","Yellowfin tuna") ~ "Fish"
                  ,value %in% c("Crab meat","Dungeness crab","Langoustine","Littleneck clams","Lobster tail","Mussels","Oysters","Razor clams","Scallops","Shrimp","Stone crab claws","Tiger prawns") ~ "Shellfish"
                  ,value %in% c("Chapulines","Eggs","Tofu") ~ "Other"
                  # style sub categories
