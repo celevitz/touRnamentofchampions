@@ -16,16 +16,18 @@ and call it into your library.
 
 ``` r
 devtools::install_github("celevitz/touRnamentofchampions")
+#> callr   (3.7.3 -> 3.7.5) [CRAN]
+#> ggplot2 (3.4.4 -> 3.5.0) [CRAN]
 #> 
+#> The downloaded binary packages are in
+#>  /var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T//Rtmpnye5Eu/downloaded_packages
 #> ── R CMD build ─────────────────────────────────────────────────────────────────
-#>      checking for file ‘/private/var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T/Rtmp5Riksv/remotes110ac7afae5d7/celevitz-touRnamentofchampions-5cf7bbe/DESCRIPTION’ ...  ✔  checking for file ‘/private/var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T/Rtmp5Riksv/remotes110ac7afae5d7/celevitz-touRnamentofchampions-5cf7bbe/DESCRIPTION’
-#>   ─  preparing ‘touRnamentofchampions’:
-#>      checking DESCRIPTION meta-information ...  ✔  checking DESCRIPTION meta-information
-#>   ─  checking for LF line-endings in source and make files and shell scripts
-#>   ─  checking for empty or unneeded directories
-#>   ─  building ‘touRnamentofchampions_0.1.0.tar.gz’
-#>      
-#> 
+#> * checking for file ‘/private/var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T/Rtmpnye5Eu/remotesac633556a470/celevitz-touRnamentofchampions-4c9fc55/DESCRIPTION’ ... OK
+#> * preparing ‘touRnamentofchampions’:
+#> * checking DESCRIPTION meta-information ... OK
+#> * checking for LF line-endings in source and make files and shell scripts
+#> * checking for empty or unneeded directories
+#> * building ‘touRnamentofchampions_0.1.0.tar.gz’
 ```
 
 ## 3. News
@@ -77,7 +79,7 @@ The unique identifiers of this dataset are `chef`-`season`.
 
 ``` r
 seeds 
-#> # A tibble: 150 × 5
+#> # A tibble: 146 × 5
 #>    chef               season  seed coast region
 #>    <chr>               <dbl> <dbl> <chr> <chr> 
 #>  1 Alex Guarnaschelli      1     1 East  <NA>  
@@ -90,7 +92,7 @@ seeds
 #>  8 Darnell Ferguson        1     8 East  <NA>  
 #>  9 Antonia Lofaso          1     1 West  <NA>  
 #> 10 Michael Voltaggio       1     2 West  <NA>  
-#> # ℹ 140 more rows
+#> # ℹ 136 more rows
 ```
 
 </details>
@@ -123,7 +125,7 @@ chefs
 #>  7 Antonia Lofaso     Warrior Princess Right-handed female
 #>  8 Beau MacMillan     Beau Mac         Right-handed male  
 #>  9 Bobby Marcotte     <NA>             <NA>         male  
-#> 10 Brian Malarkey     <NA>             Left-handed  male  
+#> 10 Brian Malarkey     Shenanigans      Left-handed  male  
 #> # ℹ 61 more rows
 ```
 
@@ -159,20 +161,20 @@ scores and so had a rematch in the Quarter-finals (episodes 6 and 7).
 
 ``` r
 randomizer 
-#> # A tibble: 107 × 12
+#> # A tibble: 123 × 12
 #>    season episode round         challenge   coast region randomizer1 randomizer2
 #>     <dbl>   <dbl> <chr>         <chr>       <chr> <chr>  <chr>       <chr>      
 #>  1      1       1 Round of 16   Alex/Darne… East  <NA>   Pork tende… Peas       
-#>  2      1       2 Round of 16   Amanda/Eli… East  <NA>   Pork blade… Squash     
-#>  3      1       3 Round of 16   Maneet/Roc… East  <NA>   Chicken th… Kale       
-#>  4      1       2 Round of 16   Christian/… East  <NA>   Shrimp      Carrots    
-#>  5      1       1 Round of 16   Antonia/Ma… West  <NA>   Cod         Avocado    
-#>  6      1       2 Round of 16   Beau/Richa… West  <NA>   Ground lamb Broccoli   
-#>  7      1       1 Round of 16   Eric/Jet    West  <NA>   Top sirloin Mushrooms  
+#>  2      1       1 Round of 16   Antonia/Ma… West  <NA>   Cod         Avocado    
+#>  3      1       1 Round of 16   Eric/Jet    West  <NA>   Top sirloin Mushrooms  
+#>  4      1       2 Round of 16   Amanda/Eli… East  <NA>   Pork blade… Squash     
+#>  5      1       2 Round of 16   Beau/Richa… West  <NA>   Ground lamb Broccoli   
+#>  6      1       2 Round of 16   Christian/… East  <NA>   Shrimp      Carrots    
+#>  7      1       3 Quarter-final Antonia/Be… West  <NA>   Quail       Bok choy   
 #>  8      1       3 Round of 16   Brooke/Mic… West  <NA>   Chicken br… Radish     
-#>  9      1       3 Quarter-final Antonia/Be… West  <NA>   Quail       Bok choy   
-#> 10      1       4 Quarter-final Brooke/Jet  West  <NA>   Salmon      Bitter mel…
-#> # ℹ 97 more rows
+#>  9      1       3 Round of 16   Maneet/Roc… East  <NA>   Chicken th… Kale       
+#> 10      1       4 Quarter-final Amanda/Dar… East  <NA>   Rack of la… Nopales    
+#> # ℹ 113 more rows
 #> # ℹ 4 more variables: randomizer3 <chr>, randomizer4 <chr>, time <dbl>,
 #> #   randomizer5 <chr>
 ```
@@ -213,20 +215,20 @@ The unique identifiers of this dataset are
 
 ``` r
 randomizerlongform 
-#> # A tibble: 460 × 11
+#> # A tibble: 500 × 11
 #>    season episode round   challenge coast region  time randomizer value category
 #>     <dbl>   <dbl> <chr>   <chr>     <chr> <chr>  <dbl> <chr>      <chr> <chr>   
 #>  1      1       1 Round … Alex/Dar… East  <NA>      35 randomize… Pork… protein 
 #>  2      1       1 Round … Alex/Dar… East  <NA>      35 randomize… Peas  produce 
 #>  3      1       1 Round … Alex/Dar… East  <NA>      35 randomize… Waff… equipme…
 #>  4      1       1 Round … Alex/Dar… East  <NA>      35 randomize… Glaz… style   
-#>  5      1       2 Round … Amanda/E… East  <NA>      40 randomize… Pork… protein 
-#>  6      1       2 Round … Amanda/E… East  <NA>      40 randomize… Squa… produce 
-#>  7      1       2 Round … Amanda/E… East  <NA>      40 randomize… Fren… equipme…
-#>  8      1       2 Round … Amanda/E… East  <NA>      40 randomize… Sour  style   
-#>  9      1       3 Round … Maneet/R… East  <NA>      35 randomize… Chic… protein 
-#> 10      1       3 Round … Maneet/R… East  <NA>      35 randomize… Kale  produce 
-#> # ℹ 450 more rows
+#>  5      1       1 Round … Antonia/… West  <NA>      30 randomize… Cod   protein 
+#>  6      1       1 Round … Antonia/… West  <NA>      30 randomize… Avoc… produce 
+#>  7      1       1 Round … Antonia/… West  <NA>      30 randomize… Micr… equipme…
+#>  8      1       1 Round … Antonia/… West  <NA>      30 randomize… Sweet style   
+#>  9      1       1 Round … Eric/Jet  West  <NA>      35 randomize… Top … protein 
+#> 10      1       1 Round … Eric/Jet  West  <NA>      35 randomize… Mush… produce 
+#> # ℹ 490 more rows
 #> # ℹ 1 more variable: subcategory <chr>
 ```
 
@@ -269,21 +271,21 @@ The unique identifiers of this dataset are
 
 ``` r
 results 
-#> # A tibble: 222 × 16
-#> # Groups:   season, episode, round, challenge, winner [212]
+#> # A tibble: 254 × 16
+#> # Groups:   season, episode, round, challenge, winner [236]
 #>    season episode round       challenge     coast region chef  commentator order
 #>     <dbl>   <dbl> <chr>       <chr>         <chr> <chr>  <chr> <chr>       <chr>
 #>  1      1       1 Round of 16 Alex/Darnell  East  <NA>   Darn… Justin War… Pres…
 #>  2      1       1 Round of 16 Alex/Darnell  East  <NA>   Alex… Simon Maju… Pres…
-#>  3      1       2 Round of 16 Amanda/Eliza… East  <NA>   Eliz… Justin War… Pres…
-#>  4      1       2 Round of 16 Amanda/Eliza… East  <NA>   Aman… Simon Maju… Pres…
-#>  5      1       3 Round of 16 Maneet/Rocco  East  <NA>   Mane… Simon Maju… Pres…
-#>  6      1       3 Round of 16 Maneet/Rocco  East  <NA>   Rocc… Justin War… Pres…
-#>  7      1       2 Round of 16 Christian/Ma… East  <NA>   Chri… Justin War… Pres…
-#>  8      1       2 Round of 16 Christian/Ma… East  <NA>   Marc… Simon Maju… Pres…
-#>  9      1       1 Round of 16 Antonia/Marc… West  <NA>   Marc… Simon Maju… Pres…
-#> 10      1       1 Round of 16 Antonia/Marc… West  <NA>   Anto… Justin War… Pres…
-#> # ℹ 212 more rows
+#>  3      1       1 Round of 16 Antonia/Marc… West  <NA>   Marc… Simon Maju… Pres…
+#>  4      1       1 Round of 16 Antonia/Marc… West  <NA>   Anto… Justin War… Pres…
+#>  5      1       1 Round of 16 Eric/Jet      West  <NA>   Jet … Justin War… Pres…
+#>  6      1       1 Round of 16 Eric/Jet      West  <NA>   Eric… Simon Maju… Pres…
+#>  7      1       2 Round of 16 Amanda/Eliza… East  <NA>   Eliz… Justin War… Pres…
+#>  8      1       2 Round of 16 Amanda/Eliza… East  <NA>   Aman… Simon Maju… Pres…
+#>  9      1       2 Round of 16 Beau/Richard  West  <NA>   Rich… Justin War… Pres…
+#> 10      1       2 Round of 16 Beau/Richard  West  <NA>   Beau… Simon Maju… Pres…
+#> # ℹ 244 more rows
 #> # ℹ 7 more variables: score_taste <dbl>, score_randomizer <dbl>,
 #> #   score_presentation <dbl>, total <dbl>, winner <chr>, x <dbl>, y <dbl>
 ```
@@ -307,7 +309,7 @@ occasionally a judge will only judge for one round within an episode.
 
 ``` r
 judges
-#> # A tibble: 135 × 4
+#> # A tibble: 141 × 4
 #>    season episode judge             round        
 #>     <dbl>   <dbl> <chr>             <chr>        
 #>  1      1       1 Curtis Stone      Round of 16  
@@ -320,7 +322,7 @@ judges
 #>  8      1       3 Marcus Samuelsson Round of 16  
 #>  9      1       3 Ming Tsai         Round of 16  
 #> 10      1       3 Nancy Silverton   Quarter-final
-#> # ℹ 125 more rows
+#> # ℹ 131 more rows
 ```
 
 </details>
@@ -385,12 +387,12 @@ randomizerlongform %>%
 #> # Groups:   category [1]
 #>   category subcategory number_of_battles
 #>   <chr>    <chr>                   <int>
-#> 1 protein  Beef                       18
-#> 2 protein  Fish                       21
-#> 3 protein  Game                       20
+#> 1 protein  Beef                       19
+#> 2 protein  Fish                       23
+#> 3 protein  Game                       21
 #> 4 protein  Other                       4
-#> 5 protein  Pork                       20
-#> 6 protein  Poultry                    19
+#> 5 protein  Pork                       22
+#> 6 protein  Poultry                    21
 #> 7 protein  Shellfish                  13
 ```
 
