@@ -16,13 +16,21 @@ and call it into your library.
 
 ``` r
 devtools::install_github("celevitz/touRnamentofchampions")
-#> callr   (3.7.3 -> 3.7.5) [CRAN]
-#> ggplot2 (3.4.4 -> 3.5.0) [CRAN]
+#> curl       (5.2.0  -> 5.2.1 ) [CRAN]
+#> callr      (3.7.3  -> 3.7.5 ) [CRAN]
+#> data.table (1.15.0 -> 1.15.2) [CRAN]
+#> ggplot2    (3.4.4  -> 3.5.0 ) [CRAN]
+#> 
+#>   There are binary versions available but the source versions are later:
+#>            binary source needs_compilation
+#> curl        5.2.0  5.2.1              TRUE
+#> data.table 1.15.0 1.15.2              TRUE
+#> 
 #> 
 #> The downloaded binary packages are in
-#>  /var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T//Rtmpnye5Eu/downloaded_packages
+#>  /var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T//RtmpQNVrKf/downloaded_packages
 #> ── R CMD build ─────────────────────────────────────────────────────────────────
-#> * checking for file ‘/private/var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T/Rtmpnye5Eu/remotesac633556a470/celevitz-touRnamentofchampions-4c9fc55/DESCRIPTION’ ... OK
+#> * checking for file ‘/private/var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T/RtmpQNVrKf/remotes81974f2d3261/celevitz-touRnamentofchampions-529fafd/DESCRIPTION’ ... OK
 #> * preparing ‘touRnamentofchampions’:
 #> * checking DESCRIPTION meta-information ... OK
 #> * checking for LF line-endings in source and make files and shell scripts
