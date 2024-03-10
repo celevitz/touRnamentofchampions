@@ -26,4 +26,6 @@ results %>%
          ,time,randomizer5) %>%
   group_by(season) %>%
   mutate(mintotal=min(total,na.rm=T)) %>%
+  select(season,challenge,chef,total,mintotal,randomizer1,randomizer2,randomizer3,randomizer4
+         ,time,randomizer5) %>%
   filter(total == mintotal)
