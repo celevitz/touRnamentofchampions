@@ -16,17 +16,25 @@ and call it into your library.
 
 ``` r
 devtools::install_github("celevitz/touRnamentofchampions")
+#> tidyselect  (1.2.0  -> 1.2.1 ) [CRAN]
 #> curl        (5.2.0  -> 5.2.1 ) [CRAN]
+#> digest      (0.6.34 -> 0.6.35) [CRAN]
 #> rmarkdown   (2.25   -> 2.26  ) [CRAN]
 #> callr       (3.7.3  -> 3.7.5 ) [CRAN]
 #> systemfonts (1.0.5  -> 1.0.6 ) [CRAN]
 #> data.table  (1.15.0 -> 1.15.2) [CRAN]
 #> ggplot2     (3.4.4  -> 3.5.0 ) [CRAN]
 #> 
+#>   There are binary versions available but the source versions are later:
+#>            binary source needs_compilation
+#> tidyselect  1.2.0  1.2.1              TRUE
+#> digest     0.6.34 0.6.35              TRUE
+#> 
+#> 
 #> The downloaded binary packages are in
-#>  /var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T//RtmpLtaxTi/downloaded_packages
+#>  /var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T//RtmpOmP8SV/downloaded_packages
 #> ── R CMD build ─────────────────────────────────────────────────────────────────
-#> * checking for file ‘/private/var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T/RtmpLtaxTi/remotesf19e33bfbad8/celevitz-touRnamentofchampions-662242d/DESCRIPTION’ ... OK
+#> * checking for file ‘/private/var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T/RtmpOmP8SV/remotes10a305e4387eb/celevitz-touRnamentofchampions-205e3ca/DESCRIPTION’ ... OK
 #> * preparing ‘touRnamentofchampions’:
 #> * checking DESCRIPTION meta-information ... OK
 #> * checking for LF line-endings in source and make files and shell scripts
@@ -219,7 +227,7 @@ The unique identifiers of this dataset are
 
 ``` r
 randomizerlongform 
-#> # A tibble: 520 × 11
+#> # A tibble: 540 × 11
 #>    season episode round   challenge coast region  time randomizer value category
 #>     <dbl>   <dbl> <chr>   <chr>     <chr> <chr>  <dbl> <chr>      <chr> <chr>   
 #>  1      1       1 Round … Alex/Dar… East  <NA>      35 randomize… Pork… protein 
@@ -232,7 +240,7 @@ randomizerlongform
 #>  8      1       1 Round … Antonia/… West  <NA>      30 randomize… Sweet style   
 #>  9      1       1 Round … Eric/Jet  West  <NA>      35 randomize… Top … protein 
 #> 10      1       1 Round … Eric/Jet  West  <NA>      35 randomize… Mush… produce 
-#> # ℹ 510 more rows
+#> # ℹ 530 more rows
 #> # ℹ 1 more variable: subcategory <chr>
 ```
 
@@ -276,7 +284,7 @@ The unique identifiers of this dataset are
 ``` r
 results 
 #> # A tibble: 254 × 16
-#> # Groups:   season, episode, round, challenge, winner [240]
+#> # Groups:   season, episode, round, challenge, winner [244]
 #>    season episode round       challenge     coast region chef  commentator order
 #>     <dbl>   <dbl> <chr>       <chr>         <chr> <chr>  <chr> <chr>       <chr>
 #>  1      1       1 Round of 16 Alex/Darnell  East  <NA>   Darn… Justin War… Pres…
@@ -313,7 +321,7 @@ occasionally a judge will only judge for one round within an episode.
 
 ``` r
 judges
-#> # A tibble: 144 × 4
+#> # A tibble: 147 × 4
 #>    season episode judge             round        
 #>     <dbl>   <dbl> <chr>             <chr>        
 #>  1      1       1 Curtis Stone      Round of 16  
@@ -326,7 +334,7 @@ judges
 #>  8      1       3 Marcus Samuelsson Round of 16  
 #>  9      1       3 Ming Tsai         Round of 16  
 #> 10      1       3 Nancy Silverton   Quarter-final
-#> # ℹ 134 more rows
+#> # ℹ 137 more rows
 ```
 
 </details>
@@ -387,18 +395,17 @@ randomizerlongform %>%
   summarise(number_of_battles=n())
 #> `summarise()` has grouped output by 'category'. You can override using the
 #> `.groups` argument.
-#> # A tibble: 8 × 3
+#> # A tibble: 7 × 3
 #> # Groups:   category [1]
 #>   category subcategory number_of_battles
 #>   <chr>    <chr>                   <int>
-#> 1 protein  Beef                       19
-#> 2 protein  Fish                       23
-#> 3 protein  Game                       22
+#> 1 protein  Beef                       21
+#> 2 protein  Fish                       25
+#> 3 protein  Game                       23
 #> 4 protein  Other                       4
 #> 5 protein  Pork                       22
 #> 6 protein  Poultry                    22
 #> 7 protein  Shellfish                  14
-#> 8 protein  <NA>                        1
 ```
 
 </details>
