@@ -195,7 +195,10 @@ results <- resultsraw %>%
                  # wildcard subcategories
                  ,value %in% c("Black garlic","Canned carrots","Canned green beans","Canned mushroom","Green grapes","Habanero") ~ "Produce"
                  ,value %in% c("Camel milk","Graham crackers","Instant coffee","Pepper jelly","Sourkraut","Steel-cut oats","Star pasta","Strawberry jam","Wildcard ingredient: camel milk") ~ "Other"
-               )  ) %>%
+               )
+               # update the category based on value
+               ,category = ifelse(category == "produce" & subcategory != "Produce","protein",category)
+               ) %>%
         filter(!(is.na(value)))
 
 ## save things as RDA
