@@ -158,11 +158,7 @@ results <- resultsraw %>%
         pivot_longer(!c(season,episode,round,challenge,coast,region,time)
                      ,names_to = "randomizer"
                      ,values_to = "value") %>%
-        mutate(category = case_when(value %in% c("Filet mignon","Flat iron steaks"
-                                                 ,"Hangar steak","Lamb loinchops"
-                                                 ,"Lamb tenderloin","Longbone ribeye"
-                                                 ,"Rack of lamb","Veal cutlet") ~ "protein"
-                                    ,randomizer == "randomizer1" ~ "protein"
+        mutate(category = case_when(randomizer == "randomizer1" ~ "protein"
                                     ,randomizer == "randomizer2" ~ "produce"
                                     ,randomizer == "randomizer3" ~ "equipment"
                                     ,randomizer == "randomizer4" ~ "style"
@@ -184,16 +180,21 @@ results <- resultsraw %>%
                  ,grepl("duck",tolower(value)) ~ "Poultry"
                  ,grepl("turkey",tolower(value)) ~ "Poultry"
                  ,grepl("pork",tolower(value)) ~ "Pork"
-                 ,value %in% c("Bacon","Bratwurst","Ham","Italian sausage","Pancetta","Porcelet loin") ~ "Pork"
-                 ,value %in% c("Filet mignon","Flank steak","Flanken short ribs","Flat iron steaks","Hangar steak","Longbone ribeye","Skirt steak","Stew meat","Strip steak","Top sirloin","Top sirloin steak","Tri-tip") ~ "Beef"
+                 ,value %in% c("Bacon","Bratwurst","Ham","Italian sausage","Pancetta","Porcelet loin","Scrapple") ~ "Pork"
+                 ,value %in% c("Filet mignon","Flank steak","Flanken short ribs","Flat iron steaks","Hangar steak","Longbone ribeye","Skirt steak","Stew meat","Strip steak","Top round steak","Top sirloin","Top sirloin steak","Tri-tip") ~ "Beef"
                  ,value %in% c("Alligator","Wild partridge") ~ "Game"
-                 ,value %in% c("Arctic char","Blowfish tails","Calamari steak","Calamari tubes & tentacles","Canned sardines","Catfish","Cod","Dover sole","Halibut","Hamachi collars","Mahi mahi","Salmon","Skate","Sturgeon","Swordfish","Tilapia","Whole branzino","Whole kanpachi","Yellowfin tuna") ~ "Fish"
+                 ,value %in% c("Arctic char","Blowfish tails","Calamari steak","Calamari tubes & tentacles","Canned sardines","Catfish","Cod","Dover sole","Halibut","Hamachi collars","Mahi mahi","Rockfish","Salmon","Skate","Sturgeon","Swordfish","Tilapia","Whole branzino","Whole kanpachi","Yellowfin tuna") ~ "Fish"
                  ,value %in% c("Crab meat","Dungeness crab","Langoustine","Littleneck clams","Lobster tail","Mussels","Oysters","Razor clams","Scallops","Shrimp","Stone crab claws","Tiger prawns") ~ "Shellfish"
-                 ,value %in% c("Chapulines","Eggs","Tofu") ~ "Other"
+                 ,value %in% c("Chapulines","Eggs","Tempeh","Tofu") ~ "Other"
                  # style sub categories
                  ,value %in% c("Caribbean","European","Greek","Italian dinner","Latin American","Mediterranean","Middle Eastern","North African") ~ "Region/country"
                  ,value %in% c("Breakfast, lunch, and dinner","Candlelit dinner","Champagne brunch","Comfort classic","Decadent dish","Deconstructed","Destination dinner","Fast food favorite","Game day feast","Go-to takeout","Guilty pleasure","High-end lunch","Hot & cold","Hot lunch","Lunch special","One ingredient three ways","Reinvented classic","Romantic dinner","Soup & sandwich","Steakhouse dinner","Sunday brunch","Sunday supper","Weeknight dinner") ~ "Theme"
                  ,category == "style" ~ "Style"
+                 ,category == "produce" ~ "Produce"
+                 ,category == "equipment" ~ "Equipment"
+                 # wildcard subcategories
+                 ,value %in% c("Black garlic","Canned carrots","Canned green beans","Canned mushroom","Green grapes","Habanero") ~ "Produce"
+                 ,value %in% c("Camel milk","Graham crackers","Instant coffee","Pepper jelly","Sourkraut","Steel-cut oats","Star pasta","Strawberry jam","Wildcard ingredient: camel milk") ~ "Other"
                )  ) %>%
         filter(!(is.na(value)))
 
