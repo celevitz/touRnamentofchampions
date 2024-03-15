@@ -23,18 +23,13 @@ devtools::install_github("celevitz/touRnamentofchampions")
 #> callr       (3.7.3  -> 3.7.5 ) [CRAN]
 #> systemfonts (1.0.5  -> 1.0.6 ) [CRAN]
 #> data.table  (1.15.0 -> 1.15.2) [CRAN]
+#> ragg        (1.2.7  -> 1.3.0 ) [CRAN]
 #> ggplot2     (3.4.4  -> 3.5.0 ) [CRAN]
 #> 
-#>   There are binary versions available but the source versions are later:
-#>            binary source needs_compilation
-#> tidyselect  1.2.0  1.2.1              TRUE
-#> digest     0.6.34 0.6.35              TRUE
-#> 
-#> 
 #> The downloaded binary packages are in
-#>  /var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T//RtmpOmP8SV/downloaded_packages
+#>  /var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T//Rtmp3vpVA9/downloaded_packages
 #> ── R CMD build ─────────────────────────────────────────────────────────────────
-#> * checking for file ‘/private/var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T/RtmpOmP8SV/remotes10a305e4387eb/celevitz-touRnamentofchampions-205e3ca/DESCRIPTION’ ... OK
+#> * checking for file ‘/private/var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T/Rtmp3vpVA9/remotes1451a712fd24/celevitz-touRnamentofchampions-837759a/DESCRIPTION’ ... OK
 #> * preparing ‘touRnamentofchampions’:
 #> * checking DESCRIPTION meta-information ... OK
 #> * checking for LF line-endings in source and make files and shell scripts
