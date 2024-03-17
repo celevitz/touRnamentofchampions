@@ -19,6 +19,9 @@ devtools::install_github("celevitz/touRnamentofchampions")
 #> tidyselect  (1.2.0  -> 1.2.1 ) [CRAN]
 #> curl        (5.2.0  -> 5.2.1 ) [CRAN]
 #> digest      (0.6.34 -> 0.6.35) [CRAN]
+#> sass        (0.4.8  -> 0.4.9 ) [CRAN]
+#> tinytex     (0.49   -> 0.50  ) [CRAN]
+#> processx    (3.8.3  -> 3.8.4 ) [CRAN]
 #> rmarkdown   (2.25   -> 2.26  ) [CRAN]
 #> callr       (3.7.3  -> 3.7.5 ) [CRAN]
 #> systemfonts (1.0.5  -> 1.0.6 ) [CRAN]
@@ -27,9 +30,9 @@ devtools::install_github("celevitz/touRnamentofchampions")
 #> ggplot2     (3.4.4  -> 3.5.0 ) [CRAN]
 #> 
 #> The downloaded binary packages are in
-#>  /var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T//Rtmp3vpVA9/downloaded_packages
+#>  /var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T//RtmplCd9ab/downloaded_packages
 #> ── R CMD build ─────────────────────────────────────────────────────────────────
-#> * checking for file ‘/private/var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T/Rtmp3vpVA9/remotes1451a712fd24/celevitz-touRnamentofchampions-837759a/DESCRIPTION’ ... OK
+#> * checking for file ‘/private/var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T/RtmplCd9ab/remotes15b3b2ff19f19/celevitz-touRnamentofchampions-be8c2b6/DESCRIPTION’ ... OK
 #> * preparing ‘touRnamentofchampions’:
 #> * checking DESCRIPTION meta-information ... OK
 #> * checking for LF line-endings in source and make files and shell scripts
