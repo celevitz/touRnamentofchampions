@@ -30,9 +30,9 @@ devtools::install_github("celevitz/touRnamentofchampions")
 #> ggplot2     (3.4.4  -> 3.5.0 ) [CRAN]
 #> 
 #> The downloaded binary packages are in
-#>  /var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T//RtmplCd9ab/downloaded_packages
+#>  /var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T//RtmpegA9m4/downloaded_packages
 #> ── R CMD build ─────────────────────────────────────────────────────────────────
-#> * checking for file ‘/private/var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T/RtmplCd9ab/remotes15b3b2ff19f19/celevitz-touRnamentofchampions-be8c2b6/DESCRIPTION’ ... OK
+#> * checking for file ‘/private/var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T/RtmpegA9m4/remotes16e98d72c5f3/celevitz-touRnamentofchampions-46dde58/DESCRIPTION’ ... OK
 #> * preparing ‘touRnamentofchampions’:
 #> * checking DESCRIPTION meta-information ... OK
 #> * checking for LF line-endings in source and make files and shell scripts
@@ -171,7 +171,7 @@ scores and so had a rematch in the Quarter-finals (episodes 6 and 7).
 
 ``` r
 randomizer 
-#> # A tibble: 123 × 12
+#> # A tibble: 131 × 12
 #>    season episode round         challenge   coast region randomizer1 randomizer2
 #>     <dbl>   <dbl> <chr>         <chr>       <chr> <chr>  <chr>       <chr>      
 #>  1      1       1 Round of 16   Alex/Darne… East  <NA>   Pork tende… Peas       
@@ -184,7 +184,7 @@ randomizer
 #>  8      1       3 Round of 16   Brooke/Mic… West  <NA>   Chicken br… Radish     
 #>  9      1       3 Round of 16   Maneet/Roc… East  <NA>   Chicken th… Kale       
 #> 10      1       4 Quarter-final Amanda/Dar… East  <NA>   Rack of la… Nopales    
-#> # ℹ 113 more rows
+#> # ℹ 121 more rows
 #> # ℹ 4 more variables: randomizer3 <chr>, randomizer4 <chr>, time <dbl>,
 #> #   randomizer5 <chr>
 ```
@@ -281,8 +281,8 @@ The unique identifiers of this dataset are
 
 ``` r
 results 
-#> # A tibble: 254 × 16
-#> # Groups:   season, episode, round, challenge, winner [244]
+#> # A tibble: 270 × 16
+#> # Groups:   season, episode, round, challenge, winner [252]
 #>    season episode round       challenge     coast region chef  commentator order
 #>     <dbl>   <dbl> <chr>       <chr>         <chr> <chr>  <chr> <chr>       <chr>
 #>  1      1       1 Round of 16 Alex/Darnell  East  <NA>   Darn… Justin War… Pres…
@@ -295,7 +295,7 @@ results
 #>  8      1       2 Round of 16 Amanda/Eliza… East  <NA>   Aman… Simon Maju… Pres…
 #>  9      1       2 Round of 16 Beau/Richard  West  <NA>   Rich… Justin War… Pres…
 #> 10      1       2 Round of 16 Beau/Richard  West  <NA>   Beau… Simon Maju… Pres…
-#> # ℹ 244 more rows
+#> # ℹ 260 more rows
 #> # ℹ 7 more variables: score_taste <dbl>, score_randomizer <dbl>,
 #> #   score_presentation <dbl>, total <dbl>, winner <chr>, x <dbl>, y <dbl>
 ```
