@@ -9,6 +9,7 @@ results <- touRnamentofchampions::results
 judges <- touRnamentofchampions::judges
 chefs <- touRnamentofchampions::chefs
 randomizer <- touRnamentofchampions::randomizer
+randomizerlong <- touRnamentofchampions::randomizerlongform
 
 ## Differentials by round: total scores
   reshaperesults <- results %>%
@@ -65,4 +66,58 @@ randomizer <- touRnamentofchampions::randomizer
       ,source_notes.font.size = 10,
     ) %>%
     opt_all_caps()
+
+
+
+################################################
+## Repeat chefs: who has commentated for them?
+
+  results <- touRnamentofchampions::results
+
+  results %>%
+    filter(!(is.na(total))) %>%
+    group_by(chef,commentator) %>%
+    mutate(commentator=case_when(commentator == "Hunter Fieri" ~ "Hunter"
+                                 ,commentator == "Simon Majumdar" ~ "Simon"
+                                 ,commentator == "Justin Warner" ~ "Justin")) %>%
+    summarise(n=n()) %>%
+    pivot_wider(names_from=commentator,values_from=n) %>%
+    mutate(Hunter = ifelse(is.na(Hunter),0,Hunter)
+           ,Justin = ifelse(is.na(Justin),0,Justin)
+           ,Simon = ifelse(is.na(Simon),0,Simon)
+      ,totalbattles=Hunter+Justin+Simon) %>%
+    arrange(desc(totalbattles)) %>%
+    filter(totalbattles >=10) %>%
+    mutate(percentsimon=Simon/totalbattles
+           ,percentjustin=Justin/totalbattles)
+
+
+###############################################################################
+## Sweet 16: most common proteins
+  randomizerlong %>%
+    filter(category == "protein") %>%
+    filter(round == "Round of 16") %>%
+    group_by(value) %>%
+    summarise(n=n()) %>%
+    arrange(desc(n))
+
+  randomizerlong %>%
+    filter(category == "produce") %>%
+    filter(round == "Round of 16") %>%
+    group_by(value) %>%
+    summarise(n=n()) %>%
+    arrange(desc(n))
+
+  randomizerlong %>%
+    filter(category == "style") %>%
+    #filter(round == "Round of 16") %>%
+    group_by(value) %>%
+    summarise(n=n()) %>%
+    arrange(desc(n))
+
+randomizerlongform %>%
+  group_by(value) %>%
+  summarise(n=n()) %>%
+  filter(n>3) %>%
+  arrange(desc(n))
 

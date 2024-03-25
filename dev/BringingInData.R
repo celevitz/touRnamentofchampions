@@ -58,10 +58,15 @@ results <- resultsraw %>%
     ) %>%
   # Antonia/Jet was a true tie, that was then rematched
   # Aarthi/Karen was tied in total score & taste, so went to randomizer score
+  # Carlos/Jet total tied, Jet won in taste
   mutate(winner = case_when(season == 2 & challenge == "Aarthi/Karen" &
                               chef == "Aarthi Sampath" ~ "Winner"
                             ,season == 2 & challenge == "Aarthi/Karen" &
                               chef == "Karen Akunowicz" ~ "Loser"
+                            ,season == 5 & challenge == "Carlos/Jet" &
+                              chef == "Jet Tila" ~ "Winner"
+                            ,season == 5 & challenge == "Carlos/Jet" &
+                              chef == "Carlos Anthony" ~ "Loser"
                             ,TRUE ~ winner)) %>%
   select(!c(highesttotal,highesttaste,highestpresentation,highestrandomizer,id,multipleresults))
 
