@@ -121,3 +121,31 @@ randomizerlongform %>%
   filter(n>3) %>%
   arrange(desc(n))
 
+
+
+## Elite 8
+
+results %>%
+  ungroup() %>%
+  filter(chef %in% c("Antonia Lofaso","Kevin Lee","Mei Lin","Jet Tila"
+                      ,"Maneet Chauhan","Tobias Dorzon","Britt Rescigno"
+                      ,"Amanda Freitag") &
+           round == "Quarter-final") %>%
+  select(season,chef) %>%
+  distinct() %>%
+  group_by(chef) %>%
+  summarise(n=n())
+
+results %>%
+  ungroup() %>%
+  filter(chef %in% c("Antonia Lofaso","Kevin Lee","Mei Lin","Jet Tila"
+                     ,"Maneet Chauhan","Tobias Dorzon","Britt Rescigno"
+                     ,"Amanda Freitag") &
+           season == 5 &
+           round %in% c("Round of 32","Round of 16")) %>%
+  group_by(chef) %>%
+  distinct() %>%
+  summarise(avg=mean(total,na.rm=T))
+
+
+
