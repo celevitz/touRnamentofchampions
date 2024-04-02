@@ -150,13 +150,22 @@ results %>%
 
 #####################
 ## Average total score for when a judge is present
-  results %>%
+  judgeaverages <- results %>%
   ungroup() %>%
-  select(season,episode,round,challenge,chef,total) %>%
   left_join(judges %>%
-              select(!gender))
+              select(!gender) %>%
+              group_by(judge) %>%
+              mutate(n=n()) %>%
+              filter(n>1)
+              ,relationship="many-to-many") %>%
+  group_by(judge) %>%
+  summarise(
+    mean=mean(total,na.rm=T)
+    ,median=median(total,na.rm=T)) %>%
+  filter(!(is.na(judge))) %>%
+  arrange(desc(mean))
 
-
+judgeaverages %>% arrange(desc(median))
 
 
 
