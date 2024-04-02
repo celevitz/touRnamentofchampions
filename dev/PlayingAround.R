@@ -148,4 +148,16 @@ results %>%
   summarise(avg=mean(total,na.rm=T))
 
 
+#####################
+## Average total score for when a judge is present
+  results %>%
+  ungroup() %>%
+  select(season,episode,round,challenge,chef,total) %>%
+  left_join(judges %>%
+              select(!gender))
+
+
+
+
+
 

@@ -34,7 +34,8 @@ judges <- as_tibble(read.xlsx(paste(directory,"TOC.xlsx",sep=""),sheet=6))
 
 ## for now, remove flag for whether the judge is a person of color
 judges <- judges %>%
-  select(!personOfColor)
+  select(!personOfColor) %>%
+  distinct
 
 ## Add variable to results for the winner
 results <- resultsraw %>%
@@ -208,6 +209,13 @@ results <- resultsraw %>%
                ) %>%
         filter(!(is.na(value)))
 
+## remove grouping variables because it was causing problems for me in analysis
+      seeds <- seeds %>% ungroup()
+      chefs <- chefs %>% ungroup()
+      randomizer <- randomizer %>% ungroup()
+      randomizerlongform <- randomizerlongform %>% ungroup()
+      results <- results %>% ungroup()
+      judges <- judges %>% ungroup()
 ## save things as RDA
 
 save(seeds, file = "data/seeds.rda")
