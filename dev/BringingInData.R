@@ -32,7 +32,9 @@ randomizer <- as_tibble(read.xlsx(paste(directory,"TOC.xlsx",sep=""),sheet=4))
 resultsraw <- as_tibble(read.xlsx(paste(directory,"TOC.xlsx",sep=""),sheet=5))
 judges <- as_tibble(read.xlsx(paste(directory,"TOC.xlsx",sep=""),sheet=6))
 
-
+## for now, remove flag for whether the judge is a person of color
+judges <- judges %>%
+  select(!personOfColor)
 
 ## Add variable to results for the winner
 results <- resultsraw %>%
@@ -187,8 +189,8 @@ results <- resultsraw %>%
                  ,grepl("pork",tolower(value)) ~ "Pork"
                  ,value %in% c("Bacon","Bratwurst","Double-cut pork chops","Ham","Italian sausage","Pancetta","Porcelet loin","Scrapple") ~ "Pork"
                  ,value %in% c("Filet mignon","Flank steak","Flanken short ribs","Flat iron steaks","Hangar steak","Longbone ribeye","Porterhouse steak","Skirt steak","Stew meat","Strip steak","Top round steak","Top sirloin","Top sirloin steak","Tri-tip") ~ "Beef"
-                 ,value %in% c("Alligator","Wild partridge") ~ "Game"
-                 ,value %in% c("Arctic char","Blowfish tails","Calamari steak","Calamari tubes & tentacles","Canned sardines","Catfish","Cod","Dover sole","Halibut","Hamachi collars","Mahi mahi","Rockfish","Salmon","Sea trout","Skate","Sturgeon","Swordfish","Tilapia","Whole branzino","Whole kanpachi","Yellowfin tuna") ~ "Fish"
+                 ,value %in% c("Alligator","Wild partridge","Guinea hen") ~ "Game"
+                 ,value %in% c("Arctic char","Blowfish tails","Calamari steak","Calamari tubes & tentacles","Canned sardines","Catfish","Cod","Dover sole","Halibut","Hamachi collars","Lingcod collar","Mahi mahi","Rockfish","Salmon","Sea trout","Skate","Sturgeon","Swordfish","Tilapia","Whole branzino","Whole kanpachi","Yellowfin tuna") ~ "Fish"
                  ,value %in% c("Crab meat","Dungeness crab","Langoustine","Littleneck clams","Lobster tail","Mussels","Oysters","Razor clams","Scallops","Shrimp","Stone crab claws","Tiger prawns") ~ "Shellfish"
                  ,value %in% c("Chapulines","Eggs","Tempeh","Tofu") ~ "Other"
                  # style sub categories

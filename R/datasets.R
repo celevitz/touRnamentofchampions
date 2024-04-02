@@ -181,6 +181,7 @@
 #'   \item{\code{season}}{Season number}
 #'   \item{\code{episode}}{Episode number}
 #'   \item{\code{judge}}{Name of guest judge}
+#'   \item{\code{gender}}{Whether the chef is male, female, or nonbinary}
 #'   \item{\code{round}}{Stage of the tournament: Qualifier semi-final, Qualifier final, Round of 32, Round of 16, Quarterfinals, Semifinals, Final}
 #' }
 #'

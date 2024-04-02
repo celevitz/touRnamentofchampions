@@ -21,23 +21,36 @@ devtools::install_github("celevitz/touRnamentofchampions")
 #> digest      (0.6.34 -> 0.6.35) [CRAN]
 #> sass        (0.4.8  -> 0.4.9 ) [CRAN]
 #> tinytex     (0.49   -> 0.50  ) [CRAN]
+#> htmltools   (0.5.7  -> 0.5.8 ) [CRAN]
+#> bslib       (0.6.1  -> 0.7.0 ) [CRAN]
+#> xfun        (0.42   -> 0.43  ) [CRAN]
 #> processx    (3.8.3  -> 3.8.4 ) [CRAN]
+#> rstudioapi  (0.15.0 -> 0.16.0) [CRAN]
 #> rmarkdown   (2.25   -> 2.26  ) [CRAN]
-#> callr       (3.7.3  -> 3.7.5 ) [CRAN]
+#> callr       (3.7.3  -> 3.7.6 ) [CRAN]
 #> systemfonts (1.0.5  -> 1.0.6 ) [CRAN]
-#> data.table  (1.15.0 -> 1.15.2) [CRAN]
+#> munsell     (0.5.0  -> 0.5.1 ) [CRAN]
+#> data.table  (1.15.0 -> 1.15.4) [CRAN]
 #> ragg        (1.2.7  -> 1.3.0 ) [CRAN]
 #> ggplot2     (3.4.4  -> 3.5.0 ) [CRAN]
+#> dbplyr      (2.4.0  -> 2.5.0 ) [CRAN]
+#> 
+#>   There is a binary version available but the source version is later:
+#>         binary source needs_compilation
+#> munsell  0.5.0  0.5.1             FALSE
+#> 
 #> 
 #> The downloaded binary packages are in
-#>  /var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T//RtmpegA9m4/downloaded_packages
+#>  /var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T//Rtmp9g8deh/downloaded_packages
 #> ── R CMD build ─────────────────────────────────────────────────────────────────
-#> * checking for file ‘/private/var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T/RtmpegA9m4/remotes16e98d72c5f3/celevitz-touRnamentofchampions-46dde58/DESCRIPTION’ ... OK
-#> * preparing ‘touRnamentofchampions’:
-#> * checking DESCRIPTION meta-information ... OK
-#> * checking for LF line-endings in source and make files and shell scripts
-#> * checking for empty or unneeded directories
-#> * building ‘touRnamentofchampions_0.1.0.tar.gz’
+#>      checking for file ‘/private/var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T/Rtmp9g8deh/remotes769b2c1b90b0/celevitz-touRnamentofchampions-844e37f/DESCRIPTION’ ...  ✔  checking for file ‘/private/var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T/Rtmp9g8deh/remotes769b2c1b90b0/celevitz-touRnamentofchampions-844e37f/DESCRIPTION’
+#>   ─  preparing ‘touRnamentofchampions’:
+#>    checking DESCRIPTION meta-information ...  ✔  checking DESCRIPTION meta-information
+#>   ─  checking for LF line-endings in source and make files and shell scripts
+#>   ─  checking for empty or unneeded directories
+#>   ─  building ‘touRnamentofchampions_0.1.0.tar.gz’
+#>      
+#> 
 ```
 
 ## 3. News
@@ -225,7 +238,7 @@ The unique identifiers of this dataset are
 
 ``` r
 randomizerlongform 
-#> # A tibble: 540 × 11
+#> # A tibble: 580 × 11
 #>    season episode round   challenge coast region  time randomizer value category
 #>     <dbl>   <dbl> <chr>   <chr>     <chr> <chr>  <dbl> <chr>      <chr> <chr>   
 #>  1      1       1 Round … Alex/Dar… East  <NA>      35 randomize… Pork… protein 
@@ -238,7 +251,7 @@ randomizerlongform
 #>  8      1       1 Round … Antonia/… West  <NA>      30 randomize… Sweet style   
 #>  9      1       1 Round … Eric/Jet  West  <NA>      35 randomize… Top … protein 
 #> 10      1       1 Round … Eric/Jet  West  <NA>      35 randomize… Mush… produce 
-#> # ℹ 530 more rows
+#> # ℹ 570 more rows
 #> # ℹ 1 more variable: subcategory <chr>
 ```
 
@@ -281,8 +294,8 @@ The unique identifiers of this dataset are
 
 ``` r
 results 
-#> # A tibble: 270 × 16
-#> # Groups:   season, episode, round, challenge, winner [252]
+#> # A tibble: 278 × 16
+#> # Groups:   season, episode, round, challenge, winner [264]
 #>    season episode round       challenge     coast region chef  commentator order
 #>     <dbl>   <dbl> <chr>       <chr>         <chr> <chr>  <chr> <chr>       <chr>
 #>  1      1       1 Round of 16 Alex/Darnell  East  <NA>   Darn… Justin War… Pres…
@@ -295,7 +308,7 @@ results
 #>  8      1       2 Round of 16 Amanda/Eliza… East  <NA>   Aman… Simon Maju… Pres…
 #>  9      1       2 Round of 16 Beau/Richard  West  <NA>   Rich… Justin War… Pres…
 #> 10      1       2 Round of 16 Beau/Richard  West  <NA>   Beau… Simon Maju… Pres…
-#> # ℹ 260 more rows
+#> # ℹ 268 more rows
 #> # ℹ 7 more variables: score_taste <dbl>, score_randomizer <dbl>,
 #> #   score_presentation <dbl>, total <dbl>, winner <chr>, x <dbl>, y <dbl>
 ```
@@ -314,12 +327,13 @@ occasionally a judge will only judge for one round within an episode.
 - `season`: Season number
 - `episode`: Episode number
 - `judge`: Name of guest judge
+- `gender`: Gender of guest judge
 - `round`: Stage of the tournament: Qualifier semi-final, Qualifier
   final, Round of 32, Round of 16, Quarterfinals, Semifinals, Final
 
 ``` r
 judges
-#> # A tibble: 147 × 4
+#> # A tibble: 153 × 4
 #>    season episode judge             round        
 #>     <dbl>   <dbl> <chr>             <chr>        
 #>  1      1       1 Curtis Stone      Round of 16  
@@ -332,7 +346,7 @@ judges
 #>  8      1       3 Marcus Samuelsson Round of 16  
 #>  9      1       3 Ming Tsai         Round of 16  
 #> 10      1       3 Nancy Silverton   Quarter-final
-#> # ℹ 137 more rows
+#> # ℹ 143 more rows
 ```
 
 </details>
@@ -393,17 +407,18 @@ randomizerlongform %>%
   summarise(number_of_battles=n())
 #> `summarise()` has grouped output by 'category'. You can override using the
 #> `.groups` argument.
-#> # A tibble: 7 × 3
+#> # A tibble: 8 × 3
 #> # Groups:   category [1]
 #>   category subcategory number_of_battles
 #>   <chr>    <chr>                   <int>
-#> 1 protein  Beef                       21
-#> 2 protein  Fish                       25
+#> 1 protein  Beef                       22
+#> 2 protein  Fish                       26
 #> 3 protein  Game                       23
 #> 4 protein  Other                       4
-#> 5 protein  Pork                       22
-#> 6 protein  Poultry                    22
-#> 7 protein  Shellfish                  14
+#> 5 protein  Pork                       23
+#> 6 protein  Poultry                    23
+#> 7 protein  Shellfish                  15
+#> 8 protein  <NA>                        3
 ```
 
 </details>

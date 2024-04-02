@@ -188,6 +188,7 @@ The unique identifier is `season`-`episode`-`round`, because occasionally a judg
 -   `season`: Season number
 -   `episode`: Episode number
 -   `judge`: Name of guest judge
+-   `gender`: Gender of guest judge
 -   `round`: Stage of the tournament: Qualifier semi-final, Qualifier final, Round of 32, Round of 16, Quarterfinals, Semifinals, Final
 
 ```{r Judges_table , eval=TRUE}
