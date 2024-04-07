@@ -153,19 +153,54 @@ results %>%
   judgeaverages <- results %>%
   ungroup() %>%
   left_join(judges %>%
-              select(!gender) %>%
+              select(!c(gender,round)) %>%
+              distinct() %>%
               group_by(judge) %>%
               mutate(n=n()) %>%
               filter(n>1)
               ,relationship="many-to-many") %>%
   group_by(judge) %>%
-  summarise(
+  mutate(
     mean=mean(total,na.rm=T)
     ,median=median(total,na.rm=T)) %>%
+  select(judge,n,mean,median) %>%
+  distinct() %>%
   filter(!(is.na(judge))) %>%
   arrange(desc(mean))
 
 judgeaverages %>% arrange(desc(median))
+
+#############################################
+## total score for the final four each season
+
+  finalfour <- results %>%
+    filter(round == "Semi-final") %>%
+    select(season,chef) %>%
+    mutate(finalfourflag = 1)
+
+
+  results %>%
+    left_join(finalfour) %>%
+    filter(finalfourflag == 1 |
+             (chef %in% c("Jet Tila","Antonia Lofaso","Maneet Chauhan","Britt Rescigno") & season == 5) ) %>%
+    filter(round %in% c("Round of 32","Round of 16","Quarter-final")) %>%
+    group_by(season,round,chef) %>%
+    summarise(total=mean(total,na.rm=T)) %>%
+    pivot_wider(names_from = round,values_from = total) %>%
+    arrange(chef,season) %>%
+    filter(chef %in% c("Jet Tila","Antonia Lofaso","Maneet Chauhan","Britt Rescigno"))
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
