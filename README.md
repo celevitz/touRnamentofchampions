@@ -16,36 +16,20 @@ and call it into your library.
 
 ``` r
 devtools::install_github("celevitz/touRnamentofchampions")
-#> tidyselect  (1.2.0  -> 1.2.1 ) [CRAN]
-#> curl        (5.2.0  -> 5.2.1 ) [CRAN]
-#> digest      (0.6.34 -> 0.6.35) [CRAN]
-#> sass        (0.4.8  -> 0.4.9 ) [CRAN]
-#> tinytex     (0.49   -> 0.50  ) [CRAN]
-#> htmltools   (0.5.7  -> 0.5.8 ) [CRAN]
-#> bslib       (0.6.1  -> 0.7.0 ) [CRAN]
-#> xfun        (0.42   -> 0.43  ) [CRAN]
-#> processx    (3.8.3  -> 3.8.4 ) [CRAN]
-#> rstudioapi  (0.15.0 -> 0.16.0) [CRAN]
-#> rmarkdown   (2.25   -> 2.26  ) [CRAN]
-#> callr       (3.7.3  -> 3.7.6 ) [CRAN]
-#> systemfonts (1.0.5  -> 1.0.6 ) [CRAN]
-#> munsell     (0.5.0  -> 0.5.1 ) [CRAN]
-#> data.table  (1.15.0 -> 1.15.4) [CRAN]
-#> ragg        (1.2.7  -> 1.3.0 ) [CRAN]
-#> ggplot2     (3.4.4  -> 3.5.0 ) [CRAN]
-#> dbplyr      (2.4.0  -> 2.5.0 ) [CRAN]
+#> htmltools (0.5.8 -> 0.5.8.1) [CRAN]
+#> knitr     (1.45  -> 1.46   ) [CRAN]
 #> 
 #>   There is a binary version available but the source version is later:
-#>         binary source needs_compilation
-#> munsell  0.5.0  0.5.1             FALSE
+#>       binary source needs_compilation
+#> knitr   1.45   1.46             FALSE
 #> 
 #> 
 #> The downloaded binary packages are in
-#>  /var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T//Rtmp9g8deh/downloaded_packages
+#>  /var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T//RtmpcAtusj/downloaded_packages
 #> ── R CMD build ─────────────────────────────────────────────────────────────────
-#>      checking for file ‘/private/var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T/Rtmp9g8deh/remotes769b2c1b90b0/celevitz-touRnamentofchampions-844e37f/DESCRIPTION’ ...  ✔  checking for file ‘/private/var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T/Rtmp9g8deh/remotes769b2c1b90b0/celevitz-touRnamentofchampions-844e37f/DESCRIPTION’
+#>      checking for file ‘/private/var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T/RtmpcAtusj/remotese14b7da2d3b/celevitz-touRnamentofchampions-4f25069/DESCRIPTION’ ...  ✔  checking for file ‘/private/var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T/RtmpcAtusj/remotese14b7da2d3b/celevitz-touRnamentofchampions-4f25069/DESCRIPTION’
 #>   ─  preparing ‘touRnamentofchampions’:
-#>    checking DESCRIPTION meta-information ...  ✔  checking DESCRIPTION meta-information
+#>   ✔  checking DESCRIPTION meta-information
 #>   ─  checking for LF line-endings in source and make files and shell scripts
 #>   ─  checking for empty or unneeded directories
 #>   ─  building ‘touRnamentofchampions_0.1.0.tar.gz’
@@ -184,7 +168,7 @@ scores and so had a rematch in the Quarter-finals (episodes 6 and 7).
 
 ``` r
 randomizer 
-#> # A tibble: 131 × 12
+#> # A tibble: 137 × 12
 #>    season episode round         challenge   coast region randomizer1 randomizer2
 #>     <dbl>   <dbl> <chr>         <chr>       <chr> <chr>  <chr>       <chr>      
 #>  1      1       1 Round of 16   Alex/Darne… East  <NA>   Pork tende… Peas       
@@ -197,7 +181,7 @@ randomizer
 #>  8      1       3 Round of 16   Brooke/Mic… West  <NA>   Chicken br… Radish     
 #>  9      1       3 Round of 16   Maneet/Roc… East  <NA>   Chicken th… Kale       
 #> 10      1       4 Quarter-final Amanda/Dar… East  <NA>   Rack of la… Nopales    
-#> # ℹ 121 more rows
+#> # ℹ 127 more rows
 #> # ℹ 4 more variables: randomizer3 <chr>, randomizer4 <chr>, time <dbl>,
 #> #   randomizer5 <chr>
 ```
@@ -238,7 +222,7 @@ The unique identifiers of this dataset are
 
 ``` r
 randomizerlongform 
-#> # A tibble: 580 × 11
+#> # A tibble: 600 × 11
 #>    season episode round   challenge coast region  time randomizer value category
 #>     <dbl>   <dbl> <chr>   <chr>     <chr> <chr>  <dbl> <chr>      <chr> <chr>   
 #>  1      1       1 Round … Alex/Dar… East  <NA>      35 randomize… Pork… protein 
@@ -251,7 +235,7 @@ randomizerlongform
 #>  8      1       1 Round … Antonia/… West  <NA>      30 randomize… Sweet style   
 #>  9      1       1 Round … Eric/Jet  West  <NA>      35 randomize… Top … protein 
 #> 10      1       1 Round … Eric/Jet  West  <NA>      35 randomize… Mush… produce 
-#> # ℹ 570 more rows
+#> # ℹ 590 more rows
 #> # ℹ 1 more variable: subcategory <chr>
 ```
 
@@ -294,8 +278,7 @@ The unique identifiers of this dataset are
 
 ``` r
 results 
-#> # A tibble: 278 × 16
-#> # Groups:   season, episode, round, challenge, winner [264]
+#> # A tibble: 282 × 16
 #>    season episode round       challenge     coast region chef  commentator order
 #>     <dbl>   <dbl> <chr>       <chr>         <chr> <chr>  <chr> <chr>       <chr>
 #>  1      1       1 Round of 16 Alex/Darnell  East  <NA>   Darn… Justin War… Pres…
@@ -308,7 +291,7 @@ results
 #>  8      1       2 Round of 16 Amanda/Eliza… East  <NA>   Aman… Simon Maju… Pres…
 #>  9      1       2 Round of 16 Beau/Richard  West  <NA>   Rich… Justin War… Pres…
 #> 10      1       2 Round of 16 Beau/Richard  West  <NA>   Beau… Simon Maju… Pres…
-#> # ℹ 268 more rows
+#> # ℹ 272 more rows
 #> # ℹ 7 more variables: score_taste <dbl>, score_randomizer <dbl>,
 #> #   score_presentation <dbl>, total <dbl>, winner <chr>, x <dbl>, y <dbl>
 ```
@@ -333,20 +316,20 @@ occasionally a judge will only judge for one round within an episode.
 
 ``` r
 judges
-#> # A tibble: 153 × 4
-#>    season episode judge             round        
-#>     <dbl>   <dbl> <chr>             <chr>        
-#>  1      1       1 Curtis Stone      Round of 16  
-#>  2      1       1 Marcus Samuelsson Round of 16  
-#>  3      1       1 Nancy Silverton   Round of 16  
-#>  4      1       2 Marcus Samuelsson Round of 16  
-#>  5      1       2 Ming Tsai         Round of 16  
-#>  6      1       2 Nancy Silverton   Round of 16  
-#>  7      1       3 Nancy Silverton   Round of 16  
-#>  8      1       3 Marcus Samuelsson Round of 16  
-#>  9      1       3 Ming Tsai         Round of 16  
-#> 10      1       3 Nancy Silverton   Quarter-final
-#> # ℹ 143 more rows
+#> # A tibble: 155 × 5
+#>    season episode judge             gender round        
+#>     <dbl>   <dbl> <chr>             <chr>  <chr>        
+#>  1      1       1 Curtis Stone      male   Round of 16  
+#>  2      1       1 Marcus Samuelsson male   Round of 16  
+#>  3      1       1 Nancy Silverton   female Round of 16  
+#>  4      1       2 Marcus Samuelsson male   Round of 16  
+#>  5      1       2 Ming Tsai         male   Round of 16  
+#>  6      1       2 Nancy Silverton   female Round of 16  
+#>  7      1       3 Marcus Samuelsson male   Round of 16  
+#>  8      1       3 Marcus Samuelsson male   Quarter-final
+#>  9      1       3 Ming Tsai         male   Round of 16  
+#> 10      1       3 Ming Tsai         male   Quarter-final
+#> # ℹ 145 more rows
 ```
 
 </details>
@@ -412,10 +395,10 @@ randomizerlongform %>%
 #>   category subcategory number_of_battles
 #>   <chr>    <chr>                   <int>
 #> 1 protein  Beef                       22
-#> 2 protein  Fish                       26
-#> 3 protein  Game                       23
+#> 2 protein  Fish                       27
+#> 3 protein  Game                       25
 #> 4 protein  Other                       4
-#> 5 protein  Pork                       23
+#> 5 protein  Pork                       24
 #> 6 protein  Poultry                    23
 #> 7 protein  Shellfish                  15
 #> 8 protein  <NA>                        3
