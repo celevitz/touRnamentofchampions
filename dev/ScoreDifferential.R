@@ -187,4 +187,23 @@ table <- table %>%
   arrange(round)
 table
 
+## Biggest score differentials in season 5 by round
+season5diff <- touRnamentofchampions::results %>%
+  filter(season == 5 & !(grepl("Qualifier",round))) %>%
+  # to get the difference for each battle;
+  # drop the information that is chef specific; just keep the things that are constant for a battle
+  select(!c(chef,commentator,order,x,y,coast,region) ) %>%
+  # need to reshape the data to do that
+  #pivot_wider(names_from="winner"
+  #            ,values_from = c("score_taste","score_randomizer","score_presentation","total"))
+
+#{data} |>
+  dplyr::summarise(n = dplyr::n()
+                   , .by = c(season, episode, round, challenge, winner)) |>
+  dplyr::filter(n > 1L)
+
+
+
+
+
 
