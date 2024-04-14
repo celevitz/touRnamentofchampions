@@ -109,10 +109,10 @@ bumpdata %>%
         ,axis.text.y=element_blank()
         ,legend.text = element_text()
         ,legend.title = element_text() ) +
-  scale_color_manual(values=c("#c85200", "#A3ACB9","#a3cce9","#1170AA")
+  scale_color_manual(values=c("#c85200", "#A3ACB9","#a3cce9","#1170AA","green")
                      ,name="Score",labels=sort(unique(bumpdata$sizeofdot)))+
-  scale_shape_manual(values=c(20,16,19,21),name="Score",labels=sort(unique(bumpdata$sizeofdot))) +
-  scale_size_manual(values=c(2,3,4,5),name="Score",labels=sort(unique(bumpdata$sizeofdot)) )+
+  scale_shape_manual(values=c(20,16,19,21,11),name="Score",labels=sort(unique(bumpdata$sizeofdot))) +
+  scale_size_manual(values=c(2,3,4,5,8),name="Score",labels=sort(unique(bumpdata$sizeofdot)) )+
   labs(title="Tournament of Champions V: Winners and scores by round"
        ,subtitle="Winners of each round outlined in black circles"
        ,caption="Data: github.com/celevitz/touRnamentofchampions /// Twitter @carlylevitz")

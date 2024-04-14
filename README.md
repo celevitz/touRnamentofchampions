@@ -16,20 +16,11 @@ and call it into your library.
 
 ``` r
 devtools::install_github("celevitz/touRnamentofchampions")
-#> htmltools (0.5.8 -> 0.5.8.1) [CRAN]
-#> knitr     (1.45  -> 1.46   ) [CRAN]
 #> 
-#>   There is a binary version available but the source version is later:
-#>       binary source needs_compilation
-#> knitr   1.45   1.46             FALSE
-#> 
-#> 
-#> The downloaded binary packages are in
-#>  /var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T//RtmpcAtusj/downloaded_packages
 #> ── R CMD build ─────────────────────────────────────────────────────────────────
-#>      checking for file ‘/private/var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T/RtmpcAtusj/remotese14b7da2d3b/celevitz-touRnamentofchampions-4f25069/DESCRIPTION’ ...  ✔  checking for file ‘/private/var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T/RtmpcAtusj/remotese14b7da2d3b/celevitz-touRnamentofchampions-4f25069/DESCRIPTION’
+#>      checking for file ‘/private/var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T/RtmpbnzOZC/remotesf655780272fb/celevitz-touRnamentofchampions-064ad80/DESCRIPTION’ ...  ✔  checking for file ‘/private/var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T/RtmpbnzOZC/remotesf655780272fb/celevitz-touRnamentofchampions-064ad80/DESCRIPTION’
 #>   ─  preparing ‘touRnamentofchampions’:
-#>   ✔  checking DESCRIPTION meta-information
+#>      checking DESCRIPTION meta-information ...  ✔  checking DESCRIPTION meta-information
 #>   ─  checking for LF line-endings in source and make files and shell scripts
 #>   ─  checking for empty or unneeded directories
 #>   ─  building ‘touRnamentofchampions_0.1.0.tar.gz’
@@ -168,7 +159,7 @@ scores and so had a rematch in the Quarter-finals (episodes 6 and 7).
 
 ``` r
 randomizer 
-#> # A tibble: 137 × 12
+#> # A tibble: 138 × 12
 #>    season episode round         challenge   coast region randomizer1 randomizer2
 #>     <dbl>   <dbl> <chr>         <chr>       <chr> <chr>  <chr>       <chr>      
 #>  1      1       1 Round of 16   Alex/Darne… East  <NA>   Pork tende… Peas       
@@ -181,7 +172,7 @@ randomizer
 #>  8      1       3 Round of 16   Brooke/Mic… West  <NA>   Chicken br… Radish     
 #>  9      1       3 Round of 16   Maneet/Roc… East  <NA>   Chicken th… Kale       
 #> 10      1       4 Quarter-final Amanda/Dar… East  <NA>   Rack of la… Nopales    
-#> # ℹ 127 more rows
+#> # ℹ 128 more rows
 #> # ℹ 4 more variables: randomizer3 <chr>, randomizer4 <chr>, time <dbl>,
 #> #   randomizer5 <chr>
 ```
@@ -222,7 +213,7 @@ The unique identifiers of this dataset are
 
 ``` r
 randomizerlongform 
-#> # A tibble: 600 × 11
+#> # A tibble: 615 × 11
 #>    season episode round   challenge coast region  time randomizer value category
 #>     <dbl>   <dbl> <chr>   <chr>     <chr> <chr>  <dbl> <chr>      <chr> <chr>   
 #>  1      1       1 Round … Alex/Dar… East  <NA>      35 randomize… Pork… protein 
@@ -235,7 +226,7 @@ randomizerlongform
 #>  8      1       1 Round … Antonia/… West  <NA>      30 randomize… Sweet style   
 #>  9      1       1 Round … Eric/Jet  West  <NA>      35 randomize… Top … protein 
 #> 10      1       1 Round … Eric/Jet  West  <NA>      35 randomize… Mush… produce 
-#> # ℹ 590 more rows
+#> # ℹ 605 more rows
 #> # ℹ 1 more variable: subcategory <chr>
 ```
 
@@ -278,7 +269,7 @@ The unique identifiers of this dataset are
 
 ``` r
 results 
-#> # A tibble: 282 × 16
+#> # A tibble: 284 × 16
 #>    season episode round       challenge     coast region chef  commentator order
 #>     <dbl>   <dbl> <chr>       <chr>         <chr> <chr>  <chr> <chr>       <chr>
 #>  1      1       1 Round of 16 Alex/Darnell  East  <NA>   Darn… Justin War… Pres…
@@ -291,7 +282,7 @@ results
 #>  8      1       2 Round of 16 Amanda/Eliza… East  <NA>   Aman… Simon Maju… Pres…
 #>  9      1       2 Round of 16 Beau/Richard  West  <NA>   Rich… Justin War… Pres…
 #> 10      1       2 Round of 16 Beau/Richard  West  <NA>   Beau… Simon Maju… Pres…
-#> # ℹ 272 more rows
+#> # ℹ 274 more rows
 #> # ℹ 7 more variables: score_taste <dbl>, score_randomizer <dbl>,
 #> #   score_presentation <dbl>, total <dbl>, winner <chr>, x <dbl>, y <dbl>
 ```
@@ -316,7 +307,7 @@ occasionally a judge will only judge for one round within an episode.
 
 ``` r
 judges
-#> # A tibble: 155 × 5
+#> # A tibble: 165 × 5
 #>    season episode judge             gender round        
 #>     <dbl>   <dbl> <chr>             <chr>  <chr>        
 #>  1      1       1 Curtis Stone      male   Round of 16  
@@ -329,7 +320,7 @@ judges
 #>  8      1       3 Marcus Samuelsson male   Quarter-final
 #>  9      1       3 Ming Tsai         male   Round of 16  
 #> 10      1       3 Ming Tsai         male   Quarter-final
-#> # ℹ 145 more rows
+#> # ℹ 155 more rows
 ```
 
 </details>
@@ -395,8 +386,8 @@ randomizerlongform %>%
 #>   category subcategory number_of_battles
 #>   <chr>    <chr>                   <int>
 #> 1 protein  Beef                       22
-#> 2 protein  Fish                       27
-#> 3 protein  Game                       25
+#> 2 protein  Fish                       28
+#> 3 protein  Game                       27
 #> 4 protein  Other                       4
 #> 5 protein  Pork                       24
 #> 6 protein  Poultry                    23
