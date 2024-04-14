@@ -1,7 +1,10 @@
 library(tidyverse)
-library(touRnamentofchampions)
+#library(touRnamentofchampions)
 library(ggbump)
 library(ggplot2)
+library(devtools)
+
+devtools::install_github("celevitz/touRnamentofchampions")
 
 rm(list=ls())
 
@@ -10,36 +13,20 @@ rm(list=ls())
 season5bracket <- touRnamentofchampions::results %>%
   filter(season == 5) %>%
   left_join(touRnamentofchampions::seeds) %>%
-  select(!season) %>%
-  # for now, don't include qualifier semi-final cuz it's complicated
-  filter(!(round %in% c("Qualifier semi-final"))) %>%
-  mutate(y=case_when(round == "Final" & chef %in% c("Jet Tila","Britt Rescigno") ~ 14
-                     ,round == "Final" & chef %in% c("Antonia Lofaso","Maneet Chauhan") ~ 16
-                     ,TRUE ~ y))
+  select(!season)
 
 ## Bump chart data
-bumpdata <- season5bracket %>% select(round,chef,total,seed,coast,challenge,y,winner) %>%
+bumpdata <- season5bracket %>% select(round,chef,total,seed,coast,challenge,x,y,winner) %>%
   mutate(challengelong=case_when(round %in% c("Qualifier semi-final"
                                               ,"Qualifier final","Round of 32"
                                               ,"Round of 16","Quarter-final") ~ paste(round,coast,challenge,sep="_"),
                                  round %in% c("Semi-final") & grepl("East",coast) ~"Semi-final_East",
                                  round %in% c("Semi-final") & grepl("West",coast) ~"Semi-final_West",
                                  round %in% c("Final") ~ round)
-         ,x=case_when(round=="Round of 32" & grepl("East",coast) ~ 100
-                      ,round=="Round of 32" & grepl("West",coast) ~ 0
-                      ,round=="Round of 16" & grepl("East",coast) ~ 85
-                      ,round=="Round of 16" & grepl("West",coast) ~ 15
-                      ,round=="Quarter-final" & grepl("East",coast) ~ 70
-                      ,round=="Quarter-final" & grepl("West",coast) ~ 30
-                      ,round=="Semi-final" & grepl("East",coast) ~ 60
-                      ,round=="Semi-final" & grepl("West",coast) ~ 40
-                      ,round== "Qualifier final" & grepl("East",coast) ~ 115
-                      ,round== "Qualifier final" & grepl("West",coast) ~ -15
-                      ,round== "Qualifier semi-final" & grepl("East",coast) ~ 130
-                      ,round== "Qualifier semi-final" & grepl("West",coast) ~ -30
-                      ,round=="Final"  ~ 50)
          ,alignment=case_when(grepl("East",coast) & round=="Qualifier semi-final"~ 0
+                              ,grepl("East",coast) & round=="Round of 32"~ 0
                               ,grepl("West",coast) & round=="Qualifier semi-final"~ 1
+                              ,grepl("West",coast) & round=="Round of 32"~ 1
                               ,TRUE ~ NA)
          #,chefseed=ifelse(grepl("East",coast),paste(chef," (",seed," seed)",sep=""),paste("(",seed," seed) ",chef,sep=""))
   ) %>%
@@ -49,7 +36,6 @@ bumpdata <- season5bracket %>% select(round,chef,total,seed,coast,challenge,y,wi
                              ,total >= 85 & total <90 ~ "85 to 89"
                              ,total >= 90 & !(is.na(total)) ~ "90+")
          ,cheflabelx=ifelse(grepl("East",coast),x+5,x-5)
-         #,w=strwidth(chef,'inches')+0.05,h=strheight(chef,'inches') + 0.5
   ) %>%
   ungroup() %>%
   group_by(sizeofdot) %>%
@@ -60,16 +46,15 @@ bumpdata <- season5bracket %>% select(round,chef,total,seed,coast,challenge,y,wi
 verticaldata <- bumpdata %>%
   select(challengelong,y) %>%
   arrange(challengelong)%>%
+  group_by(challengelong) %>%
   distinct() %>%
+  mutate(miny=min(y),maxy=max(y)) %>%
+  filter(y == maxy | y == miny) %>%
   ungroup()
 
 verticaldata <- verticaldata %>%
   mutate(yindic=ifelse(as.numeric(row.names(verticaldata)) %% 2 == 0,"Y2","Y1")) %>%
   pivot_wider(names_from="yindic",values_from="y") %>%
-  mutate(Y1=case_when(challengelong == "Final"~16
-                      ,challengelong=="Semi-final_West"~18
-                      ,challengelong=="Semi-final_East"~18
-                      ,TRUE~Y1)) %>%
   left_join(bumpdata %>% select(challengelong,x,coast) %>% distinct()) %>%
   mutate(X2=x)
 
@@ -85,20 +70,32 @@ bumpdata %>%
   geom_point(data=bumpdata,aes(x=x,y=y,color=sizeofdot,size=sizeofdot,shape=sizeofdot),fill="#1170AA" )+
   geom_point(data=bumpdata %>% filter(winner=="Winner"),
              aes(x=x,y=y),shape=21,color="#57606c",fill="transparent",size=7) +
-  annotate("text",x=bumpdata$cheflabelx[bumpdata$round == "Round of 32"],y=bumpdata$y[bumpdata$round == "Round of 32"]
-           ,label=bumpdata$chef[bumpdata$round == "Round of 32"]
-           ,hjust=bumpdata$alignment[bumpdata$round == "Round of 32"]
+  annotate("text",x=bumpdata$cheflabelx[bumpdata$round == "Round of 32" & bumpdata$seed < 8]
+           ,y=bumpdata$y[bumpdata$round == "Round of 32" & bumpdata$seed < 8]
+           ,label=bumpdata$chef[bumpdata$round == "Round of 32" & bumpdata$seed < 8]
+           ,hjust=bumpdata$alignment[bumpdata$round == "Round of 32" & bumpdata$seed < 8]
            ,size=2.5) +
-  annotate("text",x=bumpdata$cheflabelx[bumpdata$round == "Round of 32"],y=bumpdata$y[bumpdata$round == "Round of 32"]-.7
-           ,label=paste(bumpdata$seed[bumpdata$round == "Round of 32"],"seed",sep=" ")
-           ,hjust=bumpdata$alignment[bumpdata$round == "Round of 32"]
+  annotate("text",x=bumpdata$cheflabelx[bumpdata$round == "Round of 32" & bumpdata$seed < 8]
+           ,y=bumpdata$y[bumpdata$round == "Round of 32" & bumpdata$seed < 8]-.7
+           ,label=paste(bumpdata$seed[bumpdata$round == "Round of 32" & bumpdata$seed < 8],"seed",sep=" ")
+           ,hjust=bumpdata$alignment[bumpdata$round == "Round of 32" & bumpdata$seed < 8]
            ,size=2) +
-  scale_x_continuous(limits=c(-45,140),breaks=c(-30,-15,0,15,30,40,50,60,70,85,100,115,130),
-                     labels=c("Qualifier semi-final","Qualifier final"
-                              ,"Round of 32","Round of 16","Quarter-\nfinal"
+  annotate("text",x=bumpdata$cheflabelx[bumpdata$round == "Qualifier semi-final" & bumpdata$seed >= 8]
+           ,y=bumpdata$y[bumpdata$round == "Qualifier semi-final" & bumpdata$seed >= 8]
+           ,label=bumpdata$chef[bumpdata$round == "Qualifier semi-final" & bumpdata$seed >= 8]
+           ,hjust=bumpdata$alignment[bumpdata$round == "Qualifier semi-final" & bumpdata$seed >= 8]
+           ,size=2.5) +
+  annotate("text",x=bumpdata$cheflabelx[bumpdata$round == "Qualifier semi-final" & bumpdata$seed >= 8]
+           ,y=bumpdata$y[bumpdata$round == "Qualifier semi-final" & bumpdata$seed >= 8]-.7
+           ,label=paste(bumpdata$seed[bumpdata$round == "Qualifier semi-final" & bumpdata$seed >= 8],"seed",sep=" ")
+           ,hjust=bumpdata$alignment[bumpdata$round == "Qualifier semi-final" & bumpdata$seed >= 8]
+           ,size=2) +
+  scale_x_continuous(limits=c(-90,165),breaks=c(-45,-30,0,15,30,40,50,60,70,85,100,130,145),
+                     labels=c("Qualifier\nsemi-final","Qualifier\nfinal"
+                              ,"Round\nof 32","Round\nof 16","Quarter-\nfinal"
                               ,"Semi-\nfinal","Final","Semi-\nfinal"
-                              ,"Quarter-\nfinal","Round of 16","Round of 32"
-                              ,"Qualifier final","Qualifier semi-final")) +
+                              ,"Quarter-\nfinal","Round\nof 16","Round\nof 32"
+                              ,"Qualifier\nfinal","Qualifier\nsemi-final")) +
   xlab("") + ylab("") +
   theme_minimal() +
   theme(panel.grid = element_blank()
@@ -115,4 +112,4 @@ bumpdata %>%
   scale_size_manual(values=c(2,3,4,5,8),name="Score",labels=sort(unique(bumpdata$sizeofdot)) )+
   labs(title="Tournament of Champions V: Winners and scores by round"
        ,subtitle="Winners of each round outlined in black circles"
-       ,caption="Data: github.com/celevitz/touRnamentofchampions /// Twitter @carlylevitz")
+       ,caption="Data: github.com/celevitz/touRnamentofchampions /// Twitter @carlylevitz /// IG @carly.sue.bear")
