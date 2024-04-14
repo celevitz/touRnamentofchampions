@@ -161,6 +161,19 @@ results <- resultsraw %>%
       results$y[results$round == "Semi-final" & results$season == 3 &
                   results$chef %in% c("Jet Tila","Tobias Dorzon")] <- 14
 
+      results$y[results$round == "Semi-final" & results$season == 5 &
+                  results$chef %in% c("Antonia Lofaso","Maneet Chauhan")] <- 20
+
+      results$y[results$round == "Semi-final" & results$season == 5 &
+                  results$chef %in% c("Jet Tila","Britt Rescigno")] <- 14
+
+    # fix y values for final
+      results$y[results$round == "Final" & results$season == 5 &
+                  results$chef %in% c("Antonia Lofaso")] <- 15
+
+      results$y[results$round == "Final" & results$season == 5 &
+                  results$chef %in% c("Maneet Chauhan")] <- 19
+
 ## Create long-form randomizer data
       randomizerlongform <- randomizer %>%
         pivot_longer(!c(season,episode,round,challenge,coast,region,time)
