@@ -28,8 +28,8 @@ devtools::install_github("celevitz/touRnamentofchampions")
 
 Issues to work on:
 
-- Data entry for Season 5 as it airs
 - Complete handedness and nicknames
+- Potentially add information on dish description (long-term goal)
 
 ## 4. References & Acknowledgements
 
@@ -125,7 +125,7 @@ randomizer
 <strong>Randomizer (long form)</strong>
 </summary>
 ### Randomizer (long form)
-A dataset containing information about each challenge: protein, vegetables, equipment, style, time. However, it's in "long form" so each challenge shows up multiple times. It categorizes the randomizer ingredients into categories and subcategories.
+A dataset containing information about each challenge: protein, vegetables, equipment, style, time. However, it's in "long form" so each challenge shows up multiple times. It categorizes the randomizer ingredients into categories and subcategories. If a value from one randomizer wheel better fits into another category, it has been reclassified (e.g., "Habanero" from the "wildcard" randomizer has been reclassified as "produce.")
 
 The unique identifiers of this dataset are `season`-`episode`-`round`-`challenge`-`randomizer`. 
 

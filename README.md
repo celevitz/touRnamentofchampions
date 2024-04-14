@@ -18,22 +18,20 @@ and call it into your library.
 devtools::install_github("celevitz/touRnamentofchampions")
 #> 
 #> ── R CMD build ─────────────────────────────────────────────────────────────────
-#>      checking for file ‘/private/var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T/Rtmp62c8hI/remotes1151111df2528/celevitz-touRnamentofchampions-d35719b/DESCRIPTION’ ...  ✔  checking for file ‘/private/var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T/Rtmp62c8hI/remotes1151111df2528/celevitz-touRnamentofchampions-d35719b/DESCRIPTION’
-#>   ─  preparing ‘touRnamentofchampions’:
-#>      checking DESCRIPTION meta-information ...  ✔  checking DESCRIPTION meta-information
-#>   ─  checking for LF line-endings in source and make files and shell scripts
-#>   ─  checking for empty or unneeded directories
-#>   ─  building ‘touRnamentofchampions_0.1.0.tar.gz’
-#>      
-#> 
+#> * checking for file ‘/private/var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T/RtmpGel4wB/remotes12e812d62810f/celevitz-touRnamentofchampions-f124cce/DESCRIPTION’ ... OK
+#> * preparing ‘touRnamentofchampions’:
+#> * checking DESCRIPTION meta-information ... OK
+#> * checking for LF line-endings in source and make files and shell scripts
+#> * checking for empty or unneeded directories
+#> * building ‘touRnamentofchampions_0.1.0.tar.gz’
 ```
 
 ## 3. News
 
 Issues to work on:
 
-- Data entry for Season 5 as it airs
 - Complete handedness and nicknames
+- Potentially add information on dish description (long-term goal)
 
 ## 4. References & Acknowledgements
 
@@ -188,7 +186,10 @@ randomizer
 A dataset containing information about each challenge: protein,
 vegetables, equipment, style, time. However, it’s in “long form” so each
 challenge shows up multiple times. It categorizes the randomizer
-ingredients into categories and subcategories.
+ingredients into categories and subcategories. If a value from one
+randomizer wheel better fits into another category, it has been
+reclassified (e.g., “Habanero” from the “wildcard” randomizer has been
+reclassified as “produce.”)
 
 The unique identifiers of this dataset are
 `season`-`episode`-`round`-`challenge`-`randomizer`.

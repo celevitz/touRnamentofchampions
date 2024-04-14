@@ -253,16 +253,20 @@ results <- resultsraw %>%
                  ,value %in% c("Chapulines","Eggs","Tempeh","Tofu") ~ "Other"
                  # style sub categories
                  ,value %in% c("Caribbean","European","Greek","Italian dinner","Latin American","Mediterranean","Middle Eastern","North African") ~ "Region/country"
-                 ,value %in% c("Breakfast, lunch, and dinner","Candlelit dinner","Champagne brunch","Comfort classic","Decadent dish","Deconstructed","Destination dinner","Fast food favorite","Game day feast","Go-to takeout","Guilty pleasure","High-end lunch","High-end and low-end","Hot & cold","Hot lunch","Lunch special","One ingredient three ways","Reinvented classic","Romantic dinner","Soup & sandwich","Steakhouse dinner","Sunday brunch","Sunday supper","Updated classic","Weeknight dinner") ~ "Theme"
+                 ,value %in% c("Breakfast, lunch, and dinner","Candlelit dinner","Champagne brunch","Comfort classic","Date night dinner","Decadent dish","Destination dinner","Fast food favorite","Game day feast","Go-to takeout","Guilty pleasure","High-end lunch","High-end and low-end","Hot lunch","Lunch special","New Year's Eve dinner","One ingredient three ways","Reinvented classic","Romantic dinner","Soup & sandwich","Steakhouse dinner","Sunday brunch","Sunday supper","Updated classic","Weeknight dinner") ~ "Theme"
+                 ,value %in% c("Spice grinder") ~ "Equipment"
                  ,category == "style" ~ "Style"
                  ,category == "produce" ~ "Produce"
                  ,category == "equipment" ~ "Equipment"
                  # wildcard subcategories
                  ,value %in% c("Black garlic","Canned carrots","Canned green beans","Canned mushroom","Green grapes","Habanero") ~ "Produce"
-                 ,value %in% c("Camel milk","Graham crackers","Instant coffee","Pepper jelly","Sourkraut","Steel-cut oats","Star pasta","Strawberry jam","Wildcard ingredient: camel milk") ~ "Other"
+                 ,value %in% c("Camel milk","Graham crackers","Instant coffee","Pepper jelly","Sourkraut","Steel-cut oats","Star pasta","Strawberry jam","Tapioca malodextrin","Wildcard ingredient: camel milk","Xanthan gum") ~ "Other"
+                 ,value %in% c("Two envelopes: spicy and layered") ~ "Style"
                )
                # update the category based on value
-               ,category = ifelse(category == "produce" & subcategory != "Produce","protein",category)
+               ,category = case_when(subcategory == "Produce" ~ "produce"
+                                     ,subcategory == "Equipment" ~ "equipment"
+                                  ,subcategory %in% c("Beef","Fish","Game","Pork","Poultry","Shellfish") ~ "protein")
                ) %>%
         filter(!(is.na(value)))
 
