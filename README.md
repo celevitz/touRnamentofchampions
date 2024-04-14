@@ -18,14 +18,12 @@ and call it into your library.
 devtools::install_github("celevitz/touRnamentofchampions")
 #> 
 #> ── R CMD build ─────────────────────────────────────────────────────────────────
-#>      checking for file ‘/private/var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T/RtmpbnzOZC/remotesf655780272fb/celevitz-touRnamentofchampions-064ad80/DESCRIPTION’ ...  ✔  checking for file ‘/private/var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T/RtmpbnzOZC/remotesf655780272fb/celevitz-touRnamentofchampions-064ad80/DESCRIPTION’
-#>   ─  preparing ‘touRnamentofchampions’:
-#>      checking DESCRIPTION meta-information ...  ✔  checking DESCRIPTION meta-information
-#>   ─  checking for LF line-endings in source and make files and shell scripts
-#>   ─  checking for empty or unneeded directories
-#>   ─  building ‘touRnamentofchampions_0.1.0.tar.gz’
-#>      
-#> 
+#> * checking for file ‘/private/var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T/Rtmpqb0RSj/remotes101ef2df79aa5/celevitz-touRnamentofchampions-c8c80f1/DESCRIPTION’ ... OK
+#> * preparing ‘touRnamentofchampions’:
+#> * checking DESCRIPTION meta-information ... OK
+#> * checking for LF line-endings in source and make files and shell scripts
+#> * checking for empty or unneeded directories
+#> * building ‘touRnamentofchampions_0.1.0.tar.gz’
 ```
 
 ## 3. News
