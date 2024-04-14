@@ -18,7 +18,7 @@ and call it into your library.
 devtools::install_github("celevitz/touRnamentofchampions")
 #> 
 #> ── R CMD build ─────────────────────────────────────────────────────────────────
-#> * checking for file ‘/private/var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T/RtmpGel4wB/remotes12e812d62810f/celevitz-touRnamentofchampions-f124cce/DESCRIPTION’ ... OK
+#> * checking for file ‘/private/var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T/RtmpLKs0QH/remotes1348a541b1850/celevitz-touRnamentofchampions-fdde6ea/DESCRIPTION’ ... OK
 #> * preparing ‘touRnamentofchampions’:
 #> * checking DESCRIPTION meta-information ... OK
 #> * checking for LF line-endings in source and make files and shell scripts
@@ -386,10 +386,10 @@ randomizerlongform %>%
 #>   category subcategory number_of_battles
 #>   <chr>    <chr>                   <int>
 #> 1 protein  Beef                       22
-#> 2 protein  Fish                       28
+#> 2 protein  Fish                       29
 #> 3 protein  Game                       27
 #> 4 protein  Other                       4
-#> 5 protein  Pork                       24
+#> 5 protein  Pork                       25
 #> 6 protein  Poultry                    23
 #> 7 protein  Shellfish                  15
 #> 8 protein  <NA>                        3

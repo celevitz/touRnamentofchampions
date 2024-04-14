@@ -266,6 +266,7 @@ results <- resultsraw %>%
                # update the category based on value
                ,category = case_when(subcategory == "Produce" ~ "produce"
                                      ,subcategory == "Equipment" ~ "equipment"
+                                     ,subcategory %in% c("Region/country","Style","Theme") ~ "style"
                                   ,subcategory %in% c("Beef","Fish","Game","Pork","Poultry","Shellfish") ~ "protein"
                                   ,TRUE ~ category)
                ) %>%
