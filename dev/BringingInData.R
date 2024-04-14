@@ -246,9 +246,9 @@ results <- resultsraw %>%
                  ,grepl("turkey",tolower(value)) ~ "Poultry"
                  ,grepl("pork",tolower(value)) ~ "Pork"
                  ,value %in% c("Bacon","Bratwurst","Double-cut pork chops","Ham","Italian sausage","Pancetta","Porcelet loin","Scrapple") ~ "Pork"
-                 ,value %in% c("Filet mignon","Flank steak","Flanken short ribs","Flat iron steaks","Hangar steak","Longbone ribeye","Porterhouse steak","Skirt steak","Stew meat","Strip steak","Top round steak","Top sirloin","Top sirloin steak","Tri-tip") ~ "Beef"
+                 ,value %in% c("Boneless ribeye","Filet mignon","Flank steak","Flanken short ribs","Flat iron steaks","Hangar steak","Longbone ribeye","Porterhouse steak","Skirt steak","Stew meat","Strip steak","Top round steak","Top sirloin","Top sirloin steak","Tri-tip") ~ "Beef"
                  ,value %in% c("Alligator","Wild partridge","Guinea hen") ~ "Game"
-                 ,value %in% c("Arctic char","Blowfish tails","Calamari steak","Calamari tubes & tentacles","Canned sardines","Catfish","Cod","Dover sole","Halibut","Hamachi collars","Lingcod collar","Mahi mahi","Rockfish","Salmon","Sea trout","Skate","Sturgeon","Swordfish","Tilapia","Whole branzino","Whole halibut","Whole kanpachi","Yellowfin tuna") ~ "Fish"
+                 ,value %in% c("Arctic char","Blowfish tails","Calamari steak","Calamari tubes & tentacles","Canned sardines","Catfish","Cod","Dover sole","Halibut","Halibut cheeks","Hamachi collars","Lingcod collar","Mahi mahi","Red snapper","Rockfish","Salmon","Sea trout","Skate","Sturgeon","Swordfish","Tilapia","Whole branzino","Whole halibut","Whole kanpachi","Yellowfin tuna") ~ "Fish"
                  ,value %in% c("Crab meat","Dungeness crab","Langoustine","Littleneck clams","Lobster tail","Mussels","Oysters","Razor clams","Scallops","Shrimp","Stone crab claws","Tiger prawns") ~ "Shellfish"
                  ,value %in% c("Chapulines","Eggs","Tempeh","Tofu") ~ "Other"
                  # style sub categories
