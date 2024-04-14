@@ -62,6 +62,7 @@ results <- resultsraw %>%
   # Antonia/Jet was a true tie, that was then rematched
   # Aarthi/Karen was tied in total score & taste, so went to randomizer score
   # Carlos/Jet total tied, Jet won in taste
+  # qualifier semi-finals had two winners
   mutate(winner = case_when(season == 2 & challenge == "Aarthi/Karen" &
                               chef == "Aarthi Sampath" ~ "Winner"
                             ,season == 2 & challenge == "Aarthi/Karen" &
@@ -70,6 +71,9 @@ results <- resultsraw %>%
                               chef == "Jet Tila" ~ "Winner"
                             ,season == 5 & challenge == "Carlos/Jet" &
                               chef == "Carlos Anthony" ~ "Loser"
+                            ,season == 5 & round == "Qualifier semi-final" &
+                              chef %in% c("Leah Cohen","Michael Reed"
+                                          ,"Chris Scott","Bruce Kalman") ~ "Winner"
                             ,TRUE ~ winner)) %>%
   select(!c(highesttotal,highesttaste,highestpresentation,highestrandomizer,id,multipleresults))
 
@@ -144,6 +148,46 @@ results <- resultsraw %>%
     ) %>%
     select(!seed)
 
+    ## add y values for qualifiers
+        # A region winners
+        results$y[results$round %in% c("Qualifier semi-final","Qualifier final") &
+                    results$season == 5 &
+                    results$chef %in% c("Kevin Lee","Nini Nguyen")] <- 30
+
+        # B region winners
+        results$y[results$round %in% c("Qualifier semi-final","Qualifier final") &
+                    results$season == 5 &
+                    results$chef %in% c("Michael Reed","Chris Scott")] <- 12
+
+        # A region runner-ups
+        results$y[results$round %in% c("Qualifier semi-final","Qualifier final") &
+                    results$season == 5 &
+                    results$chef %in% c("Bruce Kalman","Leah Cohen")] <- 28
+
+        # B region runner-ups
+        results$y[results$round %in% c("Qualifier semi-final","Qualifier final") &
+                    results$season == 5 &
+                    results$chef %in% c("Demetrio Zavala","Ray Garcia")] <- 10
+
+        # A region 3rd placers
+        results$y[results$round %in% c("Qualifier semi-final") &
+                    results$season == 5 &
+                    results$chef %in% c("Ilan Hall","Maria Mazon")] <- 26
+
+        # B region 3rd placers
+        results$y[results$round %in% c("Qualifier semi-final") &
+                    results$season == 5 &
+                    results$chef %in% c("Justin Sutherland","Pyet Despain")] <- 8
+
+        # A region last place
+        results$y[results$round %in% c("Qualifier semi-final") &
+                    results$season == 5 &
+                    results$chef %in% c("Gerald Sombright","Aaron May")] <- 24
+
+        # B region last place
+        results$y[results$round %in% c("Qualifier semi-final") &
+                    results$season == 5 &
+                    results$chef %in% c("Adriana Urbina","Claudia Sandoval")] <- 8
 
     ## Fix y values for semi-finals
       results$y[results$round == "Semi-final" & results$season == 1 &
