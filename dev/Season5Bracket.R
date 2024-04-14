@@ -90,7 +90,7 @@ bumpdata %>%
            ,label=paste(bumpdata$seed[bumpdata$round == "Qualifier semi-final" & bumpdata$seed >= 8],"seed",sep=" ")
            ,hjust=bumpdata$alignment[bumpdata$round == "Qualifier semi-final" & bumpdata$seed >= 8]
            ,size=2) +
-  scale_x_continuous(limits=c(-90,165),breaks=c(-45,-30,0,15,30,40,50,60,70,85,100,130,145),
+  scale_x_continuous(limits=c(-90,170),breaks=c(-45,-30,0,15,30,40,50,60,70,85,100,130,145),
                      labels=c("Qualifier\nsemi-final","Qualifier\nfinal"
                               ,"Round\nof 32","Round\nof 16","Quarter-\nfinal"
                               ,"Semi-\nfinal","Final","Semi-\nfinal"
