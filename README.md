@@ -18,12 +18,14 @@ and call it into your library.
 devtools::install_github("celevitz/touRnamentofchampions")
 #> 
 #> ── R CMD build ─────────────────────────────────────────────────────────────────
-#> * checking for file ‘/private/var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T/Rtmpqb0RSj/remotes101ef2df79aa5/celevitz-touRnamentofchampions-c8c80f1/DESCRIPTION’ ... OK
-#> * preparing ‘touRnamentofchampions’:
-#> * checking DESCRIPTION meta-information ... OK
-#> * checking for LF line-endings in source and make files and shell scripts
-#> * checking for empty or unneeded directories
-#> * building ‘touRnamentofchampions_0.1.0.tar.gz’
+#>      checking for file ‘/private/var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T/Rtmp62c8hI/remotes1151111df2528/celevitz-touRnamentofchampions-d35719b/DESCRIPTION’ ...  ✔  checking for file ‘/private/var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T/Rtmp62c8hI/remotes1151111df2528/celevitz-touRnamentofchampions-d35719b/DESCRIPTION’
+#>   ─  preparing ‘touRnamentofchampions’:
+#>      checking DESCRIPTION meta-information ...  ✔  checking DESCRIPTION meta-information
+#>   ─  checking for LF line-endings in source and make files and shell scripts
+#>   ─  checking for empty or unneeded directories
+#>   ─  building ‘touRnamentofchampions_0.1.0.tar.gz’
+#>      
+#> 
 ```
 
 ## 3. News
@@ -339,29 +341,28 @@ See the sections below for examples of how to use the data
 </details>
 <details>
 <summary>
-<strong>Gender distribution by season: Seasons 1 through 4</strong>
+<strong>Gender distribution by season: Seasons 1 through 5</strong>
 </summary>
 
-### Gender distribution by season: Season 1 through 4
+### Gender distribution by season: Season 1 through 5
 
 ``` r
 seeds %>% left_join(chefs) %>%
-  # keep only seasons 1 through 4
-  filter(season < 5) %>%
   group_by(season,gender) %>%
   summarise(n=n()) %>%
   pivot_wider(names_from=gender,values_from=n) 
 #> Joining with `by = join_by(chef)`
 #> `summarise()` has grouped output by 'season'. You can override using the
 #> `.groups` argument.
-#> # A tibble: 4 × 3
-#> # Groups:   season [4]
+#> # A tibble: 5 × 3
+#> # Groups:   season [5]
 #>   season female  male
 #>    <dbl>  <int> <int>
 #> 1      1      6    10
 #> 2      2      8    14
 #> 3      3     13    19
 #> 4      4     15    17
+#> 5      5     20    24
 ```
 
 </details>

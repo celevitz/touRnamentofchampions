@@ -337,14 +337,12 @@ bracketfunction <- function(seasonnumber,xlimits,xbreaks,xlabs,titlenumber,round
 
 <details>
 <summary>
-<strong>Gender distribution by season: Seasons 1 through 4</strong>
+<strong>Gender distribution by season: Seasons 1 through 5</strong>
 </summary>
 
-### Gender distribution by season: Season 1 through 4
+### Gender distribution by season: Season 1 through 5
 ```{r Gender_distr_by_season1to4 , eval=TRUE,echo=TRUE}
 seeds %>% left_join(chefs) %>%
-  # keep only seasons 1 through 4
-  filter(season < 5) %>%
   group_by(season,gender) %>%
   summarise(n=n()) %>%
   pivot_wider(names_from=gender,values_from=n) 
