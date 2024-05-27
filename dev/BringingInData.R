@@ -22,7 +22,8 @@
 
 rm(list=ls())
 
-library(tidyverse)
+library(dplyr)
+library(tidyr)
 library(openxlsx)
 library(usethis)
 library(rmarkdown)
