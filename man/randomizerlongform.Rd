@@ -20,7 +20,7 @@ This data frame contains the following columns:
   there are 32 chefs, then the regions are A or B.}
   \item{\code{time}}{Length of challenge. Unit is minutes}
   \item{\code{randomizer}}{What wheel was spun (1, 2, 3, 4, or 5)}
-  \item{\code{value}}{What was the value/item on the randomzier wheel?}
+  \item{\code{value}}{What was the value/item on the randomizer wheel?}
   \item{\code{category}}{Categorical variable: protein,produce,equipment,
   style,wildcard}
   \item{\code{subcategory}}{Subcategories for protein (Beef, Fish, Game,
@@ -28,7 +28,7 @@ This data frame contains the following columns:
 }
 }
 \source{
-\url{https://en.wikipedia.org/wiki/Tournament_of_Champions_(TV_series)}
+\url {https://en.wikipedia.org/wiki/Tournament_of_Champions_(TV_series)}
 }
 \usage{
 data(randomizerlongform)

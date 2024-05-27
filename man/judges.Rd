@@ -10,14 +10,14 @@ This data frame contains the following columns:
   \item{\code{season}}{Season number}
   \item{\code{episode}}{Episode number}
   \item{\code{judge}}{Name of guest judge}
-  \item{\code{gender}}{Whether the chef is male, female, or nonbinary}
+  \item{\code{gender}}{Whether the chef is male, female, or non-binary}
   \item{\code{round}}{Stage of the tournament: Qualifier semi-final,
   Qualifier final, Round of 32, Round of 16, Quarterfinals, Semifinals,
   Final}
 }
 }
 \source{
-\url{https://en.wikipedia.org/wiki/Tournament_of_Champions_(TV_series)}
+\url {https://en.wikipedia.org/wiki/Tournament_of_Champions_(TV_series)}
 }
 \usage{
 data(judges)
