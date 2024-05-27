@@ -86,8 +86,8 @@ The unique identifier of this dataset is `chef`.
 
 -   `chef`: Chef name (full name)
 -   `nickname`: Guy Fieri's nickname for the chef
--   `handedness`: Whether the chef is righthanded, lefthanded, or ambidextrous
--   `gender`: male, female, nonbinary
+-   `handedness`: Whether the chef is right-handed, left-handed, or ambidextrous
+-   `gender`: male, female, non-binary
 
 ```{r Chefs_table , eval=TRUE}
 chefs 
@@ -137,7 +137,7 @@ The unique identifiers of this dataset are `season`-`episode`-`round`-`challenge
 - `region`: The region depends on how many chefs start the competition. If there are 16 chefs, then the region is left blank. If there are 32 chefs, then the regions are A or B.
 - `time`: Length of challenge. Unit is minutes
 - `randomizer`: What wheel was spun (1, 2, 3, 4, or 5)
-- `value`: What was the value/item on the randomzier wheel?
+- `value`: What was the value/item on the randomizer wheel?
 - `category`: Categorical variable: protein,produce,equipment,style,wildcard
 - `subcategory`: Subcategories for protein (Beef, Fish, Game, Other, Pork, Poultry, Shellfish) and style (Region/country, Style, Theme)
 
@@ -162,7 +162,7 @@ The unique identifiers of this dataset are `season`-`episode`-`round`-`challenge
 -   `region`: The region depends on how many chefs start the competition. If there are 16 chefs, then the region is left blank. If there are 32 chefs, then the regions are A or B.
 -   `chef`: Name of chef
 -   `commentator`: Who presented their food to the judges: Simon Majumdar or Justin Warner?
--   `order`: When did their food get presented to the judges: Presented 1st or Presented 2nd
+-   `order`: When did their food get presented to the judges: Presented first or Presented second
 -   `score_taste`: Score that chef received for the taste of their dish: values of 0- 50
 -   `score_randomizer`: Score that chef received for how well they used the Randomizer: values of 0- 30
 -   `score_presentation`: Score that chef received for the presentation of their dish: values of 0- 20
