@@ -28,11 +28,16 @@ roxygen2::roxygenise()
 usethis::use_news_md()
 # Update description
 devtools::spell_check()
-goodpractice::gp()
-inteRgrate::check_pkg()
-inteRgrate::check_lintr()
-inteRgrate::check_tidy_description()
-inteRgrate::check_r_filenames()
-inteRgrate::check_gitignore()
+
+  # Not available in 4.4.0 R
+  # goodpractice::gp()
+
+#install.packages("remotes")
+#remotes::install_github("jumpingrivers/inteRgrate")
+  inteRgrate::check_pkg()
+  inteRgrate::check_lintr()
+  inteRgrate::check_tidy_description()
+  inteRgrate::check_r_filenames()
+  inteRgrate::check_gitignore()
 
 #devtools::release()
