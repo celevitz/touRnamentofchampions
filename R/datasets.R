@@ -119,10 +119,11 @@
 #' @source \url{https://en.wikipedia.org/wiki/Tournament_of_Champions_(TV_series)}
 #' @examples
 #' library(tidyverse)
-#' randomizer %>%
-#'    group_by(season,episode,challenge,coast) %>%
-#'    filter(round == "Semi-final")
-"randomizer"
+#' randomizerlongform %>%
+#'    filter(category == "protein") %>%
+#'    group_by(subcategory) %>%
+#'    summarise(n=n())
+"randomizerlongform"
 
 
 
