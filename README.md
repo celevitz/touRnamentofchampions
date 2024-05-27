@@ -16,14 +16,34 @@ and call it into your library.
 
 ``` r
 devtools::install_github("celevitz/touRnamentofchampions")
+#> openssl     (2.1.1 -> 2.2.0) [CRAN]
+#> fastmap     (1.1.1 -> 1.2.0) [CRAN]
+#> cachem      (1.0.8 -> 1.1.0) [CRAN]
+#> tinytex     (0.50  -> 0.51 ) [CRAN]
+#> xfun        (0.43  -> 0.44 ) [CRAN]
+#> highr       (0.10  -> 0.11 ) [CRAN]
+#> rmarkdown   (2.26  -> 2.27 ) [CRAN]
+#> fs          (1.6.3 -> 1.6.4) [CRAN]
+#> textshaping (0.3.7 -> 0.4.0) [CRAN]
+#> systemfonts (1.0.6 -> 1.1.0) [CRAN]
+#> backports   (1.4.1 -> 1.5.0) [CRAN]
+#> broom       (1.0.5 -> 1.0.6) [CRAN]
+#> farver      (2.1.1 -> 2.1.2) [CRAN]
+#> gtable      (0.3.4 -> 0.3.5) [CRAN]
+#> ragg        (1.3.0 -> 1.3.2) [CRAN]
+#> ggplot2     (3.5.0 -> 3.5.1) [CRAN]
 #> 
+#> The downloaded binary packages are in
+#>  /var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T//RtmptdqTwn/downloaded_packages
 #> ── R CMD build ─────────────────────────────────────────────────────────────────
-#> * checking for file ‘/private/var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T/Rtmpr4151t/remotes137136bbc76d1/celevitz-touRnamentofchampions-0390208/DESCRIPTION’ ... OK
-#> * preparing ‘touRnamentofchampions’:
-#> * checking DESCRIPTION meta-information ... OK
-#> * checking for LF line-endings in source and make files and shell scripts
-#> * checking for empty or unneeded directories
-#> * building ‘touRnamentofchampions_0.1.0.tar.gz’
+#>      checking for file ‘/private/var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T/RtmptdqTwn/remotes3dce420284f2/celevitz-touRnamentofchampions-7cecc36/DESCRIPTION’ ...  ✔  checking for file ‘/private/var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T/RtmptdqTwn/remotes3dce420284f2/celevitz-touRnamentofchampions-7cecc36/DESCRIPTION’
+#>   ─  preparing ‘touRnamentofchampions’:
+#>      checking DESCRIPTION meta-information ...  ✔  checking DESCRIPTION meta-information
+#>   ─  checking for LF line-endings in source and make files and shell scripts
+#>   ─  checking for empty or unneeded directories
+#>   ─  building ‘touRnamentofchampions_0.1.0.tar.gz’
+#>      
+#> 
 ```
 
 ## 3. News
@@ -103,9 +123,9 @@ The unique identifier of this dataset is `chef`.
 
 - `chef`: Chef name (full name)
 - `nickname`: Guy Fieri’s nickname for the chef
-- `handedness`: Whether the chef is righthanded, lefthanded, or
+- `handedness`: Whether the chef is right-handed, left-handed, or
   ambidextrous
-- `gender`: male, female, nonbinary
+- `gender`: male, female, non-binary
 
 ``` r
 chefs 
@@ -206,7 +226,7 @@ The unique identifiers of this dataset are
   chefs, then the regions are A or B.
 - `time`: Length of challenge. Unit is minutes
 - `randomizer`: What wheel was spun (1, 2, 3, 4, or 5)
-- `value`: What was the value/item on the randomzier wheel?
+- `value`: What was the value/item on the randomizer wheel?
 - `category`: Categorical variable:
   protein,produce,equipment,style,wildcard
 - `subcategory`: Subcategories for protein (Beef, Fish, Game, Other,
@@ -256,7 +276,7 @@ The unique identifiers of this dataset are
 - `commentator`: Who presented their food to the judges: Simon Majumdar
   or Justin Warner?
 - `order`: When did their food get presented to the judges: Presented
-  1st or Presented 2nd
+  first or Presented second
 - `score_taste`: Score that chef received for the taste of their dish:
   values of 0- 50
 - `score_randomizer`: Score that chef received for how well they used
@@ -381,18 +401,17 @@ randomizerlongform %>%
   summarise(number_of_battles=n())
 #> `summarise()` has grouped output by 'category'. You can override using the
 #> `.groups` argument.
-#> # A tibble: 8 × 3
+#> # A tibble: 7 × 3
 #> # Groups:   category [1]
 #>   category subcategory number_of_battles
 #>   <chr>    <chr>                   <int>
-#> 1 protein  Beef                       22
-#> 2 protein  Fish                       29
+#> 1 protein  Beef                       23
+#> 2 protein  Fish                       31
 #> 3 protein  Game                       27
 #> 4 protein  Other                       4
 #> 5 protein  Pork                       25
 #> 6 protein  Poultry                    23
 #> 7 protein  Shellfish                  15
-#> 8 protein  <NA>                        3
 ```
 
 </details>
