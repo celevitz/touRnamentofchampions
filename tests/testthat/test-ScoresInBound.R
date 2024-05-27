@@ -1,6 +1,6 @@
 library(testthat)        # load testthat package
 library(touRnamentofchampions)
-
+library(tidyverse)
 # 1. Check that scores are within the bounds
 
   ## For some of the finals, we don't have the scores: so exclude those from
