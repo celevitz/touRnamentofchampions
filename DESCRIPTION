@@ -3,7 +3,8 @@ Package: touRnamentofchampions
 Title: Tournament of Champions Data
 Version: 0.1.0
 Authors@R: 
-    person("Levitz", "Carly", , "celevitz@gmail.com", role = c("cre", "aut"))
+    person("Levitz", "Carly", , "celevitz@gmail.com", role = c("cre", "aut")
+    ,comment = c(ORCID = "0000-0003-3094-411X"))
 Description: Several datasets which describe the challenges and results of
     competitions in Tournament of Champions.  This data is useful for
     practicing data wrangling, graphing, and analyzing how each season of
