@@ -71,10 +71,12 @@ library(touRnamentofchampions)
 
 
 # 2. Check that scores are numeric
-  expect_type(results$score_presentation,"double")
-  expect_type(results$score_taste,"double")
-  expect_type(results$score_randomizer,"double")
-  expect_type(results$total,"double")
+  expect_type(results$score_presentation[!(is.na(results$score_presentation))]
+              ,"double")
+  expect_type(results$score_taste[!(is.na(results$score_taste))],"double")
+  expect_type(results$score_randomizer[!(is.na(results$score_randomizer))]
+              ,"double")
+  expect_type(results$total[!(is.na(results$total))],"double")
 
   # Do the subscores add up to the total?
   expect_equal(nrow(results[(results$total != results$score_presentation+
