@@ -1,10 +1,10 @@
 library(testthat)        # load testthat package
 library(touRnamentofchampions)
-library(tidyverse)
 
 # 1. Check that scores are within the bounds
 
-  ## For some of the finals, we don't have the scores: so exclude those from the Tests
+  ## For some of the finals, we don't have the scores: so exclude those from
+  ## the Tests
   ## A. Taste: 0 to 50
     test_that("Taste scores are okay",
               {expect_equal(nrow(results[results$score_taste >= 0 &
@@ -13,7 +13,8 @@ library(tidyverse)
                                  results$round != "Final" &
                                  !(results$order %in% c("DQ","Auto-win")),]),
                             nrow(results[results$round != "Final" &
-                                           !(results$order %in% c("DQ","Auto-win")),]))}
+                                           !(results$order %in% c("DQ"
+                                                            ,"Auto-win")),]))}
                )
 
 
@@ -26,7 +27,8 @@ library(tidyverse)
                                            results$season < 5 &
                                            results$round != "Final" ,]),
                             nrow(results[results$round != "Final" &
-                                           !(results$order %in% c("DQ","Auto-win")) &
+                                           !(results$order %in% c("DQ"
+                                                                ,"Auto-win")) &
                                            results$season <5,]))}
     )
 
@@ -37,7 +39,8 @@ library(tidyverse)
                                           results$season >= 5 &
                                         results$round != "Final" ,]),
                             nrow(results[results$round != "Final" &
-                                           !(results$order %in% c("DQ","Auto-win")) &
+                                           !(results$order %in% c("DQ"
+                                                                ,"Auto-win")) &
                                            results$season >=5,]))}
     )
 
@@ -46,22 +49,22 @@ library(tidyverse)
     test_that("Presentation scores are okay before season 5",
               {expect_equal(nrow(results[results$score_presentation >= 0 &
                                            results$score_presentation <= 20 &
-                                           !(is.na(results$score_presentation)) &
+                                         !(is.na(results$score_presentation)) &
                                            results$season < 5 &
                                            results$round != "Final" ,]),
                             nrow(results[results$round != "Final" &
-                                           !(results$order %in% c("DQ","Auto-win")) &
+                                     !(results$order %in% c("DQ","Auto-win")) &
                                            results$season <5,]))}
     )
 
     test_that("Presentation scores are okay season 5 onward",
               {expect_equal(nrow(results[results$score_presentation >= 0 &
                                            results$score_presentation <= 10 &
-                                           !(is.na(results$score_presentation)) &
+                                         !(is.na(results$score_presentation)) &
                                            results$season >= 5 &
                                            results$round != "Final" ,]),
                             nrow(results[results$round != "Final" &
-                                           !(results$order %in% c("DQ","Auto-win")) &
+                                     !(results$order %in% c("DQ","Auto-win")) &
                                            results$season >=5,]))}
     )
 
@@ -77,7 +80,8 @@ library(tidyverse)
   expect_equal(nrow(results[(results$total != results$score_presentation+
             results$score_randomizer+results$score_taste ) &
             !(is.na(results$total)) & !(is.na(results$score_presentation)) &
-            !(is.na(results$score_randomizer)) & !(is.na(results$score_taste)),])
+            !(is.na(results$score_randomizer)) & !(is.na(results$score_taste)),
+            ])
             ,0)
 
   # 3. Check for unique identifiers
@@ -93,24 +97,32 @@ library(tidyverse)
 
 
   test_that("No duplicates in randomizer",{expect_equal(nrow(randomizer %>%
-                                     group_by(season,episode,round,challenge) %>%
+                                   group_by(season,episode,round,challenge) %>%
                                      mutate(id=row_number(),issue=max(id)) %>%
                                      filter(issue > 1)),0)})
 
   test_that("No duplicates in restuls",{expect_equal(nrow(results %>%
-                                    group_by(season,episode,round,challenge,chef) %>%
-                                    mutate(id=row_number(),issue=max(id)) %>%
-                                    filter(issue > 1)),0)})
+                              group_by(season,episode,round,challenge,chef) %>%
+                              mutate(id=row_number(),issue=max(id)) %>%
+                              filter(issue > 1)),0)})
 
 # 4. check that things aren't NA
-  test_that("Chefs: Everyone has a gender",{expect_equal(all(!(is.na(chefs$gender))),TRUE)})
-  test_that("Seeds: Everyone has a season",{expect_equal(all(!(is.na(seeds$season))),TRUE)})
-  test_that("Seeds: Everyone has a seed",{expect_equal(all(!(is.na(seeds$seed))),TRUE)})
-  test_that("Seeds: Everyone has a coast",{expect_equal(all(!(is.na(seeds$coast))),TRUE)})
-  test_that("Judge: Everyone has a season",{expect_equal(all(!(is.na(judges$season))),TRUE)})
-  test_that("Judge: Everyone has a episode",{expect_equal(all(!(is.na(judges$episode))),TRUE)})
-  test_that("Judge: Everyone has a gender",{expect_equal(all(!(is.na(judges$gender))),TRUE)})
-  test_that("Judge: Everyone has a round",{expect_equal(all(!(is.na(judges$round))),TRUE)})
+  test_that("Chefs: Everyone has a gender",
+            {expect_equal(all(!(is.na(chefs$gender))),TRUE)})
+  test_that("Seeds: Everyone has a season",
+            {expect_equal(all(!(is.na(seeds$season))),TRUE)})
+  test_that("Seeds: Everyone has a seed",
+            {expect_equal(all(!(is.na(seeds$seed))),TRUE)})
+  test_that("Seeds: Everyone has a coast",
+            {expect_equal(all(!(is.na(seeds$coast))),TRUE)})
+  test_that("Judge: Everyone has a season",
+            {expect_equal(all(!(is.na(judges$season))),TRUE)})
+  test_that("Judge: Everyone has a episode",
+            {expect_equal(all(!(is.na(judges$episode))),TRUE)})
+  test_that("Judge: Everyone has a gender",
+            {expect_equal(all(!(is.na(judges$gender))),TRUE)})
+  test_that("Judge: Everyone has a round",
+            {expect_equal(all(!(is.na(judges$round))),TRUE)})
 
 
 
