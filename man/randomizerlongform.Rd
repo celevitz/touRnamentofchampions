@@ -9,15 +9,22 @@ This data frame contains the following columns:
 \describe{
   \item{\code{season}}{Season number}
   \item{\code{episode}}{Episode number}
-  \item{\code{round}}{Stage of the tournament: Qualifier semi-final, Qualifier final, Round of 32, Round of 16, Quarterfinals, Semifinals, Final}
-  \item{\code{challenge}}{Variable to help distinguish challenges within the same Coast & Round}
+  \item{\code{round}}{Stage of the tournament: Qualifier semi-final,
+  Qualifier final, Round of 32, Round of 16, Quarterfinals, Semifinals,
+  Final}
+  \item{\code{challenge}}{Variable to help distinguish challenges within the
+  same Coast & Round}
   \item{\code{coast}}{East or West}
-  \item{\code{region}}{The region depends on how many chefs start the competition. If there are 16 chefs, then the region is left blank. If there are 32 chefs, then the regions are A or B.}
+  \item{\code{region}}{The region depends on how many chefs start the
+  competition. If there are 16 chefs, then the region is left blank. If
+  there are 32 chefs, then the regions are A or B.}
   \item{\code{time}}{Length of challenge. Unit is minutes}
   \item{\code{randomizer}}{What wheel was spun (1, 2, 3, 4, or 5)}
   \item{\code{value}}{What was the value/item on the randomzier wheel?}
-  \item{\code{category}}{Categorical variable: protein,produce,equipment,style,wildcard}
-  \item{\code{subcategory}}{Subcategories for protein (Beef, Fish, Game, Other, Pork, Poultry, Shellfish) and style (Region/country, Style, Theme)}
+  \item{\code{category}}{Categorical variable: protein,produce,equipment,
+  style,wildcard}
+  \item{\code{subcategory}}{Subcategories for protein (Beef, Fish, Game,
+  Other, Pork, Poultry, Shellfish) and style (Region/country, Style, Theme)}
 }
 }
 \source{
@@ -27,7 +34,8 @@ This data frame contains the following columns:
 data(randomizerlongform)
 }
 \description{
-A dataset containing information about each challenge: protein, vegetables, equipment, style, time
+A dataset containing information about each challenge: protein, vegetables,
+equipment, style, time
 However, it's in "long form" so each challenge shows up multiple times
 It categorizes the randomizer ingredients into categories and subcategories
 }

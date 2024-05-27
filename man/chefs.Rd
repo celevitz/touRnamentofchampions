@@ -9,8 +9,9 @@ This data frame contains the following columns:
 \describe{
   \item{\code{chef}}{Chef name (full name)}
   \item{\code{nickname}}{Guy Fieri's nickname for the chef}
-  \item{\code{handedness}}{Whether the chef is righthanded, lefthanded, or ambidextrous}
-  \item{\code{gender}}{Whether the chef is male, female, or nonbinary}
+  \item{\code{handedness}}{Whether the chef is right-handed, left-handed, or
+  ambidextrous}
+  \item{\code{gender}}{Whether the chef is male, female, or non-binary}
 }
 }
 \source{
@@ -20,7 +21,8 @@ This data frame contains the following columns:
 data(chefs)
 }
 \description{
-A dataset containing information on each Chef, which is the same for all seasons
+A dataset containing information on each Chef, which is the same for all
+seasons
 }
 \examples{
 library(tidyverse)
