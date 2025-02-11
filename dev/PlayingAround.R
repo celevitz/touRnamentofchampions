@@ -191,6 +191,9 @@ judgeaverages %>% arrange(desc(median))
     filter(chef %in% c("Jet Tila","Antonia Lofaso","Maneet Chauhan","Britt Rescigno"))
 
 
+#######################################################################
+## repeat chefs:
+  # which are in main bracket vs qualifiers
 
 
 
