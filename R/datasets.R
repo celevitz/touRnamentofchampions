@@ -45,6 +45,15 @@
 #'   \item{\code{handedness}}{Whether the chef is right-handed, left-handed, or
 #'   ambidextrous}
 #'   \item{\code{gender}}{Whether the chef is male, female, or non-binary}
+#'   \item{\code{totalseasons}}{number of seasons appeared in}
+#'   \item{\code{inqualifiers}}{number of times they were in the qualifiers at the start of the season}
+#'   \item{\code{inmainbracket}}{number of times they were in the main bracket at the start of the season}
+#'   \item{\code{season1}}{whether they started in the qualifiers or main bracket in season 1. NA values indicate they were not in season 1.}
+#'   \item{\code{season2}}{whether they started in the qualifiers or main bracket in season 2. NA values indicate they were not in season 2.}
+#'   \item{\code{season3}}{whether they started in the qualifiers or main bracket in season 3. NA values indicate they were not in season 3.}
+#'   \item{\code{season4}}{whether they started in the qualifiers or main bracket in season 4. NA values indicate they were not in season 4.}
+#'   \item{\code{season5}}{whether they started in the qualifiers or main bracket in season 5. NA values indicate they were not in season 5.}
+#'   \item{\code{season6}}{whether they started in the qualifiers or main bracket in season 6. NA values indicate they were not in season 6.}
 #' }
 #'
 #' @import tidyverse
