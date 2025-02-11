@@ -18,7 +18,7 @@ and call it into your library.
 devtools::install_github("celevitz/touRnamentofchampions")
 #> 
 #> ── R CMD build ─────────────────────────────────────────────────────────────────
-#>      checking for file ‘/private/var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T/RtmpntbspO/remotesf107bf67a10/celevitz-touRnamentofchampions-3630c0f/DESCRIPTION’ ...  ✔  checking for file ‘/private/var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T/RtmpntbspO/remotesf107bf67a10/celevitz-touRnamentofchampions-3630c0f/DESCRIPTION’
+#>      checking for file ‘/private/var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T/Rtmpcnho0R/remotes131139bcac91/celevitz-touRnamentofchampions-9e7f6be/DESCRIPTION’ ...  ✔  checking for file ‘/private/var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T/Rtmpcnho0R/remotes131139bcac91/celevitz-touRnamentofchampions-9e7f6be/DESCRIPTION’
 #>   ─  preparing ‘touRnamentofchampions’:
 #>      checking DESCRIPTION meta-information ...  ✔  checking DESCRIPTION meta-information
 #>   ─  checking for LF line-endings in source and make files and shell scripts
