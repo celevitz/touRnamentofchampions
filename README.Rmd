@@ -88,6 +88,17 @@ The unique identifier of this dataset is `chef`.
 -   `nickname`: Guy Fieri's nickname for the chef
 -   `handedness`: Whether the chef is right-handed, left-handed, or ambidextrous
 -   `gender`: male, female, non-binary
+- `totalseasons`: number of seasons appeared in
+- `inqualifiers`: number of times they were in the qualifiers at the start of the season
+- `inmainbracket`: number of times they were in the main bracket at the start of the season
+- `totalseasons`: number of seasons appeared in
+- `inqualifiers`: number of times they were in the qualifiers at the start of the season
+- `season1`: whether they started in the qualifiers or main bracket in season 1. NA values indicate they were not in season 1.
+- `season2`: whether they started in the qualifiers or main bracket in season 2. NA values indicate they were not in season 2.
+- `season3`: whether they started in the qualifiers or main bracket in season 3. NA values indicate they were not in season 3.
+- `season4`: whether they started in the qualifiers or main bracket in season 4. NA values indicate they were not in season 4.
+- `season5`: whether they started in the qualifiers or main bracket in season 5. NA values indicate they were not in season 5.
+- `season6`: whether they started in the qualifiers or main bracket in season 6. NA values indicate they were not in season 6.
 
 ```{r Chefs_table , eval=TRUE}
 chefs 

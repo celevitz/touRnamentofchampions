@@ -41,6 +41,44 @@ judges <- judges %>%
   select(!personOfColor) %>%
   distinct
 
+## Chefs: add season info (whether they were in main bracket or qualifiers)
+  seedstemp <- seeds
+  seedstemp$qualifier <- "Main bracket"
+  seedstemp$qualifier[seedstemp$seed %in% c("8.2","8.3","8.4","QF") |
+                        seedstemp$note %in% "QF winner"] <- "Qualifier"
+
+  mainbracketqualsovertime <- seedstemp %>%
+    select(chef,season,qualifier) %>%
+    mutate(season=paste0("season",season)) %>%
+    group_by(chef) %>%
+    mutate(totalseasons = n()) %>%
+    group_by(chef,qualifier) %>%
+    mutate(seasonstatus = n()) %>%
+    ungroup() %>%
+    group_by(chef) %>%
+    mutate(inqualifiers = max(ifelse(qualifier %in% "Qualifier"
+                                     ,seasonstatus,NA), na.rm=T )
+          ,inmainbracket = max(ifelse(qualifier %in% "Main bracket"
+                                      ,seasonstatus,NA), na.rm=T ))
+
+    # how many times were they in qualifiers and main bracket?
+    mainbracketqualsovertime$inqualifiers[is.infinite(
+      mainbracketqualsovertime$inqualifiers) | is.nan(
+        mainbracketqualsovertime$inqualifiers) ] <- 0
+    mainbracketqualsovertime$inmainbracket[is.infinite(
+      mainbracketqualsovertime$inmainbracket) | is.nan(
+        mainbracketqualsovertime$inmainbracket)] <- 0
+    mainbracketqualsovertime$seasonstatus <- NULL
+    mainbracketqualsovertime <- mainbracketqualsovertime %>%
+      pivot_wider(names_from=season,values_from=qualifier)
+
+    # Combine with chef data
+    chefs <- chefs %>%
+      full_join(mainbracketqualsovertime)
+
+
+
+
 ## Add variable to results for the winner
 results <- resultsraw %>%
   group_by(season,episode,round,challenge) %>%

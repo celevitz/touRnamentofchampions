@@ -194,6 +194,43 @@ judgeaverages %>% arrange(desc(median))
 #######################################################################
 ## repeat chefs:
   # which are in main bracket vs qualifiers
+  seeds$qualifier <- "Main bracket"
+  seeds$qualifier[seeds$seed %in% c("8.2","8.3","8.4","QF") |
+                    seeds$note %in% "QF winner"] <- "Qualifier"
+
+  mainbracketqualsovertime <- seeds %>%
+    select(chef,season,qualifier) %>%
+    mutate(season=paste0("season",season)) %>%
+    group_by(chef) %>%
+    mutate(totalseasons = n()) %>%
+    group_by(chef,qualifier) %>%
+    mutate(seasonstatus = n()) %>%
+    ungroup() %>%
+    group_by(chef) %>%
+    mutate(inqualifiers = max(ifelse(qualifier %in% "Qualifier"
+                                     ,seasonstatus
+                                     ,NA),
+                              na.rm=T
+                              )
+           ,inmainbracket = max(ifelse(qualifier %in% "Main bracket"
+                                      ,seasonstatus
+                                      ,NA),
+                               na.rm=T
+           )) %>%
+    arrange(chef)
+
+  mainbracketqualsovertime$inqualifiers[is.infinite(
+    mainbracketqualsovertime$inqualifiers)] <- 0
+
+  mainbracketqualsovertime$inmainbracket[is.infinite(
+    mainbracketqualsovertime$inmainbracket)] <- 0
+
+  mainbracketqualsovertime$seasonstatus <- NULL
+
+
+  mainbracketqualsovertime <- mainbracketqualsovertime %>%
+    pivot_wider(names_from=season,values_from=qualifier) %>%
+    full_join(chefs)
 
 
 

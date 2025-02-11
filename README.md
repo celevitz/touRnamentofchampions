@@ -16,27 +16,9 @@ and call it into your library.
 
 ``` r
 devtools::install_github("celevitz/touRnamentofchampions")
-#> openssl     (2.1.1 -> 2.2.0) [CRAN]
-#> fastmap     (1.1.1 -> 1.2.0) [CRAN]
-#> cachem      (1.0.8 -> 1.1.0) [CRAN]
-#> tinytex     (0.50  -> 0.51 ) [CRAN]
-#> xfun        (0.43  -> 0.44 ) [CRAN]
-#> highr       (0.10  -> 0.11 ) [CRAN]
-#> rmarkdown   (2.26  -> 2.27 ) [CRAN]
-#> fs          (1.6.3 -> 1.6.4) [CRAN]
-#> textshaping (0.3.7 -> 0.4.0) [CRAN]
-#> systemfonts (1.0.6 -> 1.1.0) [CRAN]
-#> backports   (1.4.1 -> 1.5.0) [CRAN]
-#> broom       (1.0.5 -> 1.0.6) [CRAN]
-#> farver      (2.1.1 -> 2.1.2) [CRAN]
-#> gtable      (0.3.4 -> 0.3.5) [CRAN]
-#> ragg        (1.3.0 -> 1.3.2) [CRAN]
-#> ggplot2     (3.5.0 -> 3.5.1) [CRAN]
 #> 
-#> The downloaded binary packages are in
-#>  /var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T//RtmptdqTwn/downloaded_packages
 #> ── R CMD build ─────────────────────────────────────────────────────────────────
-#>      checking for file ‘/private/var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T/RtmptdqTwn/remotes3dce420284f2/celevitz-touRnamentofchampions-7cecc36/DESCRIPTION’ ...  ✔  checking for file ‘/private/var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T/RtmptdqTwn/remotes3dce420284f2/celevitz-touRnamentofchampions-7cecc36/DESCRIPTION’
+#>      checking for file ‘/private/var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T/RtmpntbspO/remotesf107bf67a10/celevitz-touRnamentofchampions-3630c0f/DESCRIPTION’ ...  ✔  checking for file ‘/private/var/folders/0p/_s6v9q110z9fh4y0vq9ml47m0000gp/T/RtmpntbspO/remotesf107bf67a10/celevitz-touRnamentofchampions-3630c0f/DESCRIPTION’
 #>   ─  preparing ‘touRnamentofchampions’:
 #>      checking DESCRIPTION meta-information ...  ✔  checking DESCRIPTION meta-information
 #>   ─  checking for LF line-endings in source and make files and shell scripts
@@ -95,20 +77,20 @@ The unique identifiers of this dataset are `chef`-`season`.
 
 ``` r
 seeds 
-#> # A tibble: 146 × 5
-#>    chef               season  seed coast region
-#>    <chr>               <dbl> <dbl> <chr> <chr> 
-#>  1 Alex Guarnaschelli      1     1 East  <NA>  
-#>  2 Marc Murphy             1     2 East  <NA>  
-#>  3 Rocco DiSpirito         1     3 East  <NA>  
-#>  4 Amanda Freitag          1     4 East  <NA>  
-#>  5 Elizabeth Falkner       1     5 East  <NA>  
-#>  6 Maneet Chauhan          1     6 East  <NA>  
-#>  7 Christian Petroni       1     7 East  <NA>  
-#>  8 Darnell Ferguson        1     8 East  <NA>  
-#>  9 Antonia Lofaso          1     1 West  <NA>  
-#> 10 Michael Voltaggio       1     2 West  <NA>  
-#> # ℹ 136 more rows
+#> # A tibble: 180 × 7
+#>    chef               season seed  coast region `#.times.in.the.data` note 
+#>    <chr>               <dbl> <chr> <chr> <chr>                  <dbl> <chr>
+#>  1 Alex Guarnaschelli      1 1.0   East  <NA>                       1 <NA> 
+#>  2 Marc Murphy             1 2.0   East  <NA>                       3 <NA> 
+#>  3 Rocco DiSpirito         1 3.0   East  <NA>                       2 <NA> 
+#>  4 Amanda Freitag          1 4.0   East  <NA>                       5 <NA> 
+#>  5 Elizabeth Falkner       1 5.0   East  <NA>                       4 <NA> 
+#>  6 Maneet Chauhan          1 6.0   East  <NA>                       5 <NA> 
+#>  7 Christian Petroni       1 7.0   East  <NA>                       4 <NA> 
+#>  8 Darnell Ferguson        1 8.0   East  <NA>                       5 <NA> 
+#>  9 Antonia Lofaso          1 1.0   West  <NA>                       6 <NA> 
+#> 10 Michael Voltaggio       1 2.0   West  <NA>                       4 <NA> 
+#> # ℹ 170 more rows
 ```
 
 </details>
@@ -126,6 +108,26 @@ The unique identifier of this dataset is `chef`.
 - `handedness`: Whether the chef is right-handed, left-handed, or
   ambidextrous
 - `gender`: male, female, non-binary
+- `totalseasons`: number of seasons appeared in
+- `inqualifiers`: number of times they were in the qualifiers at the
+  start of the season
+- `inmainbracket`: number of times they were in the main bracket at the
+  start of the season
+- `totalseasons`: number of seasons appeared in
+- `inqualifiers`: number of times they were in the qualifiers at the
+  start of the season
+- `season1`: whether they started in the qualifiers or main bracket in
+  season 1. NA values indicate they were not in season 1.
+- `season2`: whether they started in the qualifiers or main bracket in
+  season 2. NA values indicate they were not in season 2.
+- `season3`: whether they started in the qualifiers or main bracket in
+  season 3. NA values indicate they were not in season 3.
+- `season4`: whether they started in the qualifiers or main bracket in
+  season 4. NA values indicate they were not in season 4.
+- `season5`: whether they started in the qualifiers or main bracket in
+  season 5. NA values indicate they were not in season 5.
+- `season6`: whether they started in the qualifiers or main bracket in
+  season 6. NA values indicate they were not in season 6.
 
 ``` r
 chefs 
@@ -290,7 +292,7 @@ The unique identifiers of this dataset are
 
 ``` r
 results 
-#> # A tibble: 284 × 16
+#> # A tibble: 284 × 18
 #>    season episode round       challenge     coast region chef  commentator order
 #>     <dbl>   <dbl> <chr>       <chr>         <chr> <chr>  <chr> <chr>       <chr>
 #>  1      1       1 Round of 16 Alex/Darnell  East  <NA>   Darn… Justin War… Pres…
@@ -304,8 +306,9 @@ results
 #>  9      1       2 Round of 16 Beau/Richard  West  <NA>   Rich… Justin War… Pres…
 #> 10      1       2 Round of 16 Beau/Richard  West  <NA>   Beau… Simon Maju… Pres…
 #> # ℹ 274 more rows
-#> # ℹ 7 more variables: score_taste <dbl>, score_randomizer <dbl>,
-#> #   score_presentation <dbl>, total <dbl>, winner <chr>, x <dbl>, y <dbl>
+#> # ℹ 9 more variables: score_taste <dbl>, score_randomizer <dbl>,
+#> #   score_presentation <dbl>, total <dbl>, winner <chr>,
+#> #   `#.times.in.the.data` <dbl>, note <chr>, x <dbl>, y <dbl>
 ```
 
 </details>
@@ -375,15 +378,16 @@ seeds %>% left_join(chefs) %>%
 #> Joining with `by = join_by(chef)`
 #> `summarise()` has grouped output by 'season'. You can override using the
 #> `.groups` argument.
-#> # A tibble: 5 × 3
-#> # Groups:   season [5]
-#>   season female  male
-#>    <dbl>  <int> <int>
-#> 1      1      6    10
-#> 2      2      8    14
-#> 3      3     13    19
-#> 4      4     15    17
-#> 5      5     20    24
+#> # A tibble: 6 × 4
+#> # Groups:   season [6]
+#>   season female  male  `NA`
+#>    <dbl>  <int> <int> <int>
+#> 1      1      6    10    NA
+#> 2      2      8    14    NA
+#> 3      3     13    19    NA
+#> 4      4     15    17    NA
+#> 5      5     20    24    NA
+#> 6      6      9    14    11
 ```
 
 </details>
