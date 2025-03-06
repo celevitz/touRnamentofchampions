@@ -1,8 +1,11 @@
+
+rm(list=ls())
+
 library(tidyverse)
 library(touRnamentofchampions)
 library(gt)
+devtools::install_github("celevitz/topChef")
 
-rm(list=ls())
 
 seeds <- touRnamentofchampions::seeds
 results <- touRnamentofchampions::results
@@ -10,6 +13,14 @@ judges <- touRnamentofchampions::judges
 chefs <- touRnamentofchampions::chefs
 randomizer <- touRnamentofchampions::randomizer
 randomizerlong <- touRnamentofchampions::randomizerlongform
+topchef <- topChef::chefdetails
+
+# Top chef data
+topchef <- topchef %>%
+  #filter(series %in% "US") %>%
+  select(name,series) %>%
+  filter(!(name %in% "Bryan Voltaggio" & series %in% "US Masters")) %>%
+  distinct()
 
 ## Differentials by round: total scores
   reshaperesults <- results %>%
@@ -233,9 +244,159 @@ judgeaverages %>% arrange(desc(median))
     full_join(chefs)
 
 
+####################################################################
+## Top Chef vs not
+  tcvsnot <- results %>%
+    select(season,episode,round,challenge,coast,region,chef,total
+           ,score_taste,score_randomizer,score_presentation
+           ,winner) %>%
+    left_join(topchef %>%
+                rename(chef=name) ) %>%
+    # Fix some things that didn't merge exactly from Top Chef data
+    mutate(series=ifelse(chef %in% c("Graham Elliot"),"US Masters",series)
+           ,series=ifelse(chef %in% c("Kelsey Barnard-Clark"),"US",series)
+           # Create variable for rounds as numeric
+           ,numericround = case_when(
+             round %in% "Qualifier semi-final" ~ 1
+             ,round %in% "Qualifier final" ~ 2
+             ,round %in% "Round of 32" ~ 3
+             ,round %in% "Round of 16" ~ 4
+             ,round %in% "Quarter-final" ~ 5
+             ,round %in% "Semi-final" ~ 6
+             ,round %in% "Final" ~ 7
+           )
+           # Create variable for winning as numeric
+           ,winnernumeric = ifelse(winner %in% "Winner",1,0)
+           ) %>%
+    # merge on Seed information
+    left_join(seeds %>%
+                select(chef,season,seed) %>%
+                mutate(seed=as.numeric(seed)))
+
+  # Check that those who didn't merge are indeed non Top Chef people
+  table(tcvsnot$chef[is.na(tcvsnot$series)])
+
+  tcvsnot <- tcvsnot %>%
+    # categorize the people who aren't on top chef
+    mutate(series=ifelse(is.na(series),"Not in Top Chef",series)) %>%
+    # drop season 6 cuz I want to base it on what has happened in the post
+    filter(season != 6) %>%
+    # consolidate main TC vs not
+    mutate(maintc = ifelse(series %in% "US","Top Chef","Not Top Chef"))
+    # recent TV vs not??
+
+  # Summary stats: how many people in each group per season?
+  # People can count more than once
+    tcvsnot %>%
+      select(season,chef,series) %>%
+      distinct() %>%
+      group_by(series,season) %>%
+      summarise(n=n()) %>%
+      pivot_wider(names_from=series,values_from=n)
+
+    # Summary stats: how many people in each group? Each person only counts 1x
+      tcvsnot %>%
+        select(chef,series) %>%
+        distinct() %>%
+        group_by(series) %>%
+        summarise(n=n())
+
+  # Straight-up averages by group
+  tcvsnot %>%
+    group_by(series) %>%
+    summarise(average = mean(total,na.rm=T)
+              ,n=n())
+
+  tcvsnot %>%
+    group_by(maintc) %>%
+    summarise(average = mean(total,na.rm=T)
+              ,n=n())
+
+  # T-test comparing groups
+      # Note - VERY small sample size for US Masters
+      t.test(tcvsnot$total[tcvsnot$series %in% c("US","US Masters")] ~
+               tcvsnot$series[tcvsnot$series %in% c("US","US Masters")])
+      t.test(tcvsnot$total[tcvsnot$series %in% c("US","Not in Top Chef")] ~
+               tcvsnot$series[tcvsnot$series %in% c("US","Not in Top Chef")])
+      t.test(tcvsnot$total[tcvsnot$series %in% c("US Masters","Not in Top Chef")] ~
+               tcvsnot$series[tcvsnot$series %in% c("US Masters","Not in Top Chef")])
+
+      # Comparing consolidated groups
+      t.test(tcvsnot$total ~ tcvsnot$maintc)
 
 
 
+      ## This shows us that there is a relationship between TC and TOC
+
+  ## But what else is related?
+      reg <- lm(tcvsnot$total ~ tcvsnot$maintc+tcvsnot$round + tcvsnot$season + tcvsnot$seed)
+      summary(reg)
+
+      reg2 <- lm(tcvsnot$total ~ tcvsnot$maintc + tcvsnot$numericround +
+                  tcvsnot$season + tcvsnot$seed)
+      summary(reg2)
+
+
+  ## Change things into factor variables with levels
+      tcvsnotfactors <- tcvsnot
+      tcvsnotfactors$maintc <- factor(tcvsnotfactors$maintc
+                                         ,levels=c("Top Chef","Not Top Chef"))
+      tcvsnotfactors$round <- factor(tcvsnotfactors$round
+                                        ,levels=c("Qualifier semi-final"
+                                                  ,"Qualifier final"
+                                                  ,"Round of 32","Round of 16"
+                                                  ,"Quarter-final","Semi-final"
+                                                  ,"Final"))
+      regWithFactors <- lm(tcvsnotfactors$total ~ tcvsnotfactors$maintc +
+                             tcvsnotfactors$round +
+                             tcvsnotfactors$season)
+      summary(regWithFactors)
+
+      regWithFactorsTaste <- lm(tcvsnotfactors$score_taste ~ tcvsnotfactors$maintc +
+                                  tcvsnotfactors$round +
+                                  tcvsnotfactors$season)
+      summary(regWithFactorsTaste)
+      regWithFactorsPresentation <- lm(tcvsnotfactors$score_presentation ~ tcvsnotfactors$maintc +
+                                  tcvsnotfactors$round +
+                                  tcvsnotfactors$season)
+      summary(regWithFactorsPresentation)
+      regWithFactorsGameplay <- lm(tcvsnotfactors$score_randomizer ~ tcvsnotfactors$maintc +
+                                         tcvsnotfactors$round +
+                                         tcvsnotfactors$season)
+      summary(regWithFactorsGameplay)
+
+
+  ## What about how far chefs go in the rounds?
+  ## Exclude qualifiers because not all seasons have them
+  ## Exclude round of 32 because firs ttwo seasons didn't have that many chefs
+      round16onward <- tcvsnot %>%
+        filter(round %in% c("Round of 16","Semi-final","Final"))
+
+      table(round16onward$round,round16onward$maintc)
+      chisq.test(round16onward$round,round16onward$maintc)
+
+      roundreg <- lm(round16onward$numericround ~ round16onward$maintc+
+                       round16onward$season +
+                       round16onward$seed)
+      summary(roundreg)
+
+
+  ## comparing number of rounds that chefs go through
+      round16onward <- round16onward %>%
+        # how many rounds are they in per season?
+        ungroup() %>%
+        group_by(season,chef) %>%
+        mutate(numberofrounds=n())
+      t.test(round16onward$numberofrounds ~ round16onward$maintc)
+
+  ## Winning or losing: logistic regression
+      logitreg <- glm(tcvsnot$winnernumeric ~ tcvsnot$maintc+tcvsnot$round + tcvsnot$season + tcvsnot$seed)
+      summary(logitreg)
+
+      chisq.test(tcvsnot$winner[tcvsnot$winner != "Tie"]
+                 ,tcvsnot$maintc[tcvsnot$winner != "Tie"])
+      table(tcvsnot$winner[tcvsnot$winner != "Tie"]
+            ,tcvsnot$maintc[tcvsnot$winner != "Tie"])
 
 
 
