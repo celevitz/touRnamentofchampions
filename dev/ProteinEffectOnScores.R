@@ -51,7 +51,13 @@ results <- touRnamentofchampions::results
     group_by(subcategory) %>%
     summarise(averagetotal = mean(total,na.rm=T)
               ,numberofscores=n()
-              ,numberofbattles = numberofscores/2)
+              ,numberofbattles = numberofscores/2
+              ,percentofbattles = numberofbattles/138
+              ,difffromfish = round(averagetotal,1)-84.4) %>%
+    arrange(desc(percentofbattles))
+
+  ## how many battles total?
+  table(touRnamentofchampions::randomizer$season)
 
 ## Regression for total score
   mainreg <- lm(combined$total ~ combined$season + combined$round +
