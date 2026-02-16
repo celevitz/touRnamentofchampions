@@ -52,8 +52,13 @@ chefstats <- results %>%
 ## Exploring it
 seasoncomparison <- chefstats %>%
   filter(round == "All") %>%
-  arrange(desc(zscore),desc(percentdiff)) %>%
+  arrange(desc(percentdiff),desc(zscore)) %>%
   select(!c(round,winner))
+
+roundcomparison <- chefstats %>%
+  filter(round != "All") %>%
+  arrange(desc(percentdiff),desc(zscore)) %>%
+  select(!roundsinseason)
 
 
 
