@@ -44,38 +44,3 @@ combined <- ops %>%
   mutate(status = ifelse(seed %in% c("8.0","8.2","8.3","8.4","QF"),"Qualifiers"
                          ,"Main competition"))
 
-
-## Stats by season
-## Exclude Lee Anne in S15; she only competed in 1 challenge
-##  otherwise, some of the numbers aren't as meaningful
-## Actually, include her; just use the median
-seasonstats <- combined %>%
-  #filter(C >=2) %>%
-  group_by(tocseason) %>%
-  summarise(uniquechefs=n_distinct(chef)
-            ,chef_seasons=n()
-            ,min=min(NPTplus)
-            ,median=median(NPTplus)
-            ,mean=mean(NPTplus)
-            ,max=max(NPTplus))
-
-seasonstats[,c(1,2,3,5)]
-combined %>% filter(NPTplus < 0) %>% select(chef,seasonNumber,tocseason,NPTplus)
-
-## Stats of those in Qualifiers or 8 seed
-qualifierstats <- combined %>%
-  group_by(tocseason,status) %>%
-  summarise(median=median(NPTplus)) %>%
-  pivot_wider(names_from = "status",values_from = "median")
-
-## across all seasons
-combined %>%
-  summarise(uniquechefs=n_distinct(chef)
-            ,chef_seasons=n()
-            ,min=min(NPTplus)
-            ,median=median(NPTplus)
-            ,mean=mean(NPTplus)
-            ,max=max(NPTplus))
-
-
-
