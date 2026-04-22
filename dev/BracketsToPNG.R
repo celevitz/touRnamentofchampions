@@ -7,6 +7,8 @@ directory <- "/Users/carlylevitz/Documents/Data/TOC/"
 
 resultsraw <- touRnamentofchampions::results
 seeds <- touRnamentofchampions::seeds
+#resultsraw <- read.csv(paste0(directory,"/results.csv"),header=T)
+#seeds <- read.csv(paste0(directory,"/seeds.csv"),header=T)
 
 results <- resultsraw %>%
   left_join(seeds %>% select(chef,season,seed,coast,region)) %>%
@@ -132,6 +134,19 @@ bracketfunction <- function(seasonnumber,xlimits,xbreaks,xlabs,titlenumber,round
     xlabs <- c("Round\nof 32","Round\nof 16","Quarter-\nfinal","Semi-\nfinal",
                "Final","Semi-\nfinal","Quarter-\nfinal","Round\nof 16","Round\nof 32")
     titlenumber <- "IV"
+    roundtolabel <- "Round of 32"
+
+    png(paste0(directory,"TOC4Bracket.png"),width=1080,height=1080,unit="px")
+    bracketfunction(seasonnumber,xlimits,xbreaks,xlabs,titlenumber,roundtolabel)
+    dev.off()
+
+  # Season 7
+    seasonnumber <- 7
+    xlimits <- c(-40,140)
+    xbreaks <- c(0,15,30,40,50,60,70,85,100)
+    xlabs <- c("Round\nof 32","Round\nof 16","Quarter-\nfinal","Semi-\nfinal",
+               "Final","Semi-\nfinal","Quarter-\nfinal","Round\nof 16","Round\nof 32")
+    titlenumber <- "VII"
     roundtolabel <- "Round of 32"
 
     png(paste0(directory,"TOC4Bracket.png"),width=1080,height=1080,unit="px")
