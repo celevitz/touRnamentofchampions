@@ -39,7 +39,7 @@ judges <- as_tibble(read.xlsx(paste(directory,"TOC.xlsx",sep=""),sheet=6))
 ## for now, remove flag for whether the judge is a person of color
 judges <- judges %>%
   select(!personOfColor) %>%
-  distinct
+  distinct()
 
 ## Chefs: add season info (whether they were in main bracket or qualifiers)
   seedstemp <- seeds
@@ -86,9 +86,7 @@ results <- resultsraw %>%
          ,highesttaste = max(score_taste,na.rm=T)
          ,highestpresentation=max(score_presentation,na.rm=T)
          ,highestrandomizer=max(score_randomizer,na.rm=T)
-         ,winner = case_when(total == highesttotal ~ "Winner"
-                             # Amanda/Madison challenge where Madison gets disqualified
-                             ,order == "Auto-win" ~ "Winner"
+         ,winner = case_when(outcome == "Won" ~ "Winner"
                              ,TRUE ~ "Loser")
         ) %>%
   ungroup() %>%
@@ -105,19 +103,20 @@ results <- resultsraw %>%
   # Aarthi/Karen was tied in total score & taste, so went to randomizer score
   # Carlos/Jet total tied, Jet won in taste
   # qualifier semi-finals had two winners
-  mutate(winner = case_when(season == 2 & challenge == "Aarthi/Karen" &
-                              chef == "Aarthi Sampath" ~ "Winner"
-                            ,season == 2 & challenge == "Aarthi/Karen" &
-                              chef == "Karen Akunowicz" ~ "Loser"
-                            ,season == 5 & challenge == "Carlos/Jet" &
-                              chef == "Jet Tila" ~ "Winner"
-                            ,season == 5 & challenge == "Carlos/Jet" &
-                              chef == "Carlos Anthony" ~ "Loser"
-                            ,season == 5 & round == "Qualifier semi-final" &
-                              chef %in% c("Leah Cohen","Michael Reed"
-                                          ,"Chris Scott","Bruce Kalman") ~ "Winner"
-                            ,TRUE ~ winner)) %>%
-  select(!c(highesttotal,highesttaste,highestpresentation,highestrandomizer,id,multipleresults))
+  #mutate(winner = case_when(season == 2 & challenge == "Aarthi/Karen" &
+  #                            chef == "Aarthi Sampath" ~ "Winner"
+  #                          ,season == 2 & challenge == "Aarthi/Karen" &
+  #                            chef == "Karen Akunowicz" ~ "Loser"
+  #                          ,season == 5 & challenge == "Carlos/Jet" &
+  #                            chef == "Jet Tila" ~ "Winner"
+  #                          ,season == 5 & challenge == "Carlos/Jet" &
+  #                            chef == "Carlos Anthony" ~ "Loser"
+  #                          ,season == 5 & round == "Qualifier semi-final" &
+  #                            chef %in% c("Leah Cohen","Michael Reed"
+  #                                        ,"Chris Scott","Bruce Kalman") ~ "Winner"
+  #                          ,TRUE ~ winner)) %>%
+  select(!c(highesttotal,highesttaste,highestpresentation,highestrandomizer,id
+            ,multipleresults,outcome))
 
 
 ## Add Y & X values to support the bracket creation
