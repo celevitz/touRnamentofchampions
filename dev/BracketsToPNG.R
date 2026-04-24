@@ -5,10 +5,10 @@ library(ggbump)
 
 directory <- "/Users/carlylevitz/Documents/Data/TOC/"
 
-resultsraw <- touRnamentofchampions::results
-seeds <- touRnamentofchampions::seeds
-#resultsraw <- read.csv(paste0(directory,"/results.csv"),header=T)
-#seeds <- read.csv(paste0(directory,"/seeds.csv"),header=T)
+#resultsraw <- touRnamentofchampions::results
+#seeds <- touRnamentofchampions::seeds
+resultsraw <- read.csv(paste0(directory,"/results.csv"),header=T)
+seeds <- read.csv(paste0(directory,"/seeds.csv"),header=T)
 
 results <- resultsraw %>%
   left_join(seeds %>% select(chef,season,seed,coast,region)) %>%
@@ -88,7 +88,7 @@ bracketfunction <- function(seasonnumber,xlimits,xbreaks,xlabs,titlenumber,round
 
 ## set the inputs for the function
   # season 1
-    seasonnumber <- 1
+    seasonnumber <- "1.0"
     xlimits <- c(0,100)
     xbreaks <- c(15,30,40,50,60,70,85)
     xlabs <- c("Round of 16","Quarter-\nfinal","Semi-\nfinal",
@@ -101,7 +101,7 @@ bracketfunction <- function(seasonnumber,xlimits,xbreaks,xlabs,titlenumber,round
     dev.off()
 
   # season 2
-    seasonnumber <- 2
+    seasonnumber <- "2.0"
     xlimits <- c(0,100)
     xbreaks <- c(15,30,40,50,60,70,85)
     xlabs <- c("Round of 16","Quarter-\nfinal","Semi-\nfinal",
@@ -115,7 +115,7 @@ bracketfunction <- function(seasonnumber,xlimits,xbreaks,xlabs,titlenumber,round
 
 
   # season 3
-    seasonnumber <- 3
+    seasonnumber <- "3.0"
     xlimits <- c(-40,140)
     xbreaks <- c(0,15,30,40,50,60,70,85,100)
     xlabs <- c("Round\nof 32","Round\nof 16","Quarter-\nfinal","Semi-\nfinal",
@@ -128,7 +128,7 @@ bracketfunction <- function(seasonnumber,xlimits,xbreaks,xlabs,titlenumber,round
     dev.off()
 
   # season 4
-    seasonnumber <- 4
+    seasonnumber <- "4.0"
     xlimits <- c(-40,140)
     xbreaks <- c(0,15,30,40,50,60,70,85,100)
     xlabs <- c("Round\nof 32","Round\nof 16","Quarter-\nfinal","Semi-\nfinal",
@@ -141,7 +141,7 @@ bracketfunction <- function(seasonnumber,xlimits,xbreaks,xlabs,titlenumber,round
     dev.off()
 
   # Season 7
-    seasonnumber <- 7
+    seasonnumber <- "7.0"
     xlimits <- c(-40,140)
     xbreaks <- c(0,15,30,40,50,60,70,85,100)
     xlabs <- c("Round\nof 32","Round\nof 16","Quarter-\nfinal","Semi-\nfinal",
