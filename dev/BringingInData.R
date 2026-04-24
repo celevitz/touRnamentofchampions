@@ -159,7 +159,7 @@ results <- resultsraw %>%
              ,round == "Round of 16" & seed %in% c(1,8) & region %in% c("B","D") ~ 13
              ,round == "Round of 16" & seed %in% c(4,5) & region %in% c("B","D") ~ 9
              ,round == "Round of 16" & seed %in% c(3,6) & region %in% c("B","D") ~ 5
-             ,round == "Round of 16" & seed %in% c(2,7) & region =%in% c("B","D") ~ 1
+             ,round == "Round of 16" & seed %in% c(2,7) & region %in% c("B","D") ~ 1
              ,round == "Round of 16" & seed == 1 & is.na(region) ~ 14
              ,round == "Round of 16" & seed == 8 & is.na(region)  ~ 12
              ,round == "Round of 16" & seed == 4 & is.na(region) ~ 10
