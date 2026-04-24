@@ -136,30 +136,30 @@ results <- resultsraw %>%
                        ,round=="Qualifier final" & grepl("West",coast) ~ -30
                        ,round=="Qualifier semi-final" & grepl("East",coast) ~ 145
                        ,round=="Qualifier semi-final" & grepl("West",coast) ~ -45)
-           ,y = case_when(round == "Round of 32" & seed == 8 & region == "A" ~ 30
-             ,round == "Round of 32" & seed == 1 & region == "A" ~ 28
-             ,round == "Round of 32" & seed == 4 & region == "A" ~ 26
-             ,round == "Round of 32" & seed == 5 & region == "A" ~ 24
-             ,round == "Round of 32" & seed == 3 & region == "A" ~ 22
-             ,round == "Round of 32" & seed == 6 & region == "A" ~ 20
-             ,round == "Round of 32" & seed == 2 & region == "A" ~ 18
-             ,round == "Round of 32" & seed == 7 & region == "A" ~ 16
-             ,round == "Round of 32" & seed == 1 & region == "B" ~ 14
-             ,round == "Round of 32" & seed == 8 & region == "B" ~ 12
-             ,round == "Round of 32" & seed == 4 & region == "B" ~ 10
-             ,round == "Round of 32" & seed == 5 & region == "B" ~ 8
-             ,round == "Round of 32" & seed == 3 & region == "B" ~ 6
-             ,round == "Round of 32" & seed == 6 & region == "B" ~ 4
-             ,round == "Round of 32" & seed == 2 & region == "B" ~ 2
-             ,round == "Round of 32" & seed == 7 & region == "B" ~ 0
-             ,round == "Round of 16" & seed %in% c(1,8) & region == "A"  ~ 29
-             ,round == "Round of 16" & seed %in% c(4,5) & region == "A" ~ 25
-             ,round == "Round of 16" & seed %in% c(3,6) & region == "A" ~ 21
-             ,round == "Round of 16" & seed %in% c(2,7) & region == "A" ~ 17
-             ,round == "Round of 16" & seed %in% c(1,8) & region == "B" ~ 13
-             ,round == "Round of 16" & seed %in% c(4,5) & region == "B" ~ 9
-             ,round == "Round of 16" & seed %in% c(3,6) & region == "B" ~ 5
-             ,round == "Round of 16" & seed %in% c(2,7) & region == "B" ~ 1
+           ,y = case_when(round == "Round of 32" & seed == 8 & region %in% c("A","C") ~ 30
+             ,round == "Round of 32" & seed == 1 & region %in% c("A","C") ~ 28
+             ,round == "Round of 32" & seed == 4 & region %in% c("A","C") ~ 26
+             ,round == "Round of 32" & seed == 5 & region %in% c("A","C") ~ 24
+             ,round == "Round of 32" & seed == 3 & region %in% c("A","C") ~ 22
+             ,round == "Round of 32" & seed == 6 & region %in% c("A","C") ~ 20
+             ,round == "Round of 32" & seed == 2 & region %in% c("A","C") ~ 18
+             ,round == "Round of 32" & seed == 7 & region %in% c("A","C") ~ 16
+             ,round == "Round of 32" & seed == 1 & region %in% c("B","D") ~ 14
+             ,round == "Round of 32" & seed == 8 & region %in% c("B","D") ~ 12
+             ,round == "Round of 32" & seed == 4 & region %in% c("B","D") ~ 10
+             ,round == "Round of 32" & seed == 5 & region %in% c("B","D") ~ 8
+             ,round == "Round of 32" & seed == 3 & region %in% c("B","D") ~ 6
+             ,round == "Round of 32" & seed == 6 & region %in% c("B","D") ~ 4
+             ,round == "Round of 32" & seed == 2 & region %in% c("B","D") ~ 2
+             ,round == "Round of 32" & seed == 7 & region %in% c("B","D") ~ 0
+             ,round == "Round of 16" & seed %in% c(1,8) & region %in% c("A","C")  ~ 29
+             ,round == "Round of 16" & seed %in% c(4,5) & region %in% c("A","C") ~ 25
+             ,round == "Round of 16" & seed %in% c(3,6) & region %in% c("A","C")~ 21
+             ,round == "Round of 16" & seed %in% c(2,7) & region %in% c("A","C") ~ 17
+             ,round == "Round of 16" & seed %in% c(1,8) & region %in% c("B","D") ~ 13
+             ,round == "Round of 16" & seed %in% c(4,5) & region %in% c("B","D") ~ 9
+             ,round == "Round of 16" & seed %in% c(3,6) & region %in% c("B","D") ~ 5
+             ,round == "Round of 16" & seed %in% c(2,7) & region =%in% c("B","D") ~ 1
              ,round == "Round of 16" & seed == 1 & is.na(region) ~ 14
              ,round == "Round of 16" & seed == 8 & is.na(region)  ~ 12
              ,round == "Round of 16" & seed == 4 & is.na(region) ~ 10
@@ -168,16 +168,16 @@ results <- resultsraw %>%
              ,round == "Round of 16" & seed == 6 & is.na(region) ~ 4
              ,round == "Round of 16" & seed == 2 & is.na(region) ~ 2
              ,round == "Round of 16" & seed == 7 & is.na(region) ~ 0
-             ,round == "Quarter-final" & seed %in% c(1,8,4,5) & region == "A" ~ 24
-             ,round == "Quarter-final" & seed %in% c(3,6,2,7) & region == "A" ~ 22
-             ,round == "Quarter-final" & seed %in% c(1,8,4,5) & region == "B" ~ 8
-             ,round == "Quarter-final" & seed %in% c(3,6,2,7) & region == "B" ~ 6
+             ,round == "Quarter-final" & seed %in% c(1,8,4,5) & region %in% c("A","C") ~ 24
+             ,round == "Quarter-final" & seed %in% c(3,6,2,7) & region %in% c("A","C") ~ 22
+             ,round == "Quarter-final" & seed %in% c(1,8,4,5) & region %in% c("B","D") ~ 8
+             ,round == "Quarter-final" & seed %in% c(3,6,2,7) & region %in% c("B","D") ~ 6
              ,round == "Quarter-final" & seed %in% c(1,8) & is.na(region) ~ 13
              ,round == "Quarter-final" & seed %in% c(4,5) & is.na(region) ~ 9
              ,round == "Quarter-final" & seed %in% c(3,6) & is.na(region) ~ 5
              ,round == "Quarter-final" & seed %in% c(2,7) & is.na(region) ~ 1
-             ,round == "Semi-final" & region == "A" ~ 17
-             ,round == "Semi-final" & region == "B" ~ 13
+             ,round == "Semi-final" & region %in% c("A","C") ~ 17
+             ,round == "Semi-final" & region %in% c("B","D") ~ 13
              ,round == "Semi-final" & is.na(region) ~ 17
              ,round == "Semi-final" & is.na(region) ~ 13
              ,round == "Semi-final" & seed %in% c(1,8,4,5) & is.na(region) ~ 11
