@@ -316,7 +316,7 @@ results <- resultsraw %>%
                                "Xanthan gum","Yellow mustard") ~ "Other"
                  ,value %in% c("Two envelopes: spicy and layered") ~ "Style"
                )
-               # update the category based on value
+               # update the category based on subcategory value
                ,category = case_when(subcategory == "Produce" ~ "produce"
                                      ,subcategory == "Equipment" ~ "equipment"
                                      ,subcategory %in% c("Region/country"
